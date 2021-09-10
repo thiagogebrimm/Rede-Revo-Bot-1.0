@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
                 messages = messages.array();
                 message.channel.bulkDelete(messages, true);
                 message.channel.send(new MessageEmbed()
-                    .setDescription(`Você teve êxito em apagar **${amount}** mensagens neste canal.`)
+                    .setDescription(`aVocê teve êxito em apagar **${amount}** mensagens neste canal.`)
                     .setColor(`GREEN`)
                 )
             } catch (e) {
