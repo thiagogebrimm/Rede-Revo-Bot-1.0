@@ -33,8 +33,7 @@ module.exports.run = async (bot, message) => {
                         .setTitle('<:MinecraftDeny_Revo:845887665445797938> SUA SUGESTÃO FOI NEGADA <:MinecraftDeny_Revo:845887665445797938>')
                         .setColor(`B22222`)
                         .setDescription(`<a:Sino_Revo:849415817502523412> ▫️ Sugestão:\n\`\`\`${r1}\`\`\`\n\n💭 **Agradecemos sua sugestão, porém após cuidadosa análise por parte da nossa equipe, ela foi negada.**`)
-                    ).then(async msg => {
-                        await msg.react('<:F_Revo:850305832867856395>')
+                    ).then(async () => {
                         message.author.send(new MessageEmbed()
                             .setColor(`36393e`)
                             .setDescription(`Resultado enviado com êxito.`)
