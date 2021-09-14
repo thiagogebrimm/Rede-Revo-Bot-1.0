@@ -33,8 +33,7 @@ module.exports.run = async (bot, message) => {
                         .setTitle('<:Minecraftaccept_Revo:845887665617633290> SUA SUGESTÃO FOI APROVADA <:Minecraftaccept_Revo:845887665617633290>')
                         .setColor(`32CD32`)
                         .setDescription(`<a:Sino_Revo:849415817502523412> ▫️ Sugestão:\n\`\`\`${r1}\`\`\`\n\n💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.**`)
-                    ).then(async msg => {
-                        await msg.react('<:GG_Revo:845859523519578123>')
+                    ).then(async () => {
                         message.author.send(new MessageEmbed()
                             .setColor(`36393e`)
                             .setDescription(`Resultado enviado com êxito.`)
