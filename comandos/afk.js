@@ -5,7 +5,7 @@ module.exports.run = async ({ memberDocument, memberQueryDocument }, message, co
 		if (message.suffix === ".") {
 			memberQueryDocument.set("afk_message", null);
 			message.send(new MessageEmbed()
-			.setTitle(`Bem-Vindo de volta! 🎊`)
+			.setTitle(`Bem-Vindo de voltaa! 🎊`)
             .setDescription(`Instruções enviadas em seu privado.`)
             .setColor(`GREEN`));
 		} else {
