@@ -1,10 +1,7 @@
 const { token, prefix, prefix2 } = require('./config');
-const { Client, Collection, MessageEmbed } = require('discord.js');
+const { Client, Collection } = require('discord.js');
 
-const bot = new Client({
-    disableMentions: 'everyone',
-    partials: ['CHANNEL', 'REACTION', 'MESSAGE', 'USER', 'GUILD_MEMBER']
-})
+const bot = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
 require('discord-buttons')(bot);
 require('discord-reply');
