@@ -3,6 +3,7 @@ const moment = require("moment")
 moment.locale("pt-BR")
 
 module.exports.run = async (bot, message) => {
+    message.delete({ timeout: 5 * 1500 });
     var b;
     if (!message.member.permissions.has(['MANAGE_CHANNELS'])) return;
     await message.author.createDM();
@@ -16,7 +17,7 @@ module.exports.run = async (bot, message) => {
         message.channel.send(new MessageEmbed()
             .setDescription(`Instruções enviadas em seu privado.`)
             .setColor(`GREEN`)
-        ).then(i => i.delete({ timeout: 5 * 1000 }))
+        ).then(i => i.delete({ timeout: 5 * 5000 }))
         message.author.dmChannel.createMessageCollector(x => x.author.id === message.author.id, { time: 1800000, max: 1 })
         .on('collect', m1 => {
             let r1 = m1.content;
