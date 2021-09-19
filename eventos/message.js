@@ -4,12 +4,9 @@ const { owners, prefix, prefix2 } = require('../config');
 module.exports = async (bot, message) => {
 
 //Responde o chat ajuda
+for(let ips of ['o ip', 'O ip', 'O IP'])
 if (message.channel.id === "859610016244170752") {
-    if (message.content.includes ('o ip'))
-        message.lineReply(`rederevo.com`);
-    if (message.content.includes ('O ip'))
-        message.lineReply(`rederevo.com`);
-    if (message.content.includes ('O IP'))
+    if (message.content.includes (ips))
         message.lineReply(`rederevo.com`);
     };
 
@@ -31,24 +28,19 @@ if (message.channel.id === "793284851889209355") {
 
 
 //Bloqueia Links
-if (message.content.includes('discord.gg/')) { //dicord.gg/
+for(let links of ['discord.gg/', 'discord.com/invite/'])
+    if(message.content.includes(links)) {
     if (message.member.permissions.has('KICK_MEMBERS')) return false;
     if (message.content.includes('discord.gg/rederevo')) return false;
     message.delete()
-      .then(message.channel.send('**Links não são permitidos em nosso discord**'))
-  };
-if (message.content.includes('discordapp.com/invite/')) { //discordapp.com/invite/
-    if (message.member.permissions.has('KICK_MEMBERS')) return false;
-    if (message.content.includes('discordapp.com/invite/rederevo')) return false;
-    message.delete()
-      .then(message.channel.send('**Links não são permitidos em nosso discord**'))
+      .then(message.channel.send(`**Links não são permitidos em nosso discord** ${message.author}**.**` ))
   };
 
 //Reage nos booster e mídias
-if (message.channel.id === "793280024060362752") {
+if (message.channel.id === "793280024060362752") { //Booster
 await message.react('<a:PurpHeart_Revo:852621966325186562>')
 };
-if (message.channel.id === "845501522166153226") {
+if (message.channel.id === "845501522166153226") { //Mídias
     await message.react('<:Upvote_Revo:881685398114426940>')
     await message.react('<:Downvote_Revo:881685397976010783>')
     };
