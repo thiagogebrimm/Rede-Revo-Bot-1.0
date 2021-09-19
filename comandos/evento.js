@@ -9,7 +9,7 @@ module.exports.run = async (bot, message) => {
     if (!message.member.permissions.has(['MANAGE_CHANNELS'])) return;
     await message.author.createDM();
     message.author.send(new Discord.MessageEmbed()
-        .setDescription(`Qual evento vai ser agendado?\nEventos:\nkiller, arqueiro, guerra`)
+        .setDescription(`Qual evento vai ser agendado?\nEventos:\nkiller, arqueiro, guerra, guerreiro`)
         .setColor(`BLUE`)
     ).catch(() => { b = false });  
     b = true;
@@ -35,8 +35,16 @@ module.exports.run = async (bot, message) => {
                                 case 'killer':
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem do killer")
                                 break; // Finaliza o código do killer para seguir com outro abaixo
-                                case 'guerra':
-                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem da guerraa")
+                                case 'guerreiro':
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
+                                        .setColor(`4caa20`)
+                                        .setTitle(`🕒 Segunda dia ${r2} às 20:00h (Horário de Brasília) evento Guerreiro`)
+                                        .addFields(
+                                            { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'O evento consiste em um sistema de duelos 1x1 e vence o último sobrevivente.\n\u200B' },
+                                            { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO desabilitado\n- 1x1\n\u200B' },
+                                            { name: ':trophy: **Premiação**', value: '**1° lugar:**\n- **150.000** Coins\n- TAG temporária **[Guerreiro(a)]**\n**2° lugar:**\n- **100.000** Coins\n**3° lugar:**\n- **50.000** Coins' }
+                                        )
+                                        .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
                                 break;
                                 case 'arqueiro':
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
