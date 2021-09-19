@@ -36,7 +36,7 @@ module.exports.run = async (bot, message) => {
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem do killer")
                                 break; // Finaliza o código do killer para seguir com outro abaixo
                                 case 'guerra':
-                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem da guerra")
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem da guerraa")
                                 break;
                                 case 'arqueiro':
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
