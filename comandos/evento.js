@@ -33,13 +33,13 @@ module.exports.run = async (bot, message) => {
 
                             switch(r1) {
                                 case 'killer':
-                                        await message.guild.channels.cache.find(x => x.id === '888674531420569621').send("Mensagem do killer")
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem do killer")
                                 break; // Finaliza o código do killer para seguir com outro abaixo
                                 case 'guerra':
-                                        await message.guild.channels.cache.find(x => x.id === '888674531420569621').send("Mensagem da guerra")
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem da guerra")
                                 break;
                                 case 'arqueiro':
-                                        await message.guild.channels.cache.find(x => x.id === '888674531420569621').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
                                         .setColor(`4caa20`)
                                         .setTitle(`🕒 Domingo dia ${r2} às 18:00h (Horário de Brasília) evento Arqueiro`)
                                         .addFields(
