@@ -1,3 +1,3 @@
 @echo "Iniciando o Bot!"
-@echo "This wont take more than a minute"
+@echo "Isso não vai demorar mais de um minuto"
 node index.js
