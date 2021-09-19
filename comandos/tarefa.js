@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const disbut = require('discord-buttons');
 module.exports.run = async (bot, message, args) => {
     message.delete({ timeout: 5 * 1000 });
-    if (!message.member.permissions.has(['MANAGE_MESSAGES'])) return;
+    if (!message.member.permissions.has(['MANAGE_MESSAGES'])) return message.channel.send('Apenas membros da equipe podem utilizar esté comando.');
      const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
     if (!member) {
       message.channel.send( new MessageEmbed()
