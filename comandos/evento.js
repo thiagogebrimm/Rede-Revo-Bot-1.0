@@ -44,8 +44,9 @@ module.exports.run = async (bot, message) => {
                                             { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO desabilitado\n- 1x1\n\u200B' },
                                             { name: ':trophy: **Premiação**', value: '**1° lugar:**\n- **150.000** Coins\n- TAG temporária **[Guerreiro(a)]**\n**2° lugar:**\n- **100.000** Coins\n**3° lugar:**\n- **50.000** Coins' }
                                         )
+                                        .setImage('https://imgur.com/Fguezcx.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
-                                break;
+                                break; //guerreiro finalizado
                                 case 'arqueiro':
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
                                         .setColor(`4caa20`)
@@ -56,7 +57,7 @@ module.exports.run = async (bot, message) => {
                                             { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- **50.000** Coins\n- Tag **Sniper** (com duração de 7 dias)\n- **Contador de Sacrifícios**\n\n**Último sobrevivente**\n- **100.000** Coins.' }
                                         )
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
-                                break;
+                                break; //arqueiro finalizado
                             }
                     })
                     })
