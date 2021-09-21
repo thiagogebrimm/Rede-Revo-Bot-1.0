@@ -62,25 +62,25 @@ module.exports.run = async (bot, message) => {
                                 case 'preguerra':
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
                                         .setColor(`8B0000`)
-                                        .setTitle(`🕒 Terça dia ${r2} às 19:00h (Horário de Brasília) evento Pre-Guerra`)
+                                        .setTitle(`🕒 Terça dia ${r2} às 19:00h (Horário de Brasília) evento Pré-Guerra`)
                                         .addFields(
                                             { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Resumidamente uma guerra de clans, diversos clans batalham na arena e vence o último clan sobrevivente.\n\u200B' },
                                             { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO **desabilitado**\n- Clans vs Clans\n- Sistema de barreira que encurta o mapa conforme o tempo\n- Utilize /gps para localizar inimigos\n- Sistema de refil de poções\n- Limite de 15 membros participando por clan\n\u200B' },
                                             { name: ':trophy: **Premiação**', value: '**250.000** coins depositados no banco do clan vencedor.' }
                                         )
-                                        .setImage('https://imgur.com/0DnTnWk.png')
+                                        .setImage('https://imgur.com/CAqN9O4.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
                                 break; //preguerra finalizado
                                 case 'preguerramc':
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
                                         .setColor(`8B0000`)
-                                        .setTitle(`🕒 Quinta dia ${r2} às 19:00h (Horário de Brasília) evento Pre-Guerra`)
+                                        .setTitle(`🕒 Quinta dia ${r2} às 19:00h (Horário de Brasília) evento Pré-Guerra`)
                                         .addFields(
                                             { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Resumidamente uma guerra de clans, diversos clans batalham na arena e vence o último clan sobrevivente.\n\u200B' },
                                             { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO **habilitado**\n- Clans vs Clans\n- Sistema de barreira que encurta o mapa conforme o tempo\n- Utilize /gps para localizar inimigos\n- Sistema de refil de poções\n- Limite de 15 membros participando por clan\n\u200B' },
                                             { name: ':trophy: **Premiação**', value: '**250.000** coins depositados no banco do clan vencedor.' }
                                         )
-                                        .setImage('https://imgur.com/fEh3eCZ.png')
+                                        .setImage('https://imgur.com/mhmfaCA.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
                                 break; //preguerramc finalizado
                             }
