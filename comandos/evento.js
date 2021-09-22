@@ -9,7 +9,7 @@ module.exports.run = async (bot, message) => {
     if (!message.member.permissions.has(['MANAGE_CHANNELS'])) return;
     await message.author.createDM();
     message.author.send(new Discord.MessageEmbed()
-        .setDescription(`Qual evento vai ser agendado?\nEventos:\nkiller, arqueiro, guerra, guerreiro, preguerra, preguerramc`)
+        .setDescription(`Qual evento vai ser agendado?\nEventos:\nkiller, arqueiro, guerra, guerreiro, preguerra, preguerramc, prekiller`)
         .setColor(`BLUE`)
     ).catch(() => { b = false });  
     b = true;
@@ -81,6 +81,18 @@ module.exports.run = async (bot, message) => {
                                             { name: ':trophy: **Premiação**', value: '**250.000** coins depositados no banco do clan vencedor.' }
                                         )
                                         .setImage('https://imgur.com/mhmfaCA.png')
+                                        .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
+                                break; //preguerramc finalizado
+                                case 'prekiller':
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
+                                        .setColor(`8B0000`)
+                                        .setTitle(`🕒 Quarta dia ${r2} às 20:00h (Horário de Brasília) evento Pré-Killer`)
+                                        .addFields(
+                                            { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Jogadores sem identificação serão munidos igualmente com kits de duelo e jogados dentro de uma arena, o foco do evento é matar, o jogador que mais conseguir abates se tornará o **Killer** e receberá recompensas por isso, além disso, o último sobrevivente receberá uma recompensa extra.\n\u200B' },
+                                            { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO desabilitado\n- Todos vs Todos\n- Proibida formação de times\n- Proibido remover completamente a armadura\n\u200B' },
+                                            { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- 50.000 Coins\n**Último sobrevivente**\n- 100.000 Coins' }
+                                        )
+                                        .setImage('https://imgur.com/2GViAoa.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
                                 break; //preguerramc finalizado
                             }
