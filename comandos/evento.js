@@ -9,7 +9,7 @@ module.exports.run = async (bot, message) => {
     if (!message.member.permissions.has(['MANAGE_CHANNELS'])) return;
     await message.author.createDM();
     message.author.send(new Discord.MessageEmbed()
-        .setDescription(`Qual evento vai ser agendado?\nEventos:\nkiller, arqueiro, guerra, guerreiro, preguerra, preguerramc, prekiller`)
+        .setDescription(`Qual evento vai ser agendado?\n\nEventos disponíveis:\n<:Seta_Revo:858912363377721364> **killer** \`(sexta 20h)\`\n<:Seta_Revo:858912363377721364> **arqueiro** \`(domingo 18h)\`\n<:Seta_Revo:858912363377721364> **guerra** \`(sábado 19h)\`\n<:Seta_Revo:858912363377721364> **guerreiro** \`(segunda 20h)\`\n<:Seta_Revo:858912363377721364> **preguerra** \`(terça 19h)\`\n<:Seta_Revo:858912363377721364> **preguerramc** \`(quinta 19h)\`\n<:Seta_Revo:858912363377721364> **prekiller** \`(quarta 20h)\`\n`)
         .setColor(`BLUE`)
     ).catch(() => { b = false });  
     b = true;
