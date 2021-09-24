@@ -33,7 +33,16 @@ module.exports.run = async (bot, message) => {
 
                             switch(r1) {
                                 case 'killer':
-                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send("Mensagem do killer")
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
+                                        .setColor(`FF0000`)
+                                        .setTitle(`🕒 Sexta dia ${r2} às 20:00h (Horário de Brasília) evento Killer`)
+                                        .addFields(
+                                            { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Jogadores sem identificação serão munidos igualmente com kits de duelo e jogados dentro de uma arena, o foco do evento é matar, o jogador que mais conseguir abates se tornará o **Killer** e receberá recompensas por isso, além disso, o último sobrevivente receberá uma recompensa extra.\n\u200B' },
+                                            { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO desabilitado\n- Todos vs Todos\n- Proibida formação de times\n- Proibido remover completamente a armadura\n\u200B' },
+                                            { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- 150.000 Coins\n- TAG temporária [Killer]\n- Estátua exposta na /warp evento\n- Contador de Almas\n**Último sobrevivente**\n- 100.000 Coins' }
+                                        )
+                                        .setImage('https://imgur.com/4PgkRIg.png')
+                                        .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
                                 break; // Finaliza o código do killer para seguir com outro abaixo
                                 case 'guerreiro':
                                         await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
@@ -54,7 +63,7 @@ module.exports.run = async (bot, message) => {
                                         .addFields(
                                             { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Jogadores sem identificação serão munidos igualmente com um kit arqueiro e jogados dentro de uma arena, o foco do evento é matar, o jogador que mais conseguir abates se tornará o **Sniper** e receberá recompensas por isso, além disso, o último sobrevivente receberá uma recompensa extra.\n\u200B' },
                                             { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO desabilitado\n- Todos vs Todos\n- Proibida formação de times\n\u200B' },
-                                            { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- **50.000** Coins\n- Tag **Sniper** (com duração de 7 dias)\n- **Contador de Sacrifícios**\n\n**Último sobrevivente**\n- **100.000** Coins.' }
+                                            { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- **50.000** Coins\n- Tag **Sniper** (com duração de 7 dias)\n- **Contador de Sacrifícios**\n- Estátua exposta na /warp evento\n\n**Último sobrevivente**\n- **100.000** Coins.' }
                                         )
                                         .setImage('https://imgur.com/OETLMQa.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
