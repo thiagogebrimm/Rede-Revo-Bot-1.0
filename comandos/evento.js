@@ -63,7 +63,7 @@ module.exports.run = async (bot, message) => {
                                         .addFields(
                                             { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Jogadores sem identificação serão munidos igualmente com um kit arqueiro e jogados dentro de uma arena, o foco do evento é matar, o jogador que mais conseguir abates se tornará o **Sniper** e receberá recompensas por isso, além disso, o último sobrevivente receberá uma recompensa extra.\n\u200B' },
                                             { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO desabilitado\n- Todos vs Todos\n- Proibida formação de times\n\u200B' },
-                                            { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- **50.000** Coins\n- Tag **Sniper** (com duração de 7 dias)\n- Estátua exposta na /warp evento\n- **Contador de Sacrifícios**\n\n**Último sobrevivente**\n- **100.000** Coins.' }
+                                            { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- **50.000** Coins\n- Tag **Sniper** (com duração de 7 dias)\n- Estátua exposta na /warp evento\n- **Contador de Sacrifícios**\n\n**Último sobrevivente**\n- **100.000** Coins' }
                                         )
                                         .setImage('https://imgur.com/OETLMQa.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
@@ -75,7 +75,7 @@ module.exports.run = async (bot, message) => {
                                         .addFields(
                                             { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Resumidamente uma guerra de clans, diversos clans batalham na arena e vence o último clan sobrevivente.\n\u200B' },
                                             { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO **desabilitado**\n- Clans vs Clans\n- Sistema de barreira que encurta o mapa conforme o tempo\n- Utilize /gps para localizar inimigos\n- Sistema de refil de poções\n- Limite de 15 membros participando por clan\n\u200B' },
-                                            { name: ':trophy: **Premiação**', value: '**250.000** coins depositados no banco do clan vencedor.' }
+                                            { name: ':trophy: **Premiação**', value: '**250.000** coins depositados no banco do clan vencedor' }
                                         )
                                         .setImage('https://imgur.com/CAqN9O4.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
@@ -87,7 +87,7 @@ module.exports.run = async (bot, message) => {
                                         .addFields(
                                             { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Resumidamente uma guerra de clans, diversos clans batalham na arena e vence o último clan sobrevivente.\n\u200B' },
                                             { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO **habilitado**\n- Clans vs Clans\n- Sistema de barreira que encurta o mapa conforme o tempo\n- Utilize /gps para localizar inimigos\n- Sistema de refil de poções\n- Limite de 15 membros participando por clan\n\u200B' },
-                                            { name: ':trophy: **Premiação**', value: '**250.000** coins depositados no banco do clan vencedor.' }
+                                            { name: ':trophy: **Premiação**', value: '**250.000** coins depositados no banco do clan vencedor' }
                                         )
                                         .setImage('https://imgur.com/mhmfaCA.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
@@ -102,6 +102,18 @@ module.exports.run = async (bot, message) => {
                                             { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- 50.000 Coins\n**Último sobrevivente**\n- 100.000 Coins' }
                                         )
                                         .setImage('https://imgur.com/KeB5ubA.png')
+                                        .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
+                                break; //prekiller finalizado
+                                case 'guerra':
+                                        await message.guild.channels.cache.find(x => x.id === '793501038917320704').send(`<@&795509107503267880>`,new Discord.MessageEmbed()
+                                        .setColor(`8B0000`)
+                                        .setTitle(`🕒 Sábado dia ${r2} às 20:00h (Horário de Brasília) evento Guerra`)
+                                        .addFields(
+                                            { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Resumidamente uma guerra de clans, diversos clans batalham na arena e vence o último clan sobrevivente.\n\u200B' },
+                                            { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Jogadores precisam levar seus próprios itens\n- McMMO **habilitado**\n- Clans vs Clans\n- Sistema de barreira que encurta o mapa conforme o tempo\n- Keep inventory **Habilitado**\n- Utilize /gps para localizar inimigos\n- Sistema de refil de poções\n- Limite de 15 membros participando por clan\n\u200B' },
+                                            { name: ':trophy: **Premiação**', value: '**1.000.000** coins depositados no banco do clan vencedor\n- **Troféu** exclusivo com textura personalizada\n\n**Jogador que mais acumular abates**\n- Tag [Mito]' }
+                                        )
+                                        .setImage('https://imgur.com/AbhIZy4.png')
                                         .setFooter(`Rede Revo`, message.guild.iconURL({ dynamic: true })))
                                 break; //prekiller finalizado
                             }
