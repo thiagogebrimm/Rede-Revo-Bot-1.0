@@ -39,8 +39,7 @@ module.exports.run = async (bot, message, args) => {
         member.send(new MessageEmbed()
             .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
             .setDescription(`Você foi silenciado(a) por ${message.member.toString()}.\nMotivo: \`${reason}\`\nDuração: \`${time}\``)
-            .setColor(`RED`)
-    );
+            .setColor(`RED`)).catch(a => {return message.channel.send(`Impossivel mandar mensagens na dm deste usuario!`)});;
 
         setTimeout(async () => {
             member.roles.remove('847830245851660290');
