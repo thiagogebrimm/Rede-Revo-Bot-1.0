@@ -12,7 +12,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      * @param {String[]} args 
      */
-      run: async(client, interaction, message, args) => {
+      run: async(client, interaction, args) => {
         var b;
         if (!interaction.member.permissions.has(['MANAGE_CHANNELS'])) return message.reply("Você não tem permissão")
         await interaction.user.createDM();
@@ -29,7 +29,7 @@ module.exports = {
             interaction.user.dmChannel.createMessageCollector(x => x.author.id === message.author.id, { time: 300000, max: 1 })
             .on('collect', m1 => {
                 let r1 = m1.content;
-                        message.author.send(new Discord.MessageEmbed()
+                        interaction.user.send(new Discord.MessageEmbed()
                         .setColor(`36393e`)
                         .setTitle(`Data?`)
                         .setDescription(`Mande a data que o evento ocorrerá. Exemplo: **13/09**`)
