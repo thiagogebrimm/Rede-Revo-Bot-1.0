@@ -3,7 +3,7 @@ const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'anuncio',
-    aliases: ['abc'], 
+    aliases: ['annoucement'], 
     categories : 'adm', 
     description: 'Comando de anuncio.',
     usage: '',

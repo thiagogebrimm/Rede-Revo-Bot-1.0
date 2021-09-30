@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: 'limpar',
-    aliases: ['abc'], 
+    name: 'limpares',
+    aliases: ['cleares2'], 
     categories : 'adm', 
     description: 'Comando de limpar o canal.',
     usage: '',

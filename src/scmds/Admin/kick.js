@@ -3,7 +3,7 @@ const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'expulsar',
-    aliases: ['abc'], 
+    aliases: [  ], 
     categories : 'adm', 
     description: 'Comando de expulsar.',
     usage: '',

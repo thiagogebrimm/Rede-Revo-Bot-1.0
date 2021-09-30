@@ -8,6 +8,7 @@
   "author": "Equipe Revo",
   "license": "ISC",
   "dependencies": {
+    "ascii-table": "^0.0.9",
     "discord-buttons": "^4.0.0",
     "discord-reply": "^0.1.2",
     "discord.js": "^13.1.0",

@@ -3,7 +3,7 @@ const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'trancar',
-    aliases: ['abc'], 
+    aliases: ['lock'], 
     categories : 'adm', 
     description: 'Comando de trancar o canal atual-.',
     usage: '',

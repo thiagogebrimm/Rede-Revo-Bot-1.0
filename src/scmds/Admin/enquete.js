@@ -3,7 +3,7 @@ const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'enquete',
-    aliases: ['abc'], 
+    aliases: ['enquetar'], 
     categories : 'adm', 
     description: 'Comando de enquetes.',
     usage: '',
