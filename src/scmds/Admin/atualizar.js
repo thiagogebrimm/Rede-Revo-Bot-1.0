@@ -1,18 +1,14 @@
 const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 let moment = require("moment")
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
 module.exports = {
     name: 'atualizar',
     description: 'Postar uma atualização',
     usage: '',
-    /** 
-    * @param {Client} client 
-    * @param {CommandInteraction} interaction 
-    * @param {String[]} args 
-    */
-    run: async (client, interaction, args) => {
+
+    run: async (client, interaction) => {
         var b;
         if (!interaction.member.permissions.has(['MANAGE_CHANNELS'])) return;
         await interaction.user.createDM();
