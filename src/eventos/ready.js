@@ -15,15 +15,15 @@ module.exports = (bot) => {
     if (bot.channels.cache.get('893151200160141312').isText()) {
       await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
         f.get('893151338186297384').edit({
-          embeds: [new MessageEmbed().setTitle("Servidor").setDescription(`
-          Motd: ${sv.description.toRaw()}
+          embeds: [new MessageEmbed().setTitle("Informações da Rede").setDescription(`
+          Motd: **${sv.description.toRaw()}**
           
-          Versão JAR: ${sv.version.replace('Waterfall ', '')}
-          Versão BEDROCK: ${bed.version}
+          Versões JAR: \`${sv.version.replace('Waterfall ', '')}\`
+          Versões BEDROCK: \`${bed.version}\`
 
-          Players: ${sv.onlinePlayers}/${sv.maxPlayers}`)
+          Players: **${sv.onlinePlayers}/${sv.maxPlayers}**`)
             .setColor('RED')
-            .setFooter('')
+            .setFooter('Rede Revo')
             .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
         })
       })
