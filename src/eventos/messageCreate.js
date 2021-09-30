@@ -17,6 +17,8 @@ if (message.channel.id === "845501522166153226") {
     if (message.content.includes('.jpg')) return false;
     if (message.content.includes('.jpeg')) return false;
     if (message.content.includes('prnt.sc')) return false;
+        await message.react('<:Upvote_Revo:881685398114426940>')
+        await message.react('<:Downvote_Revo:881685397976010783>')
     if (message.attachments.size == 0) message.delete({ timeout: 5 * 100 }, message.author.send(`❌ | Você não pode enviar mensagens de texto no canal de mídias`))
 };
 
@@ -36,13 +38,9 @@ for(let links of ['discord.gg/', 'discord.com/invite/'])
       .then(message.channel.send(`**Links não são permitidos em nosso discord** ${message.author}**.**` ))
   };
 
-//Reage nos booster e mídias
+//Reage nos boosters
 if (message.channel.id === "793280024060362752") { //Booster
-await message.react('<a:PurpHeart_Revo:852621966325186562>')
-};
-if (message.channel.id === "845501522166153226") { //Mídias
-    await message.react('<:Upvote_Revo:881685398114426940>')
-    await message.react('<:Downvote_Revo:881685397976010783>')
+    await message.react('<a:PurpHeart_Revo:852621966325186562>')
     };
 
 

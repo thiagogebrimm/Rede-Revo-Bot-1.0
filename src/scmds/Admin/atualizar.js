@@ -5,7 +5,7 @@ let moment = require("moment")
 
 module.exports = {
     name: 'atualizar',
-    description: 'Atualizar "_"',
+    description: 'Postar uma atualização',
     usage: '',
      /** 
      * @param {Client} client 
@@ -32,10 +32,10 @@ module.exports = {
                 let r1 = m1.content;
                 let hora = moment().format("[ATUALIZAÇÃO] [DIA] DD[/]MM[/]YYYY");
     
-                        interaction.guild.channels.cache.find(x => x.id === '845531157990866974')?.send({ content: `<@&795509113307004938>`, embeds: [new MessageEmbed()
+                        interaction.guild.channels.cache.find(x => x.id === '793599388420800543').send({ content: `<@&795509113307004955>`, embeds: [new MessageEmbed()
                             .setTitle(`${hora}`)
                             .setColor(`0000ff`)
-                            .setuser(`Atualização feita por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
+                            .setAuthor(`Atualização feita por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
                             .setDescription(`${r1}`)
                             .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))]
                         }).then(async () => {
@@ -44,7 +44,7 @@ module.exports = {
                                 .setColor(`36393e`)
                                 .setDescription(`Postado!`)]
                             })
-                            })
+                           })
                         })
                     }
       }
