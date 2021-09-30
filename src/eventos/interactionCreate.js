@@ -35,6 +35,9 @@ module.exports = async (client, interaction) => {
 
         \`\`\``)
     }
+  } else if (interaction.isContextMenu()) {
+      await interaction.deferReply({ ephemeral: true });
+      const command = client.slashCommands.get(interaction.commandName);
+      if (command) command.run(client, interaction);
   }
-
 }

@@ -1,4 +1,4 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 module.exports = {

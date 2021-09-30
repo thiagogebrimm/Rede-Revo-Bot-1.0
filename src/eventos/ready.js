@@ -1,18 +1,35 @@
 const util = require("minecraft-server-util");
 
+const Sus = require("../db/Models/Sugestao")
+const SusEBao = require("../db/DatabaseLogin")
+
 const { Client, MessageEmbed } = require("discord.js")
 
 module.exports = (bot) => {
+
+  SusEBao.authenticate() .then((result) => {
+    console.log("DB iniciada.")
+    Sus.init(SusEBao).sync({force: false})
+  }).catch((err) => {
+    console.log(err)
+    process.exit(0)
+  });
+
   console.log(`Autenticado como ${bot.user.tag}`);
 
   const commands = require('../func/Command');
   commands.run(bot);
 
   setInterval(async () => {
+
+    try {
+      
+
+
     const sv = await util.status('rederevo.com')
     const bed = await util.statusBedrock('jogar.rederevo.com')
 
-    if (bot.channels.cache.get('893151200160141312').isText()) {
+    if (bot.channels.cache.get('893151200160141312')?.isText()) {
       await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
         f.get('893151338186297384').edit({
           embeds: [new MessageEmbed().setTitle("Informações da Rede").setDescription(`
@@ -35,5 +52,9 @@ module.exports = (bot) => {
       name: statuses,
       type: 'PLAYING'
     });
+  } catch (error) {
+    console.log(error)   
+  }
   }, 5000);
+  
 };

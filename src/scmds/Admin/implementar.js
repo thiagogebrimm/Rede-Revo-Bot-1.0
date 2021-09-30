@@ -6,7 +6,7 @@ const config = require('../../../config')
 const Sus = require('../../db/Models/Sugestao')
 
 module.exports = {
-    name: 'Aprovar Sugestão',
+    name: 'Implementar Sugestão',
     aliases: [''],
     category: 'Admin',
     type: 'MESSAGE',
@@ -44,7 +44,7 @@ module.exports = {
             votosN = (votosN - 1);
             console.log(votosP, votosN)
             interaction.followUp({
-                content: `Aprovado!`
+                content: `Implementado!`
             })
 
             findUser.update({

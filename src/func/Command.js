@@ -45,7 +45,7 @@ grupo: f.id
 })
 if(!findS) return;
 */
-await client.guilds.cache.get(f.id).commands.set(arrayofslashCommands);
+await client.guilds.cache.get(f.id).commands.set(arrayofslashCommands)
 })
 console.log(table.toString())
 };

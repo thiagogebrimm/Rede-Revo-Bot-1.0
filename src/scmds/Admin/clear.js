@@ -1,11 +1,10 @@
 const Discord = require("discord.js"); 
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: 'limpares',
-    aliases: ['cleares2'], 
-    categories : 'adm', 
-    description: 'Comando de limpar o canal.',
+    name: 'clear',
+    aliases: ['limpar'], 
+    category : 'Admin', 
+    description: 'Comando para limpar o canal',
     usage: '',
     options: [
         {
@@ -15,12 +14,8 @@ module.exports = {
             required: true
         }
     ],
-    /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
-    run: async(client, interaction, args) => {
+
+    run: async(client, interaction) => {
         if (!interaction.member.permissions.has("MANAGE_MESSAGES")) return interaction.editReply(`Você não tem permissão para isso.`) // caso o autor nao possua, vamos dar o erro
  
         let clean = interaction.options.get("quantia").value
