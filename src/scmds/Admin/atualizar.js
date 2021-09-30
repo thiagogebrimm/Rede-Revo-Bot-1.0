@@ -39,8 +39,8 @@ module.exports = {
                     let r1 = m1.content;
                     let hora = moment().format("[ATUALIZAÇÃO] [DIA] DD[/]MM[/]YYYY");
 
-                    interaction.guild.channels.cache.find(x => x.id === '793599388420800543').send({
-                        content: `<@&795509113307004955>`, embeds: [new MessageEmbed()
+                    interaction.guild.channels.cache.find(x => x.id === '845531157990866974').send({
+                        content: `<@&795509113307004938>`, embeds: [new MessageEmbed()
                             .setTitle(`${hora}`)
                             .setColor(`0000ff`)
                             .setAuthor(`Atualização feita por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
