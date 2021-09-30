@@ -1,20 +1,15 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'limites',
     aliases: [''],
-    category : 'Minecraft',
+    category: 'Minecraft',
     description: 'Mostra os limites do servidor',
     usage: '',
-     /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
-      run: async(client, interaction, args) => {
+
+    run: async (client, interaction) => {
         const filter = (reaction, user) => {
-            return ['⚙️', '🥚', '🔩'].includes(reaction.emoji.name) && !user.bot && user.id === 
+            return ['⚙️', '🥚', '🔩'].includes(reaction.emoji.name) && !user.bot && user.id ===
                 interaction.user.id;
         }
         const embed = new MessageEmbed()
@@ -29,28 +24,28 @@ module.exports = {
             await msg.react('⚙️') && await msg.react('🥚') && await msg.react('🔩')
             let collector = msg.createReactionCollector(filter);
             collector.on('collect', (reaction, user) => {
-            msg.reactions.removeAll();
-            embed.fields = [];
-            const filter = (reaction, user) => {
-                return ['◀️'].includes(reaction.emoji.name) && !user.bot && user.id ===
-                    interaction.user.id
-            }
-            let filc = msg.createReactionCollector(filter);
-            msg.react('◀️')
-            filc.on('collect', async () => {
-                const embed = new MessageEmbed()
-                .setTitle(`Limites na Rede Revo`)
-                .setColor(`#8B0000`)
-                .setDescription(`Reaja abaixo com o emote correspondente ao limite que você deseja saber.`)
-                .addField(`⚙️ Redstone`, `Aqui estarão os limites de redstone.`, true)
-                .addField(`🥚 Mobs`, `Aqui estarão os limites de mobs.`)
-                .addField(`🔩 Geradores`, `Aqui estarão os limites de geradores.`)
-                .setFooter('A lista não é 100% fixa e pode ser editada a qualquer momento.', 'https://i.imgur.com/60A4TCX.gif');
-                msg.edit(embed);
-                msg.reactions.cache.get('◀️').remove();
-                await msg.react('⚙️') && await msg.react('🥚') && await msg.react('🔩')
-            })
-            if (reaction.emoji.name === '⚙️') {
+                msg.reactions.removeAll();
+                embed.fields = [];
+                const filter = (reaction, user) => {
+                    return ['◀️'].includes(reaction.emoji.name) && !user.bot && user.id ===
+                        interaction.user.id
+                }
+                let filc = msg.createReactionCollector(filter);
+                msg.react('◀️')
+                filc.on('collect', async () => {
+                    const embed = new MessageEmbed()
+                        .setTitle(`Limites na Rede Revo`)
+                        .setColor(`#8B0000`)
+                        .setDescription(`Reaja abaixo com o emote correspondente ao limite que você deseja saber.`)
+                        .addField(`⚙️ Redstone`, `Aqui estarão os limites de redstone.`, true)
+                        .addField(`🥚 Mobs`, `Aqui estarão os limites de mobs.`)
+                        .addField(`🔩 Geradores`, `Aqui estarão os limites de geradores.`)
+                        .setFooter('A lista não é 100% fixa e pode ser editada a qualquer momento.', 'https://i.imgur.com/60A4TCX.gif');
+                    msg.edit(embed);
+                    msg.reactions.cache.get('◀️').remove();
+                    await msg.react('⚙️') && await msg.react('🥚') && await msg.react('🔩')
+                })
+                if (reaction.emoji.name === '⚙️') {
                     reaction.users.remove(user);
                     embed.setTitle(`<a:Check_Revo:845556618837098506> **Limites de Redstone** <a:Check_Revo:845556618837098506>`)
                     embed.setDescription(`<a:SetaDireita_Revo:847521645903872067> Limitado a 32 Redstones por chunk\n\n<a:SetaDireita_Revo:847521645903872067> Limitado a 16 Comparadores e Repetidores por chunk\n\n<a:SetaDireita_Revo:847521645903872067> Limitado a 16 Pistões por chunk\n\n<a:SetaDireita_Revo:847521645903872067> Limitado a 16 Observadores por chunk\n\n<a:SetaDireita_Revo:847521645903872067> Limitado a 16 Ejetores por chunk\n\n<a:SetaDireita_Revo:847521645903872067> Limitado a 16 Liberadores por chunk\n\n<a:SetaDireita_Revo:847521645903872067> Limitado a 8 Funis por chunk e 4 carrinhos com funil por 64 blocos`)
@@ -68,5 +63,5 @@ module.exports = {
                 }
             })
         })
-      }
     }
+}
