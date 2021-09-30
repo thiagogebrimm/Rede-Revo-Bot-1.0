@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'gartic',
   aliases: [''],
-  categories: '',
+  category: 'Utilidades',
   description: 'Receba o cargo do Gartic',
   usage: '',
 

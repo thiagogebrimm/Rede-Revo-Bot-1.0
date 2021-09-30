@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'comandos',
     aliases: [''],
-    categories : '',
+    category: 'Utilidades',
     description: 'Veja meus comandos',
     usage: '',
      /** 

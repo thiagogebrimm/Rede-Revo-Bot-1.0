@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'sugerir',
     aliases: [''],
-    categories : '',
+    category: 'Utilidades',
     description: 'Comando de sugerir =)',
     usage: '',
      /** 

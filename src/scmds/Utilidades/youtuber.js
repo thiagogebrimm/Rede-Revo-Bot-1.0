@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'youtuber',
   aliases: ['yt'],
-  categories: '',
+  category: 'Utilidades',
   description: 'Mostra os requisitos para a tag Youtuber',
   usage: '',
 

@@ -2,7 +2,7 @@
 module.exports = {
   name: 'ping',
   aliases: [''],
-  categories: '',
+  category: 'Utilidades',
   description: 'Verifica a latencia do database e da API',
   usage: '',
 

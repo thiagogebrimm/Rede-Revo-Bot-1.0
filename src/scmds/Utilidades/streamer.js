@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'streamer',
   aliases: [''],
-  categories: '',
+  category: 'Utilidades',
   description: 'Mostra os requisitos para a tag Streamer',
   usage: '',
 

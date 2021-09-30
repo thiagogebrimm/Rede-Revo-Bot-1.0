@@ -6,7 +6,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'userinfo',
     aliases: [''],
-    categories : '',
+    category: 'Utilidades',
     description: 'Veja informações de um usuario',
     usage: '',
     options: [

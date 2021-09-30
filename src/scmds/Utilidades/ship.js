@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'ship',
     aliases: [''],
-    categories : '',
+    category: 'Utilidades',
     description: 'Shipar pessoas',
     usage: '',
     options: [

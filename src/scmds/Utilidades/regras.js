@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
   name: 'regras',
   aliases: [''],
-  categories: '',
+  category: 'Utilidades',
   description: 'Veja nossas regras!',
   usage: '',
 

@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'avatar',
   aliases: [''],
-  categories: '',
+  category: 'Utilidades',
   description: 'Comando para ver o avatar de alguém',
   usage: '',
   options: [

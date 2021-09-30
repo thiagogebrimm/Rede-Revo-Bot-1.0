@@ -2,8 +2,8 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'tiktok',
-  aliases: ['tiktoker'],
-  categories: '',
+  aliases: [],
+  category: 'Utilidades',
   description: 'Requisitos para receber as recompensas TikToker',
   usage: '',
 

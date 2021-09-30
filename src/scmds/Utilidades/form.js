@@ -3,9 +3,9 @@ const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
 
 module.exports = {
-    name: '',
+    name: 'form',
     aliases: ['formulario'],
-    categories : '',
+    category: 'Utilidades',
     description: 'Retorna o link do formulário por meio de um texto clicável',
     usage: '',
      /** 
