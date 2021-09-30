@@ -10,7 +10,7 @@
   "dependencies": {
     "discord-buttons": "^4.0.0",
     "discord-reply": "^0.1.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.1.0",
     "mc-achievements": "^1.2.0",
     "minecraft-achievement": "0.0.1",
     "minecraft-server-data": "^1.1.2",
