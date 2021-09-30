@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'mcskin',
   aliases: [''],
-  categories: '',
+  category : 'Minecraft',
   description: 'Comando para ver a skin de um jogador',
   usage: '',
   options: [

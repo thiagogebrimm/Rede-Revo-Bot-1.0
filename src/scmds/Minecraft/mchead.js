@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'mchead',
   aliases: [''],
-  categories: '',
+  category : 'Minecraft',
   description: 'Comando para ver a cabeça de um jogador',
   usage: '',
   options: [

@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'mcbody',
   aliases: [''],
-  categories: '',
+  category : 'Minecraft',
   description: 'Comando para ver o corpo da skin de um jogador',
   usage: '',
   options: [

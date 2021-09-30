@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'limites',
     aliases: [''],
-    categories : '',
+    category : 'Minecraft',
     description: 'Mostra os limites do servidor',
     usage: '',
      /** 

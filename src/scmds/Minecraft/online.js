@@ -5,7 +5,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'online',
   aliases: [''],
-  categories: '',
+  category : 'Minecraft',
   description: 'Veja o status do servidor',
   usage: '',
 

@@ -2,7 +2,7 @@
 module.exports = {
     name: 'ip',
     aliases: [''],
-    categories : '',
+    category : 'Minecraft',
     description: 'Veja o nosso IP!',
     usage: '',
 

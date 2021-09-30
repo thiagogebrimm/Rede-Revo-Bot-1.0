@@ -4,14 +4,10 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'textura',
     aliases: [''],
-    categories : '',
+    category : 'Minecraft',
     description: 'Baixe a textura oficial!',
     usage: '',
-     /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
+
       run: async(client, interaction, args) => {
 
         let TarefaEmbed = new MessageEmbed()
