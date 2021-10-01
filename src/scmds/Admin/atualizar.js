@@ -1,4 +1,4 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 let moment = require("moment")
@@ -25,7 +25,7 @@ module.exports = {
                 embeds: [new MessageEmbed()
                     .setDescription(`Instruções enviadas em seu privado.`)
                     .setColor(`GREEN`)]
-            }).then(async i => {await delay(5*5000); i.delete()})
+            }).then(async i => { await delay(5 * 5000); i.delete() })
             interaction.user.dmChannel.createMessageCollector({
                 filter: (x) => (x.author.id === interaction.user.id),
                 time: 1800000,
