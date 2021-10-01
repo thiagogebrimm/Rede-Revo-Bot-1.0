@@ -1,46 +1,60 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
+const { MessageMenuOption, MessageMenu, MessageActionRow } = require('discord-buttons')
+const db = require('quick.db')
 
 module.exports = {
-    name: 'cargo',
-    aliases: [''],
-    categories : '',
-    description: 'Comando dos cargo \'-\'',
-    usage: '',
-     /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
-      run: async(client, interaction, args) => {
-        if (!interaction.member.permissions.has(['ADMINISTRATOR'])) return;
+  name: 'cargo',
+  aliases: [''],
+  category: 'Admin',
+  description: 'Comando dos cargo \'-\'',
+  usage: '',
 
-        const anuncioEmoji = `📢`;
-        const atualizacaoEmoji = `📔`;
-        const eventoEmoji = `🎉`;
-        const enqueteEmoji = `📊`;
-        const spoilerEmoji = `🤐`;
-        const videoEmoji = `🎬`;
-  
-        let embed = new MessageEmbed()
-        .setColor('#376e60')
-        .setTitle('Seleção de cargos para Notificações')
-        .setDescription('**Selecione o(s) emoji(s) que corresponde ao(s) cargo(s) em que você deseja receber notificações em nosso discord!** \n\n\n'
-        + `${anuncioEmoji} Notificar Anúncios - Seja notificado sempre que anunciarmos algo importante\n\n`
-        + `${atualizacaoEmoji} Notificar Atualizações - Seja notificado sempre que alguma mudança e novidades forem introduzidas ao servidor\n\n`
-        + `${eventoEmoji} Notificar Eventos - Seja notificado em anúncios de eventos que acontecem dentro do servidor\n\n`
-        + `${enqueteEmoji} Notificar Enquetes - Seja notificado sempre que iniciarmos uma enquete\n\n`
-        + `${spoilerEmoji} Notificar Spoilers - Seja notificado com spoilers do servidor\n\n`
-        + `${videoEmoji} Notificar Vídeos - Seja notificado de vídeos/transmissões realizadas no servidor`);
-  
-        let messageEmbed = await interaction.channel.send({
-          embeds: [embed]
-        });
-        messageEmbed.react(anuncioEmoji);
-        messageEmbed.react(atualizacaoEmoji);
-        messageEmbed.react(eventoEmoji);
-        messageEmbed.react(enqueteEmoji);
-        messageEmbed.react(spoilerEmoji);
-        messageEmbed.react(videoEmoji);
-      }
+    run: async(client, message) => {
+        const prefix = db.fetch(`prefix_${message.guild.id}`) // You Can Do `const prefix = '+'` Too
+
+        if(message.content.toLowerCase() === `${prefix}select-menu` || message.content.toLowerCase() === `${prefix}select-menu-roles`) {
+            
+            // First Option In Menu
+            const Role1 = new MessageMenuOption()
+            .setLabel('Cargo1') // Label
+            .setDescription('Recebe bla') // Description, Limit Is 50
+            .setEmoji('811297151069323274') // Emoji ID
+            .setValue('carg1') // To Make Its Funtion When Use Click It
+
+            const Role2 = new MessageMenuOption()
+            .setLabel('Cargo2') 
+            .setDescription('Recebe bla') 
+            .setEmoji('806408246733832232') 
+            .setValue('carg2')
+
+            const Role3 = new MessageMenuOption()
+            .setLabel('Cargo3') 
+            .setDescription('Recebe bla') 
+            .setEmoji('811297141669888040') 
+            .setValue('carg3')
+
+            const Role4 = new MessageMenuOption()
+            .setLabel('Cargo4')
+            .setDescription('Recebe bla')
+            .setEmoji('811297109953347595') 
+            .setValue('carg4') 
+
+            const Menu = new MessageMenu()
+            .setID('menu') // To Make Its Funtion When Use Click It
+            .setPlaceholder('Escolha seus cargos')
+            .addOption(Role1)
+            .addOption(Role2)
+            .addOption(Role3)
+            .addOption(Role4)
+            // .setMaxValues(4) // How Many Roles They Can Select // How Many Selection They Can Make // Maximum
+            // .setMinValues(1) // How Many Roles They Can Select // How Many Selection They Can Make // Minimum
+
+            const RoleMenu = new MessageActionRow()
+            .addComponent(Menu)
+
+            message.channel.send(`Select Roles By Choosing Options Below In Menu`, {
+                component: RoleMenu
+            })
+
+        }
     }
+}
