@@ -1,11 +1,10 @@
 const Discord = require("discord.js"); 
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'expulsar',
-    aliases: [  ], 
-    categories : 'adm', 
-    description: 'Comando de expulsar.',
+    aliases: ['kick'], 
+    categories : 'Admin', 
+    description: 'Comando para expulsar um membro.',
     usage: '',
     options: [
         {
@@ -21,12 +20,7 @@ module.exports = {
             required: true
         },
     ],
-    /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
-    run: async(client, interaction, args) => {
+    run: async(client, interaction) => {
         const member = interaction.options.get("usuario").member
   
         if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.editReply("Permissões insuficientes!") // caso o membro não possua a permissão 'EXPULSAR_MEMBROS', vamos botar o erro
