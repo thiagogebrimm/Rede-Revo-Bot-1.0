@@ -64,6 +64,8 @@ module.exports = {
              
              **Sugestão aprovada**: \`${findUser.pergunta01}\`.
              **Motivo para implementar**: \`${findUser.pergunta02}\`.
+
+             \`\`\`💭 Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.\`\`\`
              `)
             .addFields(
                 { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },

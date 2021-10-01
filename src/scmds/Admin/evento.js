@@ -50,7 +50,7 @@ module.exports = {
 
                                 switch (r1) {
                                     case 'killer':
-                                        interaction.guild.channels.cache.find(x => x.id === '793599388420800543').send({
+                                        interaction.guild.channels.cache.find(x => x.id === '793501038917320704').send({
                                             content: `<@&795509107503267880>`, embeds: [new MessageEmbed()
                                                 .setColor(`FF0000`)
                                                 .setTitle(`🕒 Sexta dia ${r2} às 20:00h (Horário de Brasília) evento Killer`)
