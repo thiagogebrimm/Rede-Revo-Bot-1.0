@@ -91,6 +91,7 @@ module.exports = {
                     **Sugestão feita por** <@${interaction.member.id}>
                     
                     **Minha Sugestão é**: \`${S.dataValues.pergunta01.slice(0, 2000)}\`
+                    
                     **Motivo para implementar**: \`${S.dataValues.pergunta02}\`
                     `)
                         .setColor('GREEN');

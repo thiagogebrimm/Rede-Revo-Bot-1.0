@@ -78,6 +78,7 @@ module.exports = {
             **Sugestão feita por** ${susebao.tag}
             
             **Sugestão aprovada**: \`${findUser.pergunta01}\`
+            
             **Motivo para implementar**: \`${findUser.pergunta02}\`
             `)
             .addFields(
