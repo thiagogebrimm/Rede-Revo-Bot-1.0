@@ -1,3 +1,4 @@
+const { MessageEmbed, Client, CommandInteraction } = require('discord.js')
 const config = require('../../../config')
 
 const Sus = require('../../db/Models/Sugestao')
@@ -16,7 +17,12 @@ module.exports = {
             permission: true,
         },
     ],
-
+    /**
+     * 
+     * @param {Client} client 
+     * @param {CommandInteraction} interaction 
+     * @returns 
+     */
       run: async(client, interaction) => {
             if(interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
             if(!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
@@ -41,14 +47,14 @@ module.exports = {
             })
 
             findUser.update({
-                votosPositivos: votosP,
-                votosNegativos: votosN
+                votosPositivo: votosP,
+                votosNegativo: votosN
             })
 
             /**
              * 
              * findUser.messageId - Id da mensagem
-             * findUser.authir - Id do autor da Sugestão
+             * findUser.autor - Id do autor da Sugestão
              * findUser.pergunta01 - Sugestão
              * findUser.pergunta02 - Motivo de adicionarmos
              * findUser.votosPositivos - Votos positivos
@@ -56,10 +62,13 @@ module.exports = {
              * 
              */
 
-             let embed = new Discord.MessageEmbed()
-             .setTitle(client.users.cache.get(findUser.author).tag)
+            const susebao = client.users.cache.get(findUser.autor)
 
-            const user = client.users.cache.get(findUser.autor).send('OK!').then(async (msg) => {
+             let embed = new MessageEmbed()
+             .setTitle(susebao.tag)
+             .setDescription(JSON.stringify(findUser.dataValues))
+
+            susebao.send({embeds: [embed]}).then(async () => {
                await findUser.destroy()
             })
 

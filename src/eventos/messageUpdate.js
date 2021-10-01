@@ -10,9 +10,9 @@ module.exports = (bot, oldMessage, newMessage) => {
                 .setTitle(`MENSAGEM EDITADA`)
                 .setColor(`36393e`) 
                 .setDescription(`[Clique aqui para ser redirecionado a mensagem.](https://discordapp.com/channels/${oldMessage.guild.id}/${oldMessage.channel.id}/${oldMessage.id})`)
-                .addField(`📝 Mensagem antiga`, `${oldMessage.content}`, true)
-                .addField(`✏️ Nova mensagem`, `${newMessage.content}`, true)
-                .setFooter(`Autor da mensagem: ${oldMessage.author.tag}`)
+                .addField(`📝 Mensagem antiga`, `${oldMessage.content}.`, true)
+                .addField(`✏️ Nova mensagem`, `${newMessage.content}.`, true)
+                .setFooter(`Autor da mensagem: ${oldMessage.author.tag}.`)
             ]})
         }
         return;

@@ -97,14 +97,22 @@ module.exports = {
                         .setColor('GREEN');
                     client.channels.cache.get(config.channels.sugestao).send({
                         embeds: [embed]
-                    }).then(f => {
+                    }).then(async f => {
                         f.react('893295026325581854');
                         f.react('893295026203918358');
                         S.update({
                             messageId: f.id
                         })
+                        const thread = await client.channels.cache.get(config.channels.sugestao).threads.create({
+                            name: S.dataValues.pergunta01,
+                            autoArchiveDuration: 1440,
+                            reason: 'Sugestão \'-\''
+                        });
+                        client.channels.cache.get(config.channels.sugestao).messages.fetch().then(f => {
+                            f.first().delete()
+                        })
                     });
-
+                    
                 });
             })
         }
