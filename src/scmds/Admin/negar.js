@@ -26,7 +26,7 @@ module.exports = {
                 messageId: interaction.targetId
             }
         })
-        if (!findUser) return await interaction.editReply("Sugestão já aprovada ou não existente.")
+        if (!findUser) return await interaction.editReply("Sugestão já aprovada/negada ou não existente.")
 
         const msg = await interaction.channel.messages.fetch(
             interaction.targetId
@@ -37,7 +37,7 @@ module.exports = {
         votosN = (votosN - 1);
         console.log(votosP, votosN)
         interaction.followUp({
-            content: `Aprovado!`
+            content: `Negado!`
         })
 
         findUser.update({
@@ -73,7 +73,7 @@ module.exports = {
             )
             .setColor('RED')
         let embedchat = new MessageEmbed()
-            .setTitle(`<:NAO_Revo:893295026203918358> Sugestão Aprovada <:NAO_Revo:893295026203918358>`)
+            .setTitle(`<:NAO_Revo:893295026203918358> Sugestão Negada <:NAO_Revo:893295026203918358>`)
             .setDescription(`
             **Sugestão feita por** ${susebao.tag}
             

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed, ThreadManager } = require('discord.js')
 const config = require('../../../config')
 
 const Sus = require('../../db/Models/Sugestao')
@@ -27,7 +27,7 @@ module.exports = {
                 messageId: interaction.targetId
             }
         })
-        if (!findUser) return await interaction.editReply("Sugestão já aprovada ou não existente.")
+        if (!findUser) return await interaction.editReply("Sugestão já aprovada/negada ou não existente.")
 
         const msg = await interaction.channel.messages.fetch(
             interaction.targetId
@@ -85,12 +85,14 @@ module.exports = {
                 { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
             )
             .setColor('GREEN')
-            
-        susebao.send({ embeds: [embeddm] }).then(async () => {
-            await findUser.destroy()
-        }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
 
-        interaction.guild.channels.cache.find(x => x.id === '893370707466149898').send({ embeds: [embedchat] })
+        susebao.send({ embeds: [embeddm] }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
 
+        interaction.guild.channels.cache.find(x => x.id === '893370707466149898').send({ embeds: [embedchat] }).then(f => {
+            findUser.update({
+                messageId: f.id
+            })
+        })
+        msg.delete()
     }
 }

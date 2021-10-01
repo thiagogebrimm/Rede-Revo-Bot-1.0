@@ -9,43 +9,35 @@ module.exports = {
     aliases: [''],
     category: 'Admin',
     type: 'MESSAGE',
-    description: '',    
+    description: '',
     usage: '',
     permissions: [
         {
-            id: '889521010288762890',
+            id: '793282674827329557',
             type: 'ROLE',
             permission: true,
         },
     ],
 
-     run: async(client, interaction) => {
-        if(interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
-        if(!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
+    run: async (client, interaction) => {
+        if (interaction.channelId !== '893293613851758603') return await interaction.editReply('Aqui não é o canal correto.')
+        if (!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
 
         const findUser = await Sus.findOne({
             where: {
                 messageId: interaction.targetId
             }
         })
-        if(!findUser) return await interaction.editReply("Sugestão já aprovada ou não existente.")
+        if (!findUser) return await interaction.editReply("Sugestão já aprovada ou não existente.")
 
         const msg = await interaction.channel.messages.fetch(
             interaction.targetId
         );
-        let votosP = (await msg.fetch(true)).reactions.cache.get('893295026325581854').count
-        votosP = (votosP - 1);
-        let votosN = (await msg.fetch(true)).reactions.cache.get('893295026203918358').count
-        votosN = (votosN - 1);
-        console.log(votosP, votosN)
+
         interaction.followUp({
-            content: `Aprovado!`
+            content: `Implementado!`
         })
 
-        findUser.update({
-            votosPositivo: votosP,
-            votosNegativo: votosN
-        })
 
         /**
          * 
@@ -61,37 +53,29 @@ module.exports = {
         const susebao = client.users.cache.get(findUser.autor)
 
         let embeddm = new MessageEmbed()
-            .setTitle(`<:SIM_Revo:893295026325581854> Sua sugestão foi aprovada <:SIM_Revo:893295026325581854>`)
+            .setTitle(`<a:Check_Revo:845556618837098506> Sua sugestão foi implementada <a:Check_Revo:845556618837098506>`)
             .setDescription(`
              
-             **Sugestão aprovada**: \`${findUser.pergunta01}\`.
+             **Sugestão implementada**: \`${findUser.pergunta01}\`.
              **Motivo para implementar**: \`${findUser.pergunta02}\`.
 
-             \`\`\`💭 Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.\`\`\`
              `)
-            .addFields(
-                { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
-                { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
-            )
 
         let embedchat = new MessageEmbed()
-            .setTitle(`<:SIM_Revo:893295026325581854> Sugestão Aprovada <:SIM_Revo:893295026325581854>`)
+            .setTitle(`<a:Check_Revo:845556618837098506> Sugestão Implementada <a:Check_Revo:845556618837098506>`)
             .setDescription(`
             **Sugestão feita por** ${susebao.tag}
             
-            **Sugestão aprovada**: \`${findUser.pergunta01}\`
+            **Sugestão implementada**: \`${findUser.pergunta01}\`
             **Motivo para implementar**: \`${findUser.pergunta02}\`
             `)
-            .addFields(
-                { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
-                { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
-            )
 
         susebao.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()
+            msg.delete()
         }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
 
-        interaction.guild.channels.cache.find(x => x.id === '893370707466149898').send({ embeds: [embedchat] })
+        interaction.guild.channels.cache.find(x => x.id === '893370899905003520').send({ embeds: [embedchat] })
 
     }
 }
