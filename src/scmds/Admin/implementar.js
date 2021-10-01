@@ -59,8 +59,8 @@ module.exports = {
          * findUser.autor - Id do autor da Sugestão
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
-         * findUser.votosPositivos - Votos positivos
-         * findUser.votosNegativos - Votos Negativos
+         * findUser.votosPositivo - Votos positivos
+         * findUser.votosNegativo - Votos Negativos
          * 
          */
 

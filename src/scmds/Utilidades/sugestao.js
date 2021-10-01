@@ -1,5 +1,4 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 const config = require('../../../config')
 
@@ -8,7 +7,7 @@ const Sus = require("../../db/Models/Sugestao")
 module.exports = {
     name: 'sugerir',
     aliases: [],
-    categories: 'Utilitades',
+    category: 'Utilitades',
     description: 'Faça uma sugestão para o servidor',
     usage: '',
     options: [
@@ -48,7 +47,7 @@ module.exports = {
 
         const DM = await interaction.user.createDM()
         embed
-            .setTitle('<a:lab_atencao:892468298527150191> | Sugestão')
+            .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
             .setDescription('Qual é a sugestão?')
 
         DM.send({ embeds: [embed] }).catch((err) => {
@@ -69,14 +68,14 @@ module.exports = {
                 let sugestao = m.content;
 
                 embed
-                    .setTitle('<a:lab_atencao:892468298527150191> | Sugestão')
+                    .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
                     .setDescription('Porque devemos aceitar a sugestão?');
                 DM.send({ embeds: [embed] });
                 DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id }).on('collect', async (m) => {
                     let motivo = m.content;
 
                     embed
-                        .setTitle('<a:lab_atencao:892468298527150191> | Sugestão')
+                        .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
                         .setDescription('A sugestão foi enviada, retornaremos uma resposta em breve.');
                     m.reply({ embeds: [embed] });
 
@@ -87,12 +86,12 @@ module.exports = {
                     });
 
                     embed
-                        .setTitle('<:Calendario:892468324989030461> | Sugestão')
+                        .setTitle('<a:Sino_Revo:849415817502523412> | Nova Sugestão')
                         .setDescription(`
-                    **Sugestão de** @<${interaction.member.id}>
+                    **Sugestão feita por** <@${interaction.member.id}>
                     
-                    **Minha Sugestão é**: \`${S.dataValues.pergunta01.slice(0, 2000)}\`.
-                    **Motivo para implementar**: \`${S.dataValues.pergunta02}\`.
+                    **Minha Sugestão é**: \`${S.dataValues.pergunta01.slice(0, 2000)}\`
+                    **Motivo para implementar**: \`${S.dataValues.pergunta02}\`
                     `)
                         .setColor('GREEN');
                     client.channels.cache.get(config.channels.sugestao).send({

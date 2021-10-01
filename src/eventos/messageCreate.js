@@ -23,13 +23,6 @@ if (message.channel.id === "845501522166153226") {
     .catch(a => {return message.guild.channels.cache.find(x => x.id === '793599388420800543').send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)}))
 };
 
-//Arruma o Sugestões
-if (message.channel.id === "793284851889209355") {     
-    if (message.author.bot) return;
-    if (message.attachments.size == 0) message.delete({ timeout: 5 * 100 })
-};
-
-
 //Bloqueia Links
 for(let links of ['discord.gg/', 'discord.com/invite/'])
     if(message.content.includes(links)) {

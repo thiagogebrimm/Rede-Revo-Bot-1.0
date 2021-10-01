@@ -9,6 +9,6 @@ module.exports = {
         }
     ],
     channels: {
-        sugestao: '793599388420800543'
+        sugestao: '893293613851758603'
     }
 }

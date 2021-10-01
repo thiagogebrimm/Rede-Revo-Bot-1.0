@@ -61,7 +61,7 @@ module.exports = {
                     .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
                     .setDescription(`Você foi silenciado(a) por ${interaction.member.toString()}.\nMotivo: \`${reason}\`\nDuração: \`${time}\``)
                     .setColor(`RED`)]
-            });
+            }).catch(a => {return message.channel.send(`Impossivel mandar mensagens na dm deste usuario!`)});
 
             setTimeout(async () => {
                 member.roles.remove('847830245851660290');
