@@ -1,86 +1,44 @@
-const { MessageActionRow, MessageSelectMenu } = require('discord.js');
-const { r1, r2, r3, r1m, r2m, r3m} = require('../../../cargos.json')
+const { MessageEmbed } = require('discord.js');
+const Discord = require('discord.js')
 
+const config = require('../../../cargos')
 
 module.exports = {
-  name: 'cargo',
-  aliases: [],
+  name: 'cargos',
+  aliases: [''],
   category: 'Admin',
-  description: 'Comando para pegar os cargos',
+  description: 'Gera o embed para pegar cargos',
   usage: '',
+
   run: async (client, interaction) => {
+    if (!interaction.member.permissions.has(['ADMINISTRATOR'])) return interaction.editReply("Sem permissão para executar esse comando!");
 
-    if (interaction.commandName == 'roles') {
-      const row = new MessageActionRow()
-        .addComponents(
-          new MessageSelectMenu()
-            .setCustomId('roles')
-            .setPlaceholder('Select a reaction role')
-            .addOptions([
-              { //edit the option according to you ⚠leave the emoji fields like they are 
-                label: 'Notificar Anúncios',
-                description: 'Seja notificado com anúncios do servidor',
-                value: 'first_option',
-                emoji: r1m
-              },
-              {
-                label: 'Notificar Atualizações',
-                description: 'Seja notificado com atualizações do servidor',
-                value: 'second_option',
-                emoji: r2m
-              },
-              {
-                label: 'Notificar Eventos',
-                description: 'Seja notificado com eventos do servidor',
-                value: 'third_option',
-                emoji: r3m
-              },
-            ]),
-        );
+    const select = new Discord.MessageSelectMenu()
+      .setMaxValues(1)
+      .setMinValues(1)
+      .setPlaceholder('Escolher Cargo')
+      .setCustomId('cargos')
 
-      await interaction.reply({ content: "Olá, pegue seus cargos", ephemeral: true, components: [row] })//edit the content here
-    }
-
-
-
-    //if the interaction is select menu then reply
-    if (interaction.isSelectMenu()) {
-
-      let choice = interaction.values[0]
-      const member = interaction.member
-      if (choice == 'first_option') {
-        if (member.roles.cache.some(role => role.id == r1)) {
-          interaction.reply({ content: "O cargo foi removido com sucesso", ephemeral: true })
-          member.roles.remove('847793663597608990')
+    config.roles.forEach(element => {
+      select.addOptions({
+        value: element.id,
+        label: element.label,
+        emoji: {
+          id: element.emojiId
         }
-        else {
-          member.roles.add(r1)
-          await interaction.reply({ content: "O cargo foi adicionado com sucesso", ephemeral: true })
-        }
-      }
+      })
+    });
 
-      else if (choice == 'second_option') {
-        if (member.roles.cache.some(role => role.id == r2)) {
-          interaction.reply({ content: "O cargo foi removido com sucesso", ephemeral: true })
-          member.roles.remove(r2)
-        }
-        else {
-          member.roles.add(r2)
-          await interaction.reply({ content: "O cargo foi adicionado com sucesso", ephemeral: true })
-        }
-      }
-
-
-      else if (choice == 'third_option') {
-        if (member.roles.cache.some(role => role.id == r3)) {
-          interaction.reply({ content: "O cargo foi removido com sucesso", ephemeral: true })
-          member.roles.remove(r3)
-        }
-        else {
-          member.roles.add(r3)
-          await interaction.reply({ content: "O cargo foi adicionado com sucesso", ephemeral: true })
-        }
-      }
-    }
+    let embed = new MessageEmbed()
+      .setTitle('Seleção de cargos para Notificações <:Discord_Revo:849415817186639893>')
+      .setDescription("Selecione o(s) cargo(s) que corresponde ao que você deseja receber notificações em nosso discord!")
+      .setColor('BLURPLE')
+      .setThumbnail('https://unifei.edu.br/pessoal/wp-content/uploads/sites/64/2017/04/Descri%C3%A7%C3%A3o-de-Cargo-e1492694015349.png')
+    interaction.deleteReply()
+    interaction.channel.send({
+      embeds: [embed], components: [
+        new Discord.MessageActionRow().addComponents(select)
+      ]
+    })
   }
 }

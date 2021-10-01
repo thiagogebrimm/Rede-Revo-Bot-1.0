@@ -39,5 +39,19 @@ module.exports = async (client, interaction) => {
       await interaction.deferReply({ ephemeral: true });
       const command = client.slashCommands.get(interaction.commandName);
       if (command) command.run(client, interaction);
+  } else if (interaction.isSelectMenu()) {
+    if(interaction.customId === 'cargos') {
+      const role = interaction.guild.roles.cache.get(interaction.values[0])
+      if(interaction.member.roles.cache.has(role.id)) {
+        interaction.member.roles.remove(role.id)
+        return interaction.reply({ephemeral: true, content: `Cargo <@&${role.id}> removido!`})
+      } else {
+
+      interaction.member.roles.add(role.id)
+
+      interaction.reply({ephemeral: true, content: `Cargo <@&${role.id}> adicionado!`})
+    }
+
+    }
   }
 }
