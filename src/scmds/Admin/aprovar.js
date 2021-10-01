@@ -85,7 +85,7 @@ module.exports = {
 
         susebao.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()
-        }).catch(a => {return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`)})
+        }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
 
         interaction.guild.channels.cache.find(x => x.id === '893370707466149898').send({ embeds: [embedchat] })
 
