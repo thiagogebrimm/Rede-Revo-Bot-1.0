@@ -1,6 +1,3 @@
-const { Client, ContextMenuInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
-
 const config = require('../../../config')
 
 const Sus = require('../../db/Models/Sugestao')
@@ -14,19 +11,15 @@ module.exports = {
     usage: '',
     permissions: [
         {
-            id: '889521010288762890',
+            id: '793282674827329557',
             type: 'ROLE',
             permission: true,
         },
     ],
-     /** 
-     * @param {Client} client 
-     * @param {ContextMenuInteraction} interaction 
-     * @param {String[]} args 
-     */
+
       run: async(client, interaction, args) => {
             if(interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
-            if(!interaction.member.roles.cache.has('889521010288762890')) return interaction.editReply('Sem permissão')
+            if(!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
 
             const findUser = await Sus.findOne({
                 where: {
@@ -38,9 +31,9 @@ module.exports = {
             const msg = await interaction.channel.messages.fetch(
                 interaction.targetId
             );
-            let votosP = (await msg.fetch(true)).reactions.cache.get('892467965130321930').count
+            let votosP = (await msg.fetch(true)).reactions.cache.get('893295026325581854').count
             votosP = (votosP - 1);
-            let votosN = (await msg.fetch(true)).reactions.cache.get('892467966644469870').count
+            let votosN = (await msg.fetch(true)).reactions.cache.get('893295026203918358').count
             votosN = (votosN - 1);
             console.log(votosP, votosN)
             interaction.followUp({

@@ -45,8 +45,6 @@ module.exports = {
                 votosNegativos: votosN
             })
 
-            
-
             /**
              * 
              * findUser.messageId - Id da mensagem
@@ -57,6 +55,9 @@ module.exports = {
              * findUser.votosNegativos - Votos Negativos
              * 
              */
+
+             let embed = new Discord.MessageEmbed()
+             .setTitle(client.users.cache.get(findUser.author).tag)
 
             const user = client.users.cache.get(findUser.autor).send('OK!').then(async (msg) => {
                await findUser.destroy()

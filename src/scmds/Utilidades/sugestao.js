@@ -8,7 +8,7 @@ const Sus = require("../../db/Models/Sugestao")
 module.exports = {
     name: 'sugerir',
     aliases: [],
-    categories : 'Utilitades',
+    categories: 'Utilitades',
     description: 'Faça uma sugestão para o servidor',
     usage: '',
     options: [
@@ -21,26 +21,26 @@ module.exports = {
         }
     ],
 
-      run: async(client, interaction) => {
+    run: async (client, interaction) => {
 
         var embed = new MessageEmbed()
-        .setTitle('<:NAO_Revo:893295026203918358> | Limite de Sugestões')
-        .setDescription('Olá, você está limitado á enviar sugestões pois possui 5 sugestões pendentes, espere até um staff responder alguma sugestão sua para fazer uma nova')
-        .setColor('RED')
-        .setFooter('Rede Revo', interaction.guild.iconURL( {dynamic: true} ))
+            .setTitle('<:NAO_Revo:893295026203918358> | Limite de Sugestões')
+            .setDescription('Olá, você está limitado á enviar sugestões pois possui 5 sugestões pendentes, espere até um staff responder alguma sugestão sua para fazer uma nova')
+            .setColor('RED')
+            .setFooter('Rede Revo', interaction.guild.iconURL({ dynamic: true }))
 
 
         var bope = true;
         const findU = await Sus.findAndCountAll().then(f => f.count)
-        
-        if(findU === 5) return interaction.editReply({
+
+        if (findU === 5) return interaction.editReply({
             embeds: [embed]
         })
 
         embed
-        .setTitle('<:SIM_Revo:893295026325581854> | Verifique seu privado')
-        .setDescription('Enviarei uma mensagem em seu privado, caso esteja fechado abra ele.')
-        .setColor('BLUE')
+            .setTitle('<:SIM_Revo:893295026325581854> | Verifique seu privado')
+            .setDescription('Enviarei uma mensagem em seu privado, caso esteja fechado abra ele.')
+            .setColor('BLUE')
 
         interaction.editReply({
             embeds: [embed]
@@ -48,24 +48,24 @@ module.exports = {
 
         const DM = await interaction.user.createDM()
         embed
-        .setTitle('<a:lab_atencao:892468298527150191> | Sugestão')
-        .setDescription('Qual é a sugestão?')
+            .setTitle('<a:lab_atencao:892468298527150191> | Sugestão')
+            .setDescription('Qual é a sugestão?')
 
-        DM.send({embeds: [embed]}).catch((err) => {
-            bope===false
+        DM.send({ embeds: [embed] }).catch((err) => {
+            bope === false
             embed
-            .setTitle('<:NAO_Revo:893295026203918358> | Sugestão')
-            .setDescription('Não foi possivel te contatar em seu privado, caso esteja fechado abra ele.')
-            .setColor('RED')
+                .setTitle('<:NAO_Revo:893295026203918358> | Sugestão')
+                .setDescription('Não foi possivel te contatar em seu privado, caso esteja fechado abra ele.')
+                .setColor('RED')
 
             interaction.editReply({
                 embeds: [embed]
             })
         });
-        if(bope) {
-            
+        if (bope) {
+
             const col = DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 })
-           col.on('collect', async (m) => {
+            col.on('collect', async (m) => {
                 let sugestao = m.content;
 
                 embed
@@ -95,7 +95,7 @@ module.exports = {
                     **Motivo para implementar**: \`${S.dataValues.pergunta02}\`.
                     `)
                         .setColor('GREEN');
-                        client.channels.cache.get(config.channels.sugestao).send({
+                    client.channels.cache.get(config.channels.sugestao).send({
                         embeds: [embed]
                     }).then(f => {
                         f.react('893295026325581854');
@@ -110,5 +110,5 @@ module.exports = {
         }
 
 
-      }
     }
+}
