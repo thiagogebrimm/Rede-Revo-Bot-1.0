@@ -1,60 +1,86 @@
-const { MessageMenuOption, MessageMenu, MessageActionRow } = require('discord-buttons')
-const db = require('quick.db')
+const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { r1, r2, r3, r1m, r2m, r3m} = require('../../../cargos.json')
+
 
 module.exports = {
   name: 'cargo',
-  aliases: [''],
+  aliases: [],
   category: 'Admin',
-  description: 'Comando dos cargo \'-\'',
+  description: 'Comando para pegar os cargos',
   usage: '',
+  run: async (client, interaction) => {
 
-    run: async(client, message) => {
-        const prefix = db.fetch(`prefix_${message.guild.id}`) // You Can Do `const prefix = '+'` Too
+    if (interaction.commandName == 'roles') {
+      const row = new MessageActionRow()
+        .addComponents(
+          new MessageSelectMenu()
+            .setCustomId('roles')
+            .setPlaceholder('Select a reaction role')
+            .addOptions([
+              { //edit the option according to you ⚠leave the emoji fields like they are 
+                label: 'Notificar Anúncios',
+                description: 'Seja notificado com anúncios do servidor',
+                value: 'first_option',
+                emoji: r1m
+              },
+              {
+                label: 'Notificar Atualizações',
+                description: 'Seja notificado com atualizações do servidor',
+                value: 'second_option',
+                emoji: r2m
+              },
+              {
+                label: 'Notificar Eventos',
+                description: 'Seja notificado com eventos do servidor',
+                value: 'third_option',
+                emoji: r3m
+              },
+            ]),
+        );
 
-        if(message.content.toLowerCase() === `${prefix}select-menu` || message.content.toLowerCase() === `${prefix}select-menu-roles`) {
-            
-            // First Option In Menu
-            const Role1 = new MessageMenuOption()
-            .setLabel('Cargo1') // Label
-            .setDescription('Recebe bla') // Description, Limit Is 50
-            .setEmoji('811297151069323274') // Emoji ID
-            .setValue('carg1') // To Make Its Funtion When Use Click It
-
-            const Role2 = new MessageMenuOption()
-            .setLabel('Cargo2') 
-            .setDescription('Recebe bla') 
-            .setEmoji('806408246733832232') 
-            .setValue('carg2')
-
-            const Role3 = new MessageMenuOption()
-            .setLabel('Cargo3') 
-            .setDescription('Recebe bla') 
-            .setEmoji('811297141669888040') 
-            .setValue('carg3')
-
-            const Role4 = new MessageMenuOption()
-            .setLabel('Cargo4')
-            .setDescription('Recebe bla')
-            .setEmoji('811297109953347595') 
-            .setValue('carg4') 
-
-            const Menu = new MessageMenu()
-            .setID('menu') // To Make Its Funtion When Use Click It
-            .setPlaceholder('Escolha seus cargos')
-            .addOption(Role1)
-            .addOption(Role2)
-            .addOption(Role3)
-            .addOption(Role4)
-            // .setMaxValues(4) // How Many Roles They Can Select // How Many Selection They Can Make // Maximum
-            // .setMinValues(1) // How Many Roles They Can Select // How Many Selection They Can Make // Minimum
-
-            const RoleMenu = new MessageActionRow()
-            .addComponent(Menu)
-
-            message.channel.send(`Select Roles By Choosing Options Below In Menu`, {
-                component: RoleMenu
-            })
-
-        }
+      await interaction.reply({ content: "Olá, pegue seus cargos", ephemeral: true, components: [row] })//edit the content here
     }
+
+
+
+    //if the interaction is select menu then reply
+    if (interaction.isSelectMenu()) {
+
+      let choice = interaction.values[0]
+      const member = interaction.member
+      if (choice == 'first_option') {
+        if (member.roles.cache.some(role => role.id == r1)) {
+          interaction.reply({ content: "O cargo foi removido com sucesso", ephemeral: true })
+          member.roles.remove('847793663597608990')
+        }
+        else {
+          member.roles.add(r1)
+          await interaction.reply({ content: "O cargo foi adicionado com sucesso", ephemeral: true })
+        }
+      }
+
+      else if (choice == 'second_option') {
+        if (member.roles.cache.some(role => role.id == r2)) {
+          interaction.reply({ content: "O cargo foi removido com sucesso", ephemeral: true })
+          member.roles.remove(r2)
+        }
+        else {
+          member.roles.add(r2)
+          await interaction.reply({ content: "O cargo foi adicionado com sucesso", ephemeral: true })
+        }
+      }
+
+
+      else if (choice == 'third_option') {
+        if (member.roles.cache.some(role => role.id == r3)) {
+          interaction.reply({ content: "O cargo foi removido com sucesso", ephemeral: true })
+          member.roles.remove(r3)
+        }
+        else {
+          member.roles.add(r3)
+          await interaction.reply({ content: "O cargo foi adicionado com sucesso", ephemeral: true })
+        }
+      }
+    }
+  }
 }
