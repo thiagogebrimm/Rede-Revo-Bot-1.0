@@ -5,11 +5,11 @@ const SusEBao = require("../db/DatabaseLogin")
 
 const { Client, MessageEmbed } = require("discord.js")
 
-module.exports = (bot) => {
+module.exports = (bot, message) => {
 
-  SusEBao.authenticate() .then((result) => {
+  SusEBao.authenticate().then((result) => {
     console.log("DB iniciada.")
-    Sus.init(SusEBao).sync({force: false})
+    Sus.init(SusEBao).sync({ force: false })
   }).catch((err) => {
     console.log(err)
     process.exit(0)
@@ -23,38 +23,38 @@ module.exports = (bot) => {
   setInterval(async () => {
 
     try {
-      
 
 
-    const sv = await util.status('rederevo.com')
-    const bed = await util.statusBedrock('jogar.rederevo.com')
 
-    if (bot.channels.cache.get('893151200160141312')?.isText()) {
-      await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
-        f.get('893151338186297384').edit({
-          embeds: [new MessageEmbed().setTitle("Informações da Rede").setDescription(`
+      const sv = await util.status('rederevo.com')
+      const bed = await util.statusBedrock('jogar.rederevo.com')
+
+      if (bot.channels.cache.get('893151200160141312')?.isText()) {
+        await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
+          f.get('893151338186297384').edit({
+            embeds: [new MessageEmbed().setTitle("Informações da Rede").setDescription(`
           Motd: **${sv.description.toRaw()}**
           
           Versões JAR: \`${sv.version.replace('Waterfall ', '')}\`
           Versões BEDROCK: \`${bed.version}\`
 
           Players: **${sv.onlinePlayers}/${sv.maxPlayers}**`)
-            .setColor('RED')
-            .setFooter('Rede Revo')
-            .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
+              .setColor('RED')
+              .setFooter('Rede Revo')
+              .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
+          })
         })
-      })
-    }
-    let status = [`com ${sv.onlinePlayers} jogadores`, `IP: rederevo.com`];
-    let statuses = status[Math.floor(Math.random() * status.length)];
+      }
+      let status = [`com ${sv.onlinePlayers} jogadores`, `IP: rederevo.com`];
+      let statuses = status[Math.floor(Math.random() * status.length)];
 
-    bot.user.setActivity({
-      name: statuses,
-      type: 'PLAYING'
-    });
-  } catch (error) {
-    console.log(error)   
-  }
+      bot.user.setActivity({
+        name: statuses,
+        type: 'PLAYING'
+      });
+    } catch (error) {
+      console.log(error)
+    }
   }, 5000);
-  
+
 };

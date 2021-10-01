@@ -41,6 +41,7 @@ module.exports = {
                             .setColor(`0000ff`)
                             .setAuthor(`Atualização feita por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
                             .setDescription(`${r1}`)
+                            .setThumbnail('https://i.imgur.com/05cb5lZ.png')
                             .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))]
                     }).then(async () => {
                         interaction.user.send({
