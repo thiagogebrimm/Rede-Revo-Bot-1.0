@@ -7,7 +7,7 @@ module.exports = {
     aliases: [''],
     category: 'Admin',
     type: 'MESSAGE',
-    description: '',    
+    description: '',
     usage: '',
     permissions: [
         {
@@ -17,16 +17,16 @@ module.exports = {
         },
     ],
 
-     run: async(client, interaction) => {
-        if(interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
-        if(!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
+    run: async (client, interaction) => {
+        if (interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
+        if (!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
 
         const findUser = await Sus.findOne({
             where: {
                 messageId: interaction.targetId
             }
         })
-        if(!findUser) return await interaction.editReply("Sugestão já aprovada ou não existente.")
+        if (!findUser) return await interaction.editReply("Sugestão já aprovada ou não existente.")
 
         const msg = await interaction.channel.messages.fetch(
             interaction.targetId
@@ -71,7 +71,7 @@ module.exports = {
                 { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
                 { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
             )
-
+            .setColor('RED')
         let embedchat = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sugestão Aprovada <:NAO_Revo:893295026203918358>`)
             .setDescription(`
@@ -84,6 +84,7 @@ module.exports = {
                 { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
                 { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
             )
+            .setColor('RED')
 
         susebao.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()

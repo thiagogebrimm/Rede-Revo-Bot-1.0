@@ -71,7 +71,7 @@ module.exports = {
                 { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
                 { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
             )
-
+            .setColor('GREEN')
         let embedchat = new MessageEmbed()
             .setTitle(`<:SIM_Revo:893295026325581854> Sugestão Aprovada <:SIM_Revo:893295026325581854>`)
             .setDescription(`
@@ -84,7 +84,8 @@ module.exports = {
                 { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
                 { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
             )
-
+            .setColor('GREEN')
+            
         susebao.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()
         }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
