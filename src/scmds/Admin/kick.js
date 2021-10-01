@@ -1,9 +1,9 @@
-const Discord = require("discord.js"); 
+const Discord = require("discord.js");
 
 module.exports = {
     name: 'expulsar',
-    aliases: ['kick'], 
-    categories : 'Admin', 
+    aliases: ['kick'],
+    categories: 'Admin',
     description: 'Comando para expulsar um membro.',
     usage: '',
     options: [
@@ -20,34 +20,37 @@ module.exports = {
             required: true
         },
     ],
-    run: async(client, interaction) => {
+    run: async (client, interaction) => {
         const member = interaction.options.get("usuario").member
-  
+
         if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.editReply("Permissões insuficientes!") // caso o membro não possua a permissão 'EXPULSAR_MEMBROS', vamos botar o erro
-    
-       
-        if (!member) return interaction.editReply("digite **t.kick (usuário) (motivo)**, caso queira expulsar alguém.") // caso o autor esqueça de mencionar um membro, vamos dar o erro
-        if (!member.kickable) return interaction.editReply("não é possível punir esse usuário.") // caso o membro tenha um cargo acima do seu bot, ele não vai expulsar
+
+
+        if (!member) return interaction.editReply("Digite **/kick (usuário) (motivo)**, caso queira expulsar alguém.") // caso o autor esqueça de mencionar um membro, vamos dar o erro
+        if (!member.kickable) return interaction.editReply("Não é possível expulsar esse usuário.")
         let reason = interaction.options.get("motivo")
-        if (!reason) reason = "Nenhuma razão fornecida." // caso nao haja, daremos com tal mensagem
-    
-    
-    
-       
-    
+        if (!reason) reason = "Nenhum motivo fornecido." // caso nao haja, daremos com tal mensagem
+
         await member.kick({
             reason
-        }) // finalizando com o kick vai ser assim smm xau
-    console.log(member.username + " foi expulso")
-          let pEmbed = new Discord.MessageEmbed()
-              .setTitle("<:grade:839619780654006274> EXPULSÃO!")
-              .setDescription(`<:alerta_h:854929287525957642> ➠ **Usuário expulso:** ${member.user.tag} \n <:3857_pepe_police:854927430850445313> ➠ **Expulso por:** ${interaction.user.tag} \n <:NetherStart:859788804789108797> ➠ **Motivo:** ${reason}`)
-              .setFooter(`Autor: ${interaction.user.tag}`, interaction.user.displayAvatarURL)
-              .setColor("ORANGE")
-          
+        })
+        console.log(member.username + " foi expulso")
+        let pEmbed = new Discord.MessageEmbed()
+            .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
+            .setDescription(`${member.toString()} foi expulso(a) por ${interaction.member.toString()}.
+        Motivo: \`${reason}\``)
+            .setColor(`RED`)
         interaction.guild.channels.cache.get(`844251449391448085`).send(pEmbed);
-    
+
+        member.send({
+            embeds: [new MessageEmbed()
+                .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
+                .setDescription(`Você foi expulso(a) por ${interaction.member.toString()}.
+                Motivo: \`${reason}\``)
+                .setColor(`RED`)]
+        }).catch(a => { return message.channel.send(`Impossivel mandar mensagens na DM deste usuario para notifica-lo!`) });
+
         interaction.channel.send("Usuário expulso com sucesso!")
-    
+
     }
 }
