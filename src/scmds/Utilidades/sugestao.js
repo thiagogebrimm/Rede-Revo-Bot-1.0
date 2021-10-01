@@ -103,7 +103,7 @@ module.exports = {
                             messageId: f.id
                         })
                         const thread = await client.channels.cache.get(config.channels.sugestao).threads.create({
-                            name: S.dataValues.pergunta01,
+                            name: S.dataValues.pergunta01.slice(0, 95),
                             autoArchiveDuration: 1440,
                             reason: 'Sugestão \'-\''
                         });
