@@ -58,7 +58,6 @@ module.exports = {
              
              **Sugestão implementada**: \`\`\`${findUser.pergunta01}\`\`\`
              **Motivo para implementar**: \`${findUser.pergunta02}\`
-
              `)
 
         let embedchat = new MessageEmbed()
