@@ -56,8 +56,7 @@ module.exports = {
             .setTitle(`<a:Check_Revo:845556618837098506> Sua sugestão foi implementada <a:Check_Revo:845556618837098506>`)
             .setDescription(`
              
-             **Sugestão implementada**: \`${findUser.pergunta01}\`
-             
+             **Sugestão implementada**: \`\`\`${findUser.pergunta01}\`\`\`
              **Motivo para implementar**: \`${findUser.pergunta02}\`
 
              `)
@@ -67,7 +66,7 @@ module.exports = {
             .setDescription(`
             **Sugestão feita por** ${susebao.tag}
             
-            **Sugestão implementada**: \`${findUser.pergunta01}\`
+            **Sugestão implementada**: \`\`\`${findUser.pergunta01}\`\`\`
             **Motivo para implementar**: \`${findUser.pergunta02}\`
             `)
 

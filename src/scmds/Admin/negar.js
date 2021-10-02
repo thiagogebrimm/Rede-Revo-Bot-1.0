@@ -62,8 +62,8 @@ module.exports = {
             .setTitle(`<:NAO_Revo:893295026203918358> Sua sugestão foi negada <:NAO_Revo:893295026203918358>`)
             .setDescription(`
              
-             **Sugestão negada**: \`${findUser.pergunta01}\`.
-             **Motivo para implementar**: \`${findUser.pergunta02}\`.
+             **Sugestão negada**: \`\`\`${findUser.pergunta01}\`\`\`
+             **Motivo para implementar**: \`${findUser.pergunta02}\`
 
              \`\`\`💭 Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.\`\`\`
              `)
@@ -77,8 +77,7 @@ module.exports = {
             .setDescription(`
             **Sugestão feita por** ${susebao.tag}
             
-            **Sugestão negada**: \`${findUser.pergunta01}\`
-            
+            **Sugestão negada**: \`\`\`${findUser.pergunta01}\`\`\`
             **Motivo para implementar**: \`${findUser.pergunta02}\`
             `)
             .addFields(
