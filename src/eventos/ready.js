@@ -3,9 +3,9 @@ const util = require("minecraft-server-util");
 const Sus = require("../db/Models/Sugestao")
 const SusEBao = require("../db/DatabaseLogin")
 
-const { Client, MessageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 
-module.exports = (bot, message) => {
+module.exports = (bot) => {
 
   SusEBao.authenticate().then((result) => {
     console.log("DB iniciada.")
