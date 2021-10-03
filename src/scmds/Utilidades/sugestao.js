@@ -30,9 +30,9 @@ module.exports = {
 
 
         var bope = true;
-        const findU = await Sus.findAndCountAll().then(f => f.count)
-
-        if (findU === 5) return interaction.editReply({
+        const findU = await Sus.findAndCountAll({where: {autor: interaction.user.id}}).then(f => f.count)
+        console.log(findU)
+        if (findU >= 5) return interaction.editReply({
             embeds: [embed]
         })
 
