@@ -90,8 +90,8 @@ module.exports = {
                         .setDescription(`
                     **Sugestão feita por** <@${interaction.member.id}>
                     
-                    **Minha sugestão é**: \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
-                    **Motivo para implementar**: \`${S.dataValues.pergunta02}\`
+                    ▫️ Minha sugestão é: \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
+                    Motivo para implementar: \`${S.dataValues.pergunta02}\`
                     `)
                         .setColor('GREEN');
                     client.channels.cache.get(config.channels.sugestao).send({

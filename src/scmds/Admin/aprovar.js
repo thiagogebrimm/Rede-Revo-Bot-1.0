@@ -62,8 +62,8 @@ module.exports = {
             .setTitle(`<:SIM_Revo:893295026325581854> Sua sugestão foi aprovada <:SIM_Revo:893295026325581854>`)
             .setDescription(`
              
-             **Sugestão aprovada**: \`\`\`${findUser.pergunta01}\`\`\`
-             **Motivo para implementar**: \`${findUser.pergunta02}\`
+             ▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
+             Motivo para implementar: \`${findUser.pergunta02}\`
 
              \`\`\`💭 Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.\`\`\`
              `)
@@ -77,8 +77,8 @@ module.exports = {
             .setDescription(`
             **Sugestão feita por** ${susebao.tag}
             
-            **Sugestão aprovada**: \`\`\`${findUser.pergunta01}\`\`\`
-            **Motivo para implementar**: \`${findUser.pergunta02}\`
+            ▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
+            Motivo para implementar: \`${findUser.pergunta02}\`
             `)
             .addFields(
                 { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
