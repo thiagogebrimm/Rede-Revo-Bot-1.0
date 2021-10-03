@@ -1,7 +1,4 @@
 const { MessageEmbed } = require('discord.js');
-
-const config = require('../../../config')
-
 const Sus = require('../../db/Models/Sugestao')
 
 module.exports = {
