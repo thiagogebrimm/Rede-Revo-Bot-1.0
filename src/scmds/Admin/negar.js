@@ -35,7 +35,6 @@ module.exports = {
         votosP = (votosP - 1);
         let votosN = (await msg.fetch(true)).reactions.cache.get('893295026203918358').count
         votosN = (votosN - 1);
-        console.log(votosP, votosN)
         interaction.followUp({
             content: `Negado!`
         })
@@ -65,7 +64,7 @@ module.exports = {
              ▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
              Motivo para implementar: \`${findUser.pergunta02}\`
 
-             \`\`\`💭 Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.\`\`\`
+             💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.**
              `)
             .addFields(
                 { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
