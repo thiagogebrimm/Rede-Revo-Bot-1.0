@@ -34,7 +34,7 @@ module.exports = {
         interaction.guild.channels.cache.find(x => x.id === '849452824970264626').send({
             embeds: [new MessageEmbed()
                 .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
-                .setDescription(`${member.toString()} foi expulso(a) por ${interaction.member.toString()}.
+                .setDescription(`\`${member.user.tag.toString()}\` foi expulso(a) por ${interaction.member.toString()}.
             Motivo: \`${reason}\``)
                 .setColor(`RED`)]
         });
@@ -50,7 +50,11 @@ module.exports = {
             reason
         })
 
-        interaction.editReply("Usuário expulso com sucesso!")
+        interaction.editReply({
+            embeds: [new MessageEmbed()
+                .setColor(`RED`)
+                .setDescription(`\`${member.user.username.toString()}\` foi expulso!`)]
+        });
 
     }
 }

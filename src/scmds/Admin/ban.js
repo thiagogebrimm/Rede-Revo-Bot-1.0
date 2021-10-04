@@ -1,15 +1,16 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: 'banir',
-    description: 'Comando pra punir os meliante :>',
+    name: 'ban',
+    aliases: ['banir'],
+    category: 'Admin',
+    description: 'Banir um membro',
     usage: '',
     needPermissions: true,
     permissionsNeeded: ['BAN_MEMBERS'],
     options: [
         {
-            name: "usuario",
+            name: "membro",
             type: "USER",
             required: true,
             description: "Quem é o meliante que devo banir?"
@@ -17,60 +18,60 @@ module.exports = {
         {
             name: "motivo",
             type: "STRING",
-            required: false,
+            required: true,
             description: "Motivo do meliante ser banido?"
         }
     ],
-     /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
-      run: async(client, interaction, args) => {
+    run: async (client, interaction, args) => {
         if (!interaction.member.permissions.has(['BAN_MEMBERS'])) return;
-        const member = interaction.options.getMember("usuario", true)
-       if (!member) {
-           interaction.editReply({ embeds: [new MessageEmbed()
-           .setDescription(`Você deve mencionar um meliante válido.`)
-           .setColor(`RED`)]})
-   
-       } else {
-           let reason = interaction.options.get("motivo")?.value
-           if (!reason) reason = 'Nenhum motivo especificado.'
-           else {
-               reason = args.slice(1).join(' ');
-           }
-   
-           interaction.editReply({embeds:[new MessageEmbed()
-           .setColor(`RED`)
-           .setDescription(`O meliante ${member.user.username.toString()} foi punido!`)]});
-       
-            
-               if (member.user.id !== interaction.user.id) {
-                    if (member.bannable) {
-                        console.log("DaPaBanir")
-                           const { guild } = interaction;
-                           try {
-                           await member.user.send({embeds:[new MessageEmbed()
-                           .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
-                           .setDescription(`Você foi banido(a) por ${interaction.member.toString()}.\nMotivo: \`${reason}\``)
-                           .setColor(`RED`)]});
-                        } catch(error) {
-                            console.log(error.message)
-                        }
-                           await interaction.guild.channels.cache.find(x => x.id === '849452824970264626')?.send({embeds:[new MessageEmbed()
-                           .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
-                           .setDescription(`${member.user.username.toString()} foi banido(a) por ${interaction.member.toString()}.\nMotivo: \`${reason}\``)
-                           .setColor(`RED`)]});
+        const member = interaction.options.getMember("membro", true)
+        if (!member) {
+            interaction.editReply({
+                embeds: [new MessageEmbed()
+                    .setDescription(`Você deve mencionar um membro válido.`)
+                    .setColor(`RED`)]
+            })
 
-                           let a = await member.ban({ reason: reason })
+        } else {
+            let reason = interaction.options.get("motivo")?.value
+            if (!reason) reason = 'Nenhum motivo especificado.'
+            else {
+                reason = args.slice(1).join(' ');
+            }
 
-                           console.log(a)
-                        
+            interaction.editReply({
+                embeds: [new MessageEmbed()
+                    .setColor(`RED`)
+                    .setDescription(`\`${member.user.username.toString()}\` foi banido!`)]
+            });
 
-                   } else return interaction.editReply("Não foi possivel banir o usuario.")
-               }
-           }
-       
-      }
+
+            if (member.user.id !== interaction.user.id) {
+                if (member.bannable) {
+                    const { guild } = interaction;
+
+                    await member.user.send({
+                        embeds: [new MessageEmbed()
+                            .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
+                            .setDescription(`Você foi banido(a) por ${interaction.member.toString()}.
+                           Motivo: \`${reason}\``)
+                            .setColor(`RED`)]
+                    }).catch(a => { return interaction.channel.send(`Impossivel mandar mensagens na DM deste usuario para notifica-lo!`) });
+
+                    await interaction.guild.channels.cache.find(x => x.id === '849452824970264626')?.send({
+                        embeds: [new MessageEmbed()
+                            .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
+                            .setDescription(`\`${member.user.tag.toString()}\` foi banido(a) por ${interaction.member.toString()}.
+                           Motivo: \`${reason}\``)
+                            .setColor(`RED`)]
+                    });
+
+                    await member.ban({ reason: reason })
+
+
+                } else return interaction.editReply("Não foi possivel banir o usuario.")
+            }
+        }
+
     }
+}
