@@ -49,8 +49,8 @@ module.exports = {
             .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
             .setDescription('Qual é a sugestão?')
 
-        DM.send({ embeds: [embed] }).catch((err) => {
-            bope === false
+        await DM.send({ embeds: [embed] }).catch((err) => {
+            bope = false
             embed
                 .setTitle('<:NAO_Revo:893295026203918358> | Sugestão')
                 .setDescription('Não foi possivel te contatar em seu privado, caso esteja fechado abra ele.')
@@ -65,12 +65,11 @@ module.exports = {
             const col = DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 })
             col.on('collect', async (m) => {
                 let sugestao = m.content;
-
                 embed
                     .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
                     .setDescription('Porque devemos aceitar a sugestão?');
                 DM.send({ embeds: [embed] });
-                DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id }).on('collect', async (m) => {
+                DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
                     let motivo = m.content;
 
                     embed
@@ -101,7 +100,7 @@ module.exports = {
                         S.update({
                             messageId: f.id
                         })
-                        const thread = await client.channels.cache.get(config.channels.sugestao).threads.create({
+                        client.channels.cache.get(config.channels.sugestao).threads.create({
                             name: S.dataValues.pergunta01.slice(0, 95),
                             autoArchiveDuration: 1440,
                             reason: 'Sugestão \'-\'',
