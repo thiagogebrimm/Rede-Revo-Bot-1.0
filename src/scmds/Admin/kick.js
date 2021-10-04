@@ -1,8 +1,8 @@
-const Discord = require("discord.js");
+const { MessageEmbed } = require("discord.js")
 
 module.exports = {
-    name: 'expulsar',
-    aliases: ['kick'],
+    name: 'kick',
+    aliases: ['expulsar'],
     categories: 'Admin',
     description: 'Comando para expulsar um membro.',
     usage: '',
@@ -16,7 +16,7 @@ module.exports = {
         {
             name: "motivo",
             type: "STRING",
-            description: "Selecione o porque o usuario deve ser expulso!",
+            description: "Diga o porque o usuario deve ser expulso!",
             required: true
         },
     ],
@@ -28,29 +28,29 @@ module.exports = {
 
         if (!member) return interaction.editReply("Digite **/kick (usuário) (motivo)**, caso queira expulsar alguém.") // caso o autor esqueça de mencionar um membro, vamos dar o erro
         if (!member.kickable) return interaction.editReply("Não é possível expulsar esse usuário.")
-        let reason = interaction.options.get("motivo")
+        let reason = interaction.options.getString("motivo")
         if (!reason) reason = "Nenhum motivo fornecido." // caso nao haja, daremos com tal mensagem
 
-        await member.kick({
-            reason
-        })
-        console.log(member.username + " foi expulso")
-        let pEmbed = new Discord.MessageEmbed()
-            .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
-            .setDescription(`${member.toString()} foi expulso(a) por ${interaction.member.toString()}.
-        Motivo: \`${reason}\``)
-            .setColor(`RED`)
-        interaction.guild.channels.cache.get(`844251449391448085`).send(pEmbed);
-
-        member.send({
+        interaction.guild.channels.cache.find(x => x.id === '849452824970264626').send({
+            embeds: [new MessageEmbed()
+                .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
+                .setDescription(`${member.toString()} foi expulso(a) por ${interaction.member.toString()}.
+            Motivo: \`${reason}\``)
+                .setColor(`RED`)]
+        });
+        await member.send({
             embeds: [new MessageEmbed()
                 .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
                 .setDescription(`Você foi expulso(a) por ${interaction.member.toString()}.
                 Motivo: \`${reason}\``)
                 .setColor(`RED`)]
-        }).catch(a => { return message.channel.send(`Impossivel mandar mensagens na DM deste usuario para notifica-lo!`) });
+        }).catch(a => { return interaction.channel.send(`Impossivel mandar mensagens na DM deste usuario para notifica-lo!`) });
 
-        interaction.channel.send("Usuário expulso com sucesso!")
+        await member.kick({
+            reason
+        })
+
+        interaction.editReply("Usuário expulso com sucesso!")
 
     }
 }
