@@ -5,9 +5,9 @@ let moment = require("moment")
 
 module.exports = {
     name: 'atualizar',
+    category: 'Admin',
     description: 'Postar uma atualização',
     usage: '',
-
     run: async (client, interaction) => {
         var b;
         if (!interaction.member.permissions.has(['MANAGE_CHANNELS'])) return;

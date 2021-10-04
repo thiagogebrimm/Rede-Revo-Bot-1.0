@@ -8,20 +8,20 @@ module.exports = {
     usage: '',
     options: [
         {
-            name: "usuario",
+            name: "membro",
             type: "USER",
-            description: "Selecione o usuario para expulso!",
+            description: "Selecione o membro que será expulso!",
             required: true
         },
         {
             name: "motivo",
             type: "STRING",
-            description: "Diga o porque o usuario deve ser expulso!",
+            description: "Diga o porque o membro deve ser expulso!",
             required: true
         },
     ],
     run: async (client, interaction) => {
-        const member = interaction.options.get("usuario").member
+        const member = interaction.options.get("membro").member
 
         if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.editReply("Permissões insuficientes!") // caso o membro não possua a permissão 'EXPULSAR_MEMBROS', vamos botar o erro
 
