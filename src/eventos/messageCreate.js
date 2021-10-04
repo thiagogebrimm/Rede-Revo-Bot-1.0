@@ -3,42 +3,42 @@ const { owners, prefix, prefix2 } = require('../../config');
 
 module.exports = async (bot, message) => {
 
-//Responde o chat ajuda
-for(let ips of ['o ip', 'O ip', 'O IP'])
-if (message.channel.id === "859610016244170752") {
-    if (message.content.includes (ips))
-        message.lineReply(`rederevo.com`);
-    };
+    //Responde o chat ajuda
+    for (let ips of ['o ip', 'O ip', 'O IP'])
+        if (message.channel.id === "859610016244170752") {
+            if (message.content.includes(ips))
+                message.lineReply(`rederevo.com`);
+        };
 
-//Bloqueia o mídias
-if (message.channel.id === "845501522166153226") {   
-    if (message.author.bot) return;
-    if (message.content.includes('.png')) return false;
-    if (message.content.includes('.jpg')) return false;
-    if (message.content.includes('.jpeg')) return false;
-    if (message.content.includes('prnt.sc')) return false;
+    //Bloqueia o mídias
+    if (message.channel.id === "845501522166153226") {
+        if (message.author.bot) return;
+        if (message.content.includes('.png')) return false;
+        if (message.content.includes('.jpg')) return false;
+        if (message.content.includes('.jpeg')) return false;
+        if (message.content.includes('prnt.sc')) return false;
         await message.react('<:Upvote_Revo:881685398114426940>')
         await message.react('<:Downvote_Revo:881685397976010783>')
-    if (message.attachments.size == 0) message.delete({ timeout: 5 * 100 }, message.author.send(`❌ | Você não pode enviar mensagens de texto no canal de mídias`)
-    .catch(a => {return message.guild.channels.cache.find(x => x.id === '793599388420800543').send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)}))
-};
+        if (message.attachments.size == 0) message.delete({ timeout: 5 * 100 }, message.author.send(`❌ | Você não pode enviar mensagens de texto no canal de mídias`)
+            .catch(a => { return message.guild.channels.cache.find(x => x.id === '793599388420800543').send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`) }))
+    };
 
-//Bloqueia Links
-for(let links of ['discord.gg/', 'discord.com/invite/'])
-    if(message.content.includes(links)) {
-    if (message.member.permissions.has('KICK_MEMBERS')) return false;
-    if (message.content.includes('discord.gg/rederevo')) return false;
-    message.delete()
-      .then(message.channel.send(`**Links não são permitidos em nosso discord** ${message.author}**.**` ))
-  };
+    //Bloqueia Links
+    for (let links of ['discord.gg/', 'discord.com/invite/'])
+        if (message.content.includes(links)) {
+            if (message.member.permissions.has('KICK_MEMBERS')) return false;
+            if (message.content.includes('discord.gg/rederevo')) return false;
+            message.delete()
+                .then(message.channel.send(`**Links não são permitidos em nosso discord** ${message.author}**.**`))
+        };
 
-//Reage nos boosters
-if (message.channel.id === "793280024060362752") { //Booster
-    await message.react('<a:PurpHeart_Revo:852621966325186562>')
+    //Reage nos boosters
+    if (message.channel.id === "793280024060362752") { //Booster
+        await message.react('<a:PurpHeart_Revo:852621966325186562>')
     };
 
 
-//Controlador 
+    //Controlador 
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix) || !message.content.startsWith(prefix2)) return;
     const args = message.content.split(/ +/g);
@@ -54,11 +54,11 @@ if (message.channel.id === "793280024060362752") { //Booster
     if (!cmd) return;
     if (message.guild && !message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
 
-    if (cmd.requirements.ownerOnly && !owners.includes(message.author.id)) 
+    if (cmd.requirements.ownerOnly && !owners.includes(message.author.id))
         return message.channel.send(`<@${message.member.id}>`, new MessageEmbed()
-        .setColor(`36393e`)
-        .setDescription(`Este comando está reservado para autoridades do bot.`)
-    );
+            .setColor(`36393e`)
+            .setDescription(`Este comando está reservado para autoridades do bot.`)
+        );
 
     if (cmd.limits) {
         const current = bot.limits.get(`${command}-${message.author.id}`);
@@ -74,9 +74,9 @@ if (message.channel.id === "793280024060362752") { //Booster
         }, cmd.limits.cooldown);
     }
 
-    if(message.guild == null) return;
+    if (message.guild == null) return;
 
-        if (cmd && ['846189183550881792', '848297922365751367', '845555957601796137', '793599388420800543', '793284851889209355'].includes(message.channel.id) || message.member.permissions.has('MANAGE_MESSAGES')) {
-            cmd.run(bot, message, args)
-        }
+    if (cmd && ['846189183550881792'].includes(message.channel.id) || message.member.permissions.has('MANAGE_MESSAGES')) {
+        cmd.run(bot, message, args)
+    }
 }
