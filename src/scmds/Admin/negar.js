@@ -90,6 +90,6 @@ module.exports = {
         }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
 
         interaction.guild.channels.cache.find(x => x.id === '893370741611974656').send({ embeds: [embedchat] })
-
+        msg.delete()
     }
 }
