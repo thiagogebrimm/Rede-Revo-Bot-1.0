@@ -15,12 +15,12 @@ module.exports = {
         }
     ],
 
-    run: async (client, interaction) => {
+    run: async (bot, interaction) => {
         if (!interaction.member.permissions.has("MANAGE_MESSAGES")) return interaction.editReply(`Você não tem permissão para isso.`) // caso o autor nao possua, vamos dar o erro
 
         let clean = interaction.options.get("quantia").value
         // caso o membro bote um numero menor que 2, ou maior que 100, pediremos um numero acima
-        if (clean < 2 || clean > 100) return interaction.editReply(`Escreva um número de: \`2 à 100\` >:v.`)
+        if (clean < 2 || clean > 100) return interaction.editReply(`Escreva um número de: \`2 à 100\`.`)
         // caso o membro não escreva um numero
         try { // utilizando a function 'try', traduzindo: tentar
             const valor = await interaction.channel.messages.fetch({
@@ -31,7 +31,7 @@ module.exports = {
             interaction.channel.bulkDelete(clean) // tentaremos deletar a quantia que o membro pediu
             // enviando uma embed
             let logfeito = new Discord.MessageEmbed()
-                .setDescription(`O staff ${interaction.member.toString()} teve êxito em apagar **** mensagens no canal ${interaction.channel.toString()}.`)
+                .setDescription(`O staff ${interaction.member.toString()} teve êxito em apagar \`${valor.length}\` mensagens no canal ${interaction.channel.toString()}.`)
                 .setColor(`GREEN`)
             let embed = new Discord.MessageEmbed()
                 .setTitle(`<:PepoLixo_Revo:893232516088070175> LIMPO!`)
