@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
+moment.locale('pt-br');
 
 module.exports = (bot, member) => {
     let canalentrada = member.guild.channels.cache.find(x => x.id === '793278937232965632')
@@ -21,7 +22,7 @@ module.exports = (bot, member) => {
     canallog.send({
         embeds: [new MessageEmbed()
             .setAuthor(`Nova entrada no Discord`, member.user.displayAvatarURL({ dynamic: true }))
-            .setDescription(`${member.user} **entrou em nosso discord, sua conta foi criada em:** ${moment(member.user.createdTimestamp).utc(-3).format('DD[/]MM[/]YYYY [ás] HH:mm')}`)
+            .setDescription(`${member.user} **entrou em nosso discord, sua conta foi criada em:** ${moment(member.user.createdTimestamp).utc(-3).format('DD[/]MM[/]YYYY [ás] HH:mm')} (${moment(member.user.createdTimestamp).utc(-3).fromNow()})`)
             .setTimestamp(member.joinedTimestamp)
             .setFooter(`${member.user.tag}`)
             .setColor(`GREEN`)]
