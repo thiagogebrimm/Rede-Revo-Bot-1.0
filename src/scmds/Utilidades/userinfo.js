@@ -1,7 +1,6 @@
 const moment = require('moment')
 
 const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
 
 module.exports = {
     name: 'userinfo',
@@ -17,11 +16,6 @@ module.exports = {
         description:"Escollha um usuario"
       }
     ],
-     /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
       run: async(client, interaction, args) => {
         const member = interaction.options.getMember("user") || interaction.member
       
@@ -50,7 +44,7 @@ module.exports = {
           let obj = { false: 'Não', true: 'Sim' }
     
     
-      const infoEmbed = new Discord.MessageEmbed()
+      const infoEmbed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle(`Informações sobre ${member.user.username}`)
       .setThumbnail(member.user.avatarURL({dynamic: true}))
