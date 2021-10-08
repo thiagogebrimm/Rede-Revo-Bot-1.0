@@ -36,7 +36,7 @@ module.exports = (bot) => {
           Motd: **${sv.description.toRaw()}**
           
           Versões JAR: \`${sv.version.replace('Waterfall ', '')}\`
-          Versões BEDROCK: \`${bed.version}\`
+          Versões BEDROCK: \`da ${bed.version} até a mais recente\`
 
           Players: **${sv.onlinePlayers}/${sv.maxPlayers}**`)
               .setColor('RED')
