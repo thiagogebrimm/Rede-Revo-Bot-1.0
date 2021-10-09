@@ -12,6 +12,7 @@ module.exports = (bot, messageDelete) => {
     .setFooter(`Mensagem ID: ${messageDelete.id}`, messageDelete.author.avatarURL({ dynamic: true }));
 
   const DeleteChannel = messageDelete.guild.channels.cache.find(x => x.id === "793599388420800543");
+  if (messageDelete.author.bot) return;
   if (DeleteChannel) return DeleteChannel.send({
     embeds: [DeleteEmbed]
   });
