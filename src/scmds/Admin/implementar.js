@@ -17,7 +17,7 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
-        if (interaction.channelId !== '893293613851758603') return await interaction.editReply('Aqui não é o canal correto.')
+        if (interaction.channelId !== '893370707466149898') return await interaction.editReply('Aqui não é o canal correto.')
         if (!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
 
         const findUser = await Sus.findOne({
@@ -73,5 +73,6 @@ module.exports = {
 
         interaction.guild.channels.cache.find(x => x.id === '893370899905003520').send({ embeds: [embedchat] })
 
+        msg.delete()
     }
 }
