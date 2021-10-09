@@ -38,7 +38,7 @@ module.exports = {
                     interaction.guild.channels.cache.find(x => x.id === '845531157990866974').send({
                         content: `<@&795509113307004938>`, embeds: [new MessageEmbed()
                             .setTitle(`${hora}`)
-                            .setColor(`0000ff`)
+                            .setColor(`0094ff`)
                             .setAuthor(`Atualização feita por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
                             .setDescription(`${r1}`)
                             .setThumbnail('https://i.imgur.com/05cb5lZ.png')
