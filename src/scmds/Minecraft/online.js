@@ -20,7 +20,7 @@ module.exports = {
           .setDescription(`
                          Total de jogadores:  \`${response.onlinePlayers}/${response.maxPlayers}\`\n
                          Versões JAR: \`${response.version.replace('Waterfall ', '')}\`
-                         Versões BEDROCK: \`${bed.version}\``)
+                         Versões BEDROCK: \`da ${bed.version} até a mais recente\``)
           .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
           .setTimestamp(interaction.createdAt)
           .setFooter(`${interaction.user.tag}`, interaction.user.avatarURL({ dynamic: true }))
