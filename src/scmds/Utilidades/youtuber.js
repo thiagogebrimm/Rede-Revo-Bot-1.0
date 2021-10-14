@@ -27,16 +27,17 @@ module.exports = {
       **YT:**
       - Aviso de entrada destacada no lobby
       - Possibilidade de definir **10** homes
+      - Pode falar utilizando cores no servidor
+      - Sem delay para se teleportar
       - **300** cash por vídeo semanal caso a parceria seja cumprida corretamente
-      - Comando de divulgação exclusivo dentro do servidor
+      - Comando de divulgação exclusivo dentro do servidor \´/divulgar\´
       - Acesso ao <#795426717132390441>
       
       **YT+:**
-      - Aviso de entrada destacada no lobby
-      - Possibilidade de definir **10** homes
+      - Vantagens do YT
       - **500** cash por vídeo semanal caso a parceria seja cumprida corretamente
-      - Comando de divulgação exclusivo dentro do servidor
-      - Acesso ao <#795426717132390441>
+      - Acesso ao \´/fly\´ dentro de proteções
+      - Acesso ao \`/back\´
       
       Cumpre os requisitos acima? Favor abrir um #📩・ticket pra autenticar a parceria.
       
