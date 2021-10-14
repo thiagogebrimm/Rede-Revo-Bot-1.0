@@ -41,7 +41,7 @@ module.exports = {
     testedUser.roles.remove(role.id)
     let staff = interaction.guild.roles.cache.find(r => r.id === "852039893207351328")
     testedUser.roles.remove(staff)
-    let hora = moment().format("D [de] MMM [de] YYYY, [às] hh:mm");
+    let hora = moment().format("D [de] MMM [de] YYYY, [às] HH:mm");
     const cu = new MessageEmbed()
       .setTitle(`**Alteração na equipe**`)
       .setColor("#ff0000")
