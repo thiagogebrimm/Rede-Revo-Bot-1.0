@@ -40,7 +40,7 @@ module.exports = {
                             .setTitle(`${hora}`)
                             .setColor(`0094ff`)
                             .setDescription(`${r1}`)
-                            .setThumbnail('https://i.imgur.com/05cb5lZ.png')
+                            .setThumbnail('https://i.imgur.com/27xTVaF.png')
                             .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))]
                     }).then(async () => {
                         interaction.user.send({
