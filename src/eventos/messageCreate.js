@@ -21,7 +21,8 @@ module.exports = async (bot, message) => {
         await message.react('<:Downvote_Revo:881685397976010783>')
         if (message.attachments.size == 0) message.delete({ timeout: 5 * 100 }, message.author.send(`❌ | Você não pode enviar mensagens de texto no canal de mídias`)
             .catch(a => {
-                return message.guild.channels.cache.find(x => x.id === '793599388420800543').send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)
+                return message.guild.channels.cache.find(x => x.id === '793599388420800543')
+                .send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)
             }))
     };
 
