@@ -86,7 +86,7 @@ module.exports = {
                     embed
                         .setTitle('<a:Sino_Revo:849415817502523412> | Nova Sugestão')
                         .setDescription(`
-                    **Sugestão feita por** <@${interaction.member.id}>
+                    **Sugestão feita por** \`${interaction.member.displayName}\`
                     
                     ▫️ Minha sugestão é: \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
                     Motivo para implementar: \`${S.dataValues.pergunta02}\`

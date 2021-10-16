@@ -45,7 +45,7 @@ module.exports = {
     const cu = new MessageEmbed()
       .setTitle(`**Alteração na equipe**`)
       .setColor("#ff0000")
-      .setDescription(`O jogador **<@${testedUser.id}>** não integra mais na equipe como **${role}**
+      .setDescription(`O jogador **<@${testedUser.displayName}>** não integra mais na equipe como **${role}**
         
         \`${hora}\``)
       .setThumbnail(interaction.guild.iconURL)
