@@ -28,14 +28,14 @@ module.exports = {
       - Pode falar utilizando cores no servidor
       - Sem delay para se teleportar
       - **300** de cash por semana
-      - Comando de divulgação exclusivo dentro do servidor \´/divulgar\´
+      - Comando de divulgação exclusivo dentro do servidor \`/divulgar\`
       - Acesso ao <#795426717132390441>
 
       **Streamer+:**
       - Vantagens do Streamer
       - **500** de cash por semana
-      - Acesso ao \´/fly\´ dentro de proteções
-      - Acesso ao \`/back\´
+      - Acesso ao \`/fly\` dentro de proteções
+      - Acesso ao \`/back\`
       
       Cumpre os requisitos acima? Favor abrir um #📩・ticket pra autenticar a parceria.
       

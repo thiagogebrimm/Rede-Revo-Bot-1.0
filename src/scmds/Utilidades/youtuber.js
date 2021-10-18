@@ -30,14 +30,14 @@ module.exports = {
       - Pode falar utilizando cores no servidor
       - Sem delay para se teleportar
       - **300** cash por vídeo semanal caso a parceria seja cumprida corretamente
-      - Comando de divulgação exclusivo dentro do servidor \´/divulgar\´
+      - Comando de divulgação exclusivo dentro do servidor \`/divulgar\`
       - Acesso ao <#795426717132390441>
       
       **YT+:**
       - Vantagens do YT
       - **500** cash por vídeo semanal caso a parceria seja cumprida corretamente
-      - Acesso ao \´/fly\´ dentro de proteções
-      - Acesso ao \`/back\´
+      - Acesso ao \`/fly\` dentro de proteções
+      - Acesso ao \`/back\`
       
       Cumpre os requisitos acima? Favor abrir um #📩・ticket pra autenticar a parceria.
       
