@@ -5,7 +5,7 @@ module.exports = {
     name: 'evento',
     aliases: [''],
     categories: '',
-    description: 'Comando para agendar um evento',
+    description: 'Agendar um evento',
     usage: '',
 
     run: async (client, interaction) => {
@@ -14,7 +14,17 @@ module.exports = {
         await interaction.user.createDM();
         interaction.user.send({
             embeds: [new MessageEmbed()
-                .setDescription(`Qual evento vai ser agendado?\n\nEventos disponíveis:\n<:Seta_Revo:858912363377721364> **killer** \`(sexta 20h)\`\n<:Seta_Revo:858912363377721364> **arqueiro** \`(domingo 18h)\`\n<:Seta_Revo:858912363377721364> **guerra** \`(sábado 19h)\`\n<:Seta_Revo:858912363377721364> **guerreiro** \`(segunda 20h)\`\n<:Seta_Revo:858912363377721364> **preguerra** \`(terça 19h)\`\n<:Seta_Revo:858912363377721364> **preguerramc** \`(quinta 19h)\`\n<:Seta_Revo:858912363377721364> **prekiller** \`(quarta 20h)\`\n`)
+                .setDescription(`Qual evento vai ser agendado?
+                
+                Eventos disponíveis:
+                <:Seta_Revo:896501293273718864> **killer** \`(sexta 20h)\`
+                <:Seta_Revo:896501293273718864> **arqueiro** \`(domingo 18h)\`
+                <:Seta_Revo:896501293273718864> **guerra** \`(sábado 19h)\`
+                <:Seta_Revo:896501293273718864> **guerreiro** \`(segunda 20h)\`
+                <:Seta_Revo:896501293273718864> **preguerra** \`(terça 19h)\`
+                <:Seta_Revo:896501293273718864> **preguerramc** \`(quinta 19h)\`
+                <:Seta_Revo:896501293273718864> **prekiller** \`(quarta 20h)\`
+                `)
                 .setColor(`BLUE`)]
         }
         ).catch(() => { b = false });
