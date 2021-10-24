@@ -22,10 +22,11 @@ module.exports = {
 
         const findUser = await Sus.findOne({
             where: {
-                messageId: interaction.targetId
+                messageId: interaction.targetId,
+                resolved: true
             }
         })
-        if (!findUser) return await interaction.editReply("Sugestão já aprovada ou não existente.")
+        if (!findUser) return await interaction.editReply("Sugestão não aprovada ou não existente.")
 
         const msg = await interaction.channel.messages.fetch(
             interaction.targetId

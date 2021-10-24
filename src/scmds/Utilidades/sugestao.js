@@ -4,6 +4,8 @@ const config = require('../../../config')
 
 const Sus = require("../../db/Models/Sugestao")
 
+const cd = new Set()
+
 module.exports = {
     name: 'sugerir',
     aliases: [],
@@ -22,6 +24,18 @@ module.exports = {
 
     run: async (client, interaction) => {
 
+        if (cd.has(interaction.user.id)) {
+            interaction.editReply("Você deve esperar 5 minutos para envia uma sugestão novamente.")
+            return;
+        }
+
+        setTimeout(() => {
+            if (cd.has(interaction.user.id)) {
+                cd.delete(interaction.user.id)
+            }
+        }, (5 * 60000) /* 5 = 5 minutos, 60000 = 60 segundos em milisegundos */);
+
+
         var embed = new MessageEmbed()
             .setTitle('<:NAO_Revo:893295026203918358> | Limite de Sugestões')
             .setDescription('Olá, você está limitado á enviar sugestões pois possui 5 sugestões pendentes, espere até um staff responder alguma sugestão sua para fazer uma nova')
@@ -30,7 +44,7 @@ module.exports = {
 
 
         var bope = true;
-        const findU = await Sus.findAndCountAll({where: {autor: interaction.user.id}}).then(f => f.count)
+        const findU = await Sus.findAndCountAll({ where: { autor: interaction.user.id, resolved: false } }).then(f => f.count)
         if (findU >= 5) return interaction.editReply({
             embeds: [embed]
         })
@@ -62,6 +76,7 @@ module.exports = {
         });
         if (bope) {
 
+            cd.add(interaction.user.id);
             const col = DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 })
             col.on('collect', async (m) => {
                 let sugestao = m.content;
@@ -80,7 +95,8 @@ module.exports = {
                     let S = await Sus.create({
                         autor: interaction.user.id,
                         pergunta01: sugestao,
-                        pergunta02: motivo
+                        pergunta02: motivo,
+                        resolved: false
                     });
 
                     embed
@@ -112,7 +128,5 @@ module.exports = {
                 });
             })
         }
-
-
     }
 }

@@ -24,7 +24,8 @@ module.exports = {
 
         const findUser = await Sus.findOne({
             where: {
-                messageId: interaction.targetId
+                messageId: interaction.targetId,
+                resolved: false
             }
         })
         if (!findUser) return await interaction.editReply("Sugestão já aprovada/negada ou não existente.")
@@ -42,7 +43,8 @@ module.exports = {
 
         findUser.update({
             votosPositivo: votosP,
-            votosNegativo: votosN
+            votosNegativo: votosN,
+            resolved: true
         })
 
         /**

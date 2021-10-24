@@ -1,5 +1,5 @@
 const config = require('../../../config')
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed, Client, CommandInteraction } = require('discord.js')
 const Sus = require('../../db/Models/Sugestao')
 
 module.exports = {
@@ -16,7 +16,12 @@ module.exports = {
             permission: true,
         },
     ],
-
+    /**
+     * 
+     * @param {Client} client 
+     * @param {CommandInteraction} interaction 
+     * @returns 
+     */
     run: async (client, interaction) => {
         if (interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
         if (!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
@@ -55,7 +60,7 @@ module.exports = {
          * 
          */
 
-        const susebao = client.users.cache.get(findUser.autor)
+        const susebao = await client.users.fetch(findUser.autor)
 
         let embeddm = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sua sugestão foi negada <:NAO_Revo:893295026203918358>`)
@@ -74,7 +79,7 @@ module.exports = {
         let embedchat = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sugestão Negada <:NAO_Revo:893295026203918358>`)
             .setDescription(`
-            **Sugestão feita por** ${susebao.tag}
+            **Sugestão feita por** ${susebao ? susebao.tag : '<@' + findUser.autor + '>'}
             
             ▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
             Motivo para implementar: \`${findUser.pergunta02}\`
