@@ -21,6 +21,6 @@ module.exports = class Sugestao extends Model {
             tableName: 'Sugestao',
             timestamps: true,
             sequelize
-        }); // testa la
+        });
     }
 }
