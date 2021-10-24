@@ -16,12 +16,6 @@ module.exports = {
             permission: true,
         },
     ],
-    /**
-     * 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @returns 
-     */
     run: async (client, interaction) => {
         if (interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
         if (!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')

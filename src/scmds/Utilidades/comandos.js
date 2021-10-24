@@ -7,11 +7,6 @@ module.exports = {
     category: 'Utilidades',
     description: 'Veja meus comandos',
     usage: '',
-     /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
       run: async(client, interaction, args) => {
         const filter = (reaction, user) => {
             return ['⚒️', '⛏️', '🧊'].includes(reaction.emoji.name) && !user.bot && user.id === 
