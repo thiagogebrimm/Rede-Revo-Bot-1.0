@@ -1,59 +1,67 @@
 const { MessageEmbed } = require('discord.js');
-module.exports.run = async (bot, message, args) => {
-    message.delete({ timeout: 5 * 1000 });
-    if (!message.member.permissions.has(['MANAGE_MESSAGES'])) return message.channel.send('Apenas membros da equipe podem utilizar esté comando.');
-     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-    if (!member) {
-      message.channel.send( new MessageEmbed()
-        .setDescription(`Você deve mencionar um staff válido.`)
-        .setColor(`RED`)
-    );
-    } else {
-        let tarefa;
-        if (!args[1]) tarefa = 'Nenhuma tarefa especificada.'
-        else {
-            tarefa = args.slice(1).join(' ');
-        }
+const Discord = require('discord.js');
 
-        message.channel.send(new MessageEmbed()
-            .setColor(`RED`)
-            .setDescription(`Tarefa adicionada!`)
-        );
-        
-
-        let TarefaEmbed = new MessageEmbed()
-        .setAuthor(`Solicitado por: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-        .setTitle(`Nova Tarefa designada para você`)
-        .setDescription(`${tarefa}`)
-        .setFooter(`Prioridade: EM BREVE`, message.guild.iconURL( {dynamic: true} ))
-        .setColor(`#0000FF`);
-
-        let button = new disbut.MessageButton()
-        .setStyle('red')
-        .setLabel('Marcar como concluida')
-        .setID('delete');
-
-        const msg = await message.guild.channels.cache.find(x => x.id === '845490562290810891').send(`${member}`, {
-            button: button,
-            embed: TarefaEmbed
-            })
-        member.send(msg.url, { embed: TarefaEmbed})
-    }
-        
-}
-
-module.exports.help = {
+module.exports = {
     name: 'tarefa',
-    aliases: [],
-    category: 'Moderation',
-    description: 'Comando utilizado para criar tarefas para a staff.'
-}
+    aliases: [''],
+    categories: '',
+    description: 'Agendar uma tarefa',
+    usage: '',
+    options: [
+        {
+            name: "staff",
+            type: "USER",
+            required: true,
+            description: "Pra qual staff é a tarefa?"
+        },
+        {
+            name: "tarefa",
+            type: "STRING",
+            required: true,
+            description: "Qual é a tarefa?"
+        },
+    ],
+    run: async (client, interaction, args) => {
 
-module.exports.limits = {
-    ratelimit: 3,
-    cooldown: 3e2
-}
+        if (!interaction.member.permissions.has(['MANAGE_MESSAGES'])) return interaction.channel.send('Apenas membros da equipe podem utilizar esté comando.');
+        const member = interaction.options.getMember("staff")
+        if (!member) {
+            interaction.editReply({
+                embeds: [new MessageEmbed()
+                    .setDescription(`Você deve mencionar um staff válido.`)
+                    .setColor(`RED`)]
+            });
+        } else {
+            let tarefa = interaction.options.getString("tarefa")
+            if (!args[1]) tarefa = 'Nenhuma tarefa foi especificada.'
+            else {
+                tarefa = args.slice(1).join(' ');
+            }
 
-module.exports.requirements = {
-    ownerOnly: false
+            interaction.editReply({
+                embeds: [new MessageEmbed()
+                    .setColor(`RED`)
+                    .setDescription(`Tarefa adicionada!`)]
+            });
+
+
+            let TarefaEmbed = new MessageEmbed()
+                .setAuthor(`Solicitado por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
+                .setTitle(`Nova Tarefa designada para você`)
+                .setDescription(`${tarefa}`)
+                .setFooter(`Prioridade: EM BREVE`, interaction.guild.iconURL({ dynamic: true }))
+                .setColor(`#0000FF`);
+
+            let button = new Discord.MessageButton()
+                .setStyle('red')
+                .setLabel('Marcar como concluida')
+                .setCustomId('delete');
+
+            const msg = await interaction.guild.channels.cache.find(x => x.id === '845490562290810891').send({
+                components: `${member}`[new Discord.MessageActionRow().addComponents(button)],
+                embeds: [TarefaEmbed],
+            })
+            member.send(msg.url, { embed: TarefaEmbed })
+        }
+    }
 }

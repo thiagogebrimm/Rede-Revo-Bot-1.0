@@ -63,8 +63,7 @@ module.exports = {
                embeds: [new MessageEmbed()
                 .setColor(`RED`)
                 .setDescription(`Construção solicitada!`)]
-           }
-           );
+           });
    
            let TarefaEmbed = new MessageEmbed()
            .setTitle(`Nova Construção designada para você`)
