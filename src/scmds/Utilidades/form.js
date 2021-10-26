@@ -12,7 +12,7 @@ module.exports = {
       embeds:
         [new MessageEmbed()
           .setAuthor(`APLICAÇÃO PARA STAFF`, `https://cdn.discordapp.com/attachments/758923209264857091/760650649142165514/book.gif`)
-          .setDescription(`Sua aplicação é importante e única, não faça correndo ou de qualquer forma. Nós olhamos sua atividade em jogo, suas denuncias e entre outros comportamentos.
+          .setDescription(`Sua aplicação é importante e única, não faça correndo ou de qualquer forma. Nós olhamos sua atividade em jogo, suas denúncias e entre outros comportamentos.
           
           📌 Caso você seja aprovado, entraremos em contato para uma entrevista completa via Discord.
           `)
