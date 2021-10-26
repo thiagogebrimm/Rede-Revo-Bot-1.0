@@ -1,27 +1,23 @@
-const db = require('quick.db');
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: 'form',
-    aliases: ['formulario'],
-    category: 'Utilidades',
-    description: 'Retorna o link do formulário por meio de um texto clicável',
-    usage: '',
-     /** 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     * @param {String[]} args 
-     */
-      run: async(client, interaction, args) => {
-        let link = db.get(`${message.guild.id}-form.link`);
-        if (link === null) link === 'https://forms.gle/Wj1WZVCBCcN6khUM7';
-    
-            interaction.editReply({embeds: [new MessageEmbed()
-                .setAuthor(`FORMULARIO EXCLUSIVO`, `https://cdn.discordapp.com/attachments/758923209264857091/760650649142165514/book.gif`)
-                .setDescription(`Clique [aqui](${link}) para ser redirecionado ao formulário participativo da equipe.`)
-                .setColor(`36393e`)
-                .setFooter(`Solicitado por ${message.member.user.username}`, message.author.avatarURL({ dynamic: true }))
-                .setTimestamp(Date.now())]})
-      }
-    }
+  name: 'form',
+  aliases: ['formulario'],
+  category: 'Utilidades',
+  description: 'Retorna o link do formulário por meio de um texto clicável',
+  usage: '',
+  run: async (bot, interaction) => {
+    let link = 'https://rederevo.com';
+
+    interaction.editReply({
+      embeds:
+        [new MessageEmbed()
+          .setAuthor(`FORMULARIO EXCLUSIVO`, `https://cdn.discordapp.com/attachments/758923209264857091/760650649142165514/book.gif`)
+          .setDescription(`Clique [aqui](${link}) para ser redirecionado ao formulário participativo da equipe.`)
+          .setColor(`YELLOW`)
+          .setFooter(`Solicitado por ${interaction.member.user.username}`, interaction.user.avatarURL({ dynamic: true }))
+          .setTimestamp(Date.now())
+        ]
+    })
+  }
+}
