@@ -7,7 +7,7 @@ module.exports = async (bot, message) => {
     for (let ips of ['o ip', 'O ip', 'O IP'])
         if (message.channel.id === "859610016244170752") {
             if (message.content.includes(ips))
-                message.lineReply(`rederevo.com`);
+                message.reply(`rederevo.com`);
         };
 
     //Bloqueia o mídias

@@ -10,7 +10,6 @@
   "dependencies": {
     "ascii-table": "^0.0.9",
     "discord-buttons": "^4.0.0",
-    "discord-reply": "^0.1.2",
     "discord.js": "^13.1.0",
     "mc-achievements": "^1.2.0",
     "minecraft-achievement": "0.0.1",
