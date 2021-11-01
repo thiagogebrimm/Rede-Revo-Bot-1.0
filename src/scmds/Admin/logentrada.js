@@ -46,7 +46,7 @@ module.exports = {
     const cu = new MessageEmbed()
       .setTitle(`**Novo integrante na equipe**`)
       .setColor("GREEN")
-      .setDescription(`O jogador **<@${testedUser.displayName}>** agora integra na equipe como **${role}**
+      .setDescription(`O jogador **${testedUser.displayName}** agora integra na equipe como **${role}**
       
                   \`${hora}\``)
       .setThumbnail(interaction.guild.iconURL)
