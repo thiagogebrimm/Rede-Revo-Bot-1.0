@@ -25,7 +25,7 @@ module.exports = {
     run: async (client, interaction) => {
 
         if (cd.has(interaction.user.id)) {
-            interaction.editReply("Você deve esperar 5 minutos para envia uma sugestão novamente.")
+            interaction.editReply("Você deve esperar 5 minutos para enviar uma nova sugestão.")
             return;
         }
 
