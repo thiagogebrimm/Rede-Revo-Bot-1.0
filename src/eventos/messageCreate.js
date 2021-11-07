@@ -4,7 +4,7 @@ const { owners, prefix, prefix2 } = require('../../config');
 module.exports = async (bot, message) => {
 
     //Responde o chat ajuda
-    for (let ips of ['o ip', 'O ip', 'O IP'])
+    for (let ips of ['o ip', 'O ip', 'O IP', 'o IP'])
         if (message.channel.id === "859610016244170752") {
             if (message.content.includes(ips))
                 message.reply(`rederevo.com`);
