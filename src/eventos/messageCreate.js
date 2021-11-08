@@ -27,11 +27,12 @@ module.exports = async (bot, message) => {
     };
 
     //Bloqueia Links
-    for (let links of ['discord.gg/', 'discord.com/invite/', 'https://bit.ly/'])
+    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/'])
         if (message.content.includes(links)) {
             if (message.author.bot) return;
             if (message.member.permissions.has('KICK_MEMBERS')) return false;
             if (message.content.includes('discord.gg/rederevo')) return false;
+            if (message.channel.id === "845501522166153226") return false;
             message.delete()
                 .then(message.channel.send(`**Links não são permitidos em nosso discord** ${message.author}**.**`))
         };
