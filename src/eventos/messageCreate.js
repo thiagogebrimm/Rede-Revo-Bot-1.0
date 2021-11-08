@@ -27,8 +27,9 @@ module.exports = async (bot, message) => {
     };
 
     //Bloqueia Links
-    for (let links of ['discord.gg/', 'discord.com/invite/'])
+    for (let links of ['discord.gg/', 'discord.com/invite/', 'https://bit.ly/'])
         if (message.content.includes(links)) {
+            if (message.author.bot) return;
             if (message.member.permissions.has('KICK_MEMBERS')) return false;
             if (message.content.includes('discord.gg/rederevo')) return false;
             message.delete()
