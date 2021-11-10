@@ -82,7 +82,9 @@ module.exports = {
                 let sugestao = m.content;
                 embed
                     .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
-                    .setDescription('Porque devemos aceitar a sugestão?');
+                    .setDescription(`Porque devemos aceitar a sugestão?
+                    
+                    OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será negada!`);
                 DM.send({ embeds: [embed] });
                 DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
                     let motivo = m.content;
