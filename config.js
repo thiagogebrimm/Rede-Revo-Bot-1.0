@@ -6,6 +6,10 @@ module.exports = {
         {
             name: 'Survival',
             value: 'Survival'
+        },
+        {
+            name: 'Discord',
+            value: 'Discord'
         }
     ],
     channels: {

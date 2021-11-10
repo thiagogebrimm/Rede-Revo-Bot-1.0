@@ -23,6 +23,7 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
+        var servidor = interaction.options.getString("servidor", true)
 
         if (cd.has(interaction.user.id)) {
             interaction.editReply("Você deve esperar 5 minutos para enviar uma nova sugestão.")
@@ -84,7 +85,7 @@ module.exports = {
                     .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
                     .setDescription(`Porque devemos aceitar a sugestão?
                     
-                    OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será negada!`);
+                    \`OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será negada!\``);
                 DM.send({ embeds: [embed] });
                 DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
                     let motivo = m.content;
@@ -102,7 +103,7 @@ module.exports = {
                     });
 
                     embed
-                        .setTitle('<a:Sino_Revo:849415817502523412> | Nova Sugestão')
+                        .setTitle(`<a:Sino_Revo:849415817502523412> | Nova Sugestão para o ${servidor}`)
                         .setDescription(`
                     **Sugestão feita por** \`${interaction.member.displayName}\`
                     
