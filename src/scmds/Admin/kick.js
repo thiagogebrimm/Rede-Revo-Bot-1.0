@@ -23,7 +23,7 @@ module.exports = {
     run: async (client, interaction) => {
         const member = interaction.options.get("membro").member
 
-        if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.editReply("Permissões insuficientes!") // caso o membro não possua a permissão 'EXPULSAR_MEMBROS', vamos botar o erro
+        if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.editReply("Sem permissão para executar esse comando!") // caso o membro não possua a permissão 'EXPULSAR_MEMBROS', vamos botar o erro
 
 
         if (!member) return interaction.editReply("Digite **/kick (usuário) (motivo)**, caso queira expulsar alguém.") // caso o autor esqueça de mencionar um membro, vamos dar o erro

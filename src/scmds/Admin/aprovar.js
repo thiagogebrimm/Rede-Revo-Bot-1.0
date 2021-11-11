@@ -20,7 +20,7 @@ module.exports = {
 
     run: async (client, interaction) => {
         if (interaction.channelId !== config.channels.sugestao) return await interaction.editReply('Aqui não é o canal correto.')
-        if (!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply('Sem permissão')
+        if (!interaction.member.roles.cache.has('793282674827329557')) return interaction.editReply("Sem permissão para executar esse comando!")
 
         const findUser = await Sus.findOne({
             where: {

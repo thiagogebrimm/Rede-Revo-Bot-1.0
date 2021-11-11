@@ -23,7 +23,7 @@ module.exports = {
         }
     ],
     run: async (client, interaction, args) => {
-        if (!interaction.member.permissions.has(['BAN_MEMBERS'])) return;
+        if (!interaction.member.permissions.has(['BAN_MEMBERS'])) return interaction.editReply("Sem permissão para executar esse comando!");
         const member = interaction.options.getMember("membro", true)
         if (!member) {
             interaction.editReply({

@@ -16,7 +16,7 @@ module.exports = {
     ],
 
     run: async (bot, interaction) => {
-        if (!interaction.member.permissions.has("MANAGE_MESSAGES")) return interaction.editReply(`Você não tem permissão para isso.`) // caso o autor nao possua, vamos dar o erro
+        if (!interaction.member.permissions.has("MANAGE_MESSAGES")) return interaction.editReply("Sem permissão para executar esse comando!")
 
         let clean = interaction.options.get("quantia").value
         // caso o membro bote um numero menor que 2, ou maior que 100, pediremos um numero acima

@@ -23,7 +23,7 @@ module.exports = {
     ],
     run: async (client, interaction, args) => {
 
-        if (!interaction.member.permissions.has(['MANAGE_MESSAGES'])) return interaction.channel.send('Apenas membros da equipe podem utilizar esté comando.');
+        if (!interaction.member.permissions.has(['MANAGE_MESSAGES'])) return interaction.editReply("Sem permissão para executar esse comando!");
         const member = interaction.options.getMember("staff")
         if (!member) {
             interaction.editReply({

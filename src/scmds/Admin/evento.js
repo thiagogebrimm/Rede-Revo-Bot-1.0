@@ -10,7 +10,7 @@ module.exports = {
 
     run: async (client, interaction) => {
         var b;
-        if (!interaction.member.permissions.has(['MANAGE_CHANNELS'])) return message.reply("Você não tem permissão")
+        if (!interaction.member.permissions.has(['MANAGE_CHANNELS'])) return interaction.editReply("Sem permissão para executar esse comando!")
         await interaction.user.createDM();
         interaction.user.send({
             embeds: [new MessageEmbed()

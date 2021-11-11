@@ -24,7 +24,7 @@ module.exports = {
     const moment = require("moment")
     moment.locale("pt-BR")
 
-    if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.editReply("Permissões insuficientes!")
+    if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.editReply("Sem permissão para executar esse comando!")
 
     const cchu = new MessageEmbed()
       .setDescription(`Você deve mencionar o usuário e o cargo. Ex: /logentrada @usuário @cargo`)
