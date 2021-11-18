@@ -137,7 +137,7 @@ module.exports = {
                                             .addFields(
                                                 { name: '<:PepoSeiLa_Revo:846192575290408990> **Como funciona o evento?**', value: 'Jogadores sem identificação serão munidos igualmente com kits de duelo e jogados dentro de uma arena, o foco do evento é matar, o jogador que mais conseguir abates se tornará o **Killer** e receberá recompensas por isso, além disso, o último sobrevivente receberá uma recompensa extra.\n\u200B' },
                                                 { name: '<:Esmeralda_Revo:847520945912414258> **Características**', value: '- Itens setados\n- McMMO desabilitado\n- Todos vs Todos\n- Proibida formação de times\n- Proibido remover completamente a armadura\n\u200B' },
-                                                { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- 50.000 Coins\n**Último sobrevivente**\n- 100.000 Coins' }
+                                                { name: ':trophy: **Premiação**', value: '**Jogador com mais abates (Matador)**\n- 150.000 Coins\n**Último sobrevivente**\n- 100.000 Coins' }
                                             )
                                             .setImage('https://imgur.com/KeB5ubA.png')
                                             .setFooter(`Rede Revo`, interaction.guild.iconURL({ dynamic: true }))]
@@ -156,7 +156,7 @@ module.exports = {
                                             .setImage('https://imgur.com/AbhIZy4.png')
                                             .setFooter(`Rede Revo`, interaction.guild.iconURL({ dynamic: true }))]
                                         })
-                                        break; //prekiller finalizado
+                                        break; //guerra finalizado
                                 }
                             })
                     })
