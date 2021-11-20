@@ -50,7 +50,7 @@ module.exports = {
             interaction.editReply({
                 embeds: [new MessageEmbed()
                     .setColor(`RED`)
-                    .setDescription(`${member.user.username.toString()} foi punido!`)]
+                    .setDescription(`${member.displayName.toString()} foi punido!`)]
             });
 
             let reason = interaction.options.getString("motivo");
@@ -58,7 +58,7 @@ module.exports = {
             interaction.guild.channels.cache.find(x => x.id === '849452824970264626').send({
                 embeds: [new MessageEmbed()
                     .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
-                    .setDescription(`${member.toString()} foi silenciado(a) por ${interaction.member.toString()}.
+                    .setDescription(`\`${member.displayName.toString()}\` foi silenciado(a) por ${interaction.member.toString()}.
                 Motivo: \`${reason}\`
                 Duração: \`${time}\``)
                     .setColor(`RED`)]
