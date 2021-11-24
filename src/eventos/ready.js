@@ -33,7 +33,7 @@ module.exports = (bot) => {
         await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
           f.get('893151338186297384').edit({
             embeds: [new MessageEmbed().setTitle("Informações da Rede").setDescription(`
-          Motd: **${sv.description.toRaw()}**
+          Motd: **${sv.description}**
           
           Versões JAR: \`${sv.version.replace('Waterfall ', '')}\`
           Versões BEDROCK: \`da ${bed.version} até a mais recente\`

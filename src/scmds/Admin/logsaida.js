@@ -45,7 +45,7 @@ module.exports = {
     const cu = new MessageEmbed()
       .setTitle(`**Alteração na equipe**`)
       .setColor("#ff0000")
-      .setDescription(`O jogador **${testedUser.displayName}** não integra mais na equipe como **${role}**
+      .setDescription(`**${testedUser.displayName}** não integra mais na equipe como **${role}**
         
         \`${hora}\``)
       .setThumbnail(interaction.guild.iconURL)
@@ -58,7 +58,7 @@ module.exports = {
     interaction.editReply({
       embeds: [new MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`\`${testedUser.user.username.toString()}\` foi removido do cargo ${role}`)]
+        .setDescription(`\`${testedUser.displayName.toString()}\` foi removido do cargo ${role}`)]
     });
   }
 }

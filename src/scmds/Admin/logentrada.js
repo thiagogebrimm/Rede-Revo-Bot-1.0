@@ -46,7 +46,7 @@ module.exports = {
     const cu = new MessageEmbed()
       .setTitle(`**Novo integrante na equipe**`)
       .setColor("GREEN")
-      .setDescription(`O jogador **${testedUser.displayName}** agora integra na equipe como **${role}**
+      .setDescription(`**${testedUser.displayName}** agora integra na equipe como **${role}**
       
                   \`${hora}\``)
       .setThumbnail(interaction.guild.iconURL)
@@ -59,7 +59,7 @@ module.exports = {
     interaction.editReply({
       embeds: [new MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`\`${testedUser.user.username.toString()}\` foi adicionado ao cargo ${role}`)]
+        .setDescription(`\`${testedUser.displayName.toString()}\` foi adicionado ao cargo ${role}`)]
     });
   }
 }
