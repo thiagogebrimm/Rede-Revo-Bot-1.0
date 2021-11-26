@@ -8,7 +8,7 @@ module.exports = {
     description: 'Acesse a lista de vencedores das Guerras de Clans e eventos de Construção do Servidor',
     usage: '',
 
-      run: async(client, interaction, args) => {
+      run: async(client, interaction) => {
 
         let TarefaEmbed = new MessageEmbed()
         .setAuthor(`🏆 Lista de vencedores 🏆`)
