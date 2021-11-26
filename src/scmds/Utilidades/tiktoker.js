@@ -24,7 +24,7 @@ module.exports = {
       
       TAG:`)
       .setImage('https://i.imgur.com/1iwpeXe.png')
-      .setFooter('Rede Revo', 'https://i.imgur.com/dMswI7f.png');
+      .setFooter('Rede Revo', interaction.guild.iconURL({ dynamic: true }));
     interaction.editReply({
       embeds: [embed]
     })

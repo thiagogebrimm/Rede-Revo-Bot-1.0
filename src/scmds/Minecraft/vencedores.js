@@ -11,7 +11,11 @@ module.exports = {
       run: async(client, interaction, args) => {
 
         let TarefaEmbed = new MessageEmbed()
-        .setAuthor(`Acesse a lista de vencedores das Guerras de Clans e eventos de Construção do Servidor.`, 'https://i.imgur.com/dMswI7f.png')
+        .setAuthor(`🏆 Lista de vencedores 🏆`)
+        .setDescription(`**Acompanhe os vencedores dos principais eventos da Rede Revo**
+
+        Atualmente na lista: \`Guerras de Clans\` e \`Evento Mensal de Construção\``)
+        .setThumbnail('https://i.imgur.com/OryJbDT.png')
         .setColor(`#FF0000`);
 
         let button = new Discord.MessageButton()

@@ -11,7 +11,7 @@ module.exports = {
       run: async(client, interaction, args) => {
 
         let TarefaEmbed = new MessageEmbed()
-        .setAuthor(`Baixe a textura oficial do servidor para ter uma melhor jogabilidade.`, 'https://i.imgur.com/dMswI7f.png')
+        .setAuthor(`Baixe a textura oficial do servidor para ter uma melhor jogabilidade.`, interaction.guild.iconURL({ dynamic: true }))
         .setColor(`#FF0000`);
 
         let button = new Discord.MessageButton()

@@ -11,7 +11,7 @@ module.exports = {
       run: async(client, interaction, args) => {
 
         let TarefaEmbed = new MessageEmbed()
-        .setAuthor(`Acesse nosso site.`, 'https://i.imgur.com/dMswI7f.png')
+        .setAuthor(`Acesse nosso site.`, interaction.guild.iconURL({ dynamic: true }))
         .setColor(`#FF0000`);
 
         let button = new Discord.MessageButton()
