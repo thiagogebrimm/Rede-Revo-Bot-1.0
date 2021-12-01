@@ -12,7 +12,7 @@
     "discord-buttons": "^4.0.0",
     "discord.js": "^13.1.0",
     "minecraft-server-data": "^1.1.2",
-    "minecraft-server-util": "^4.1.2",
+    "minecraft-server-util": "^5.1.1",
     "moment": "^2.29.1",
     "ms": "^2.1.3",
     "sequelize": "^6.6.5",

@@ -26,26 +26,28 @@ module.exports = (bot) => {
 
 
 
-      const sv = await util.status('rederevo.com')
+      const sv = await util.status('jogar.rederevo.com')
       const bed = await util.statusBedrock('jogar.rederevo.com')
 
       if (bot.channels.cache.get('893151200160141312')?.isText()) {
         await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
           f.get('893151338186297384').edit({
-            embeds: [new MessageEmbed().setTitle("Informações da Rede").setDescription(`
-          Motd: **${sv.description}**
+            embeds: [new MessageEmbed()
+              .setTitle("Informações da Rede")
+              .setDescription(`
+          Motd: **${sv.motd.clean}**
           
-          Versões JAR: \`${sv.version.replace('Waterfall ', '')}\`
-          Versões BEDROCK: \`da ${bed.version} até a mais recente\`
+          Versões JAVA: \`${sv.version.name.replace('Waterfall ', '')}\`
+          Versões BEDROCK: \`da ${bed.version.name} até a mais recente\`
 
-          Players: **${sv.onlinePlayers}/${sv.maxPlayers}**`)
+          Players: **${sv.players.online}/${sv.players.max}**`)
               .setColor('RED')
-              .setFooter('Rede Revo')
+              .setFooter('rederevo.com')
               .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
           })
         })
       }
-      let status = [`com ${sv.onlinePlayers} jogadores`, `IP: rederevo.com`];
+      let status = [`com ${sv.players.online} jogadores`, `IP: rederevo.com`];
       let statuses = status[Math.floor(Math.random() * status.length)];
 
       bot.user.setActivity({
@@ -53,7 +55,20 @@ module.exports = (bot) => {
         type: 'PLAYING'
       });
     } catch (error) {
-      console.log(error)
+      if (bot.channels.cache.get('893151200160141312')?.isText()) {
+        await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
+          f.get('893151338186297384').edit({
+            embeds: [new MessageEmbed()
+              .setTitle("Informações da Rede")
+              .setDescription(`
+            **Servidores Offline**
+            Voltamos em breve`)
+              .setColor('RED')
+              .setFooter('rederevo.com')
+              .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
+          })
+        })
+      }
     }
   }, 5000);
 
