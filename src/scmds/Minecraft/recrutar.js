@@ -1,6 +1,8 @@
 const { MessageEmbed } = require('discord.js');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
+const atrasodelay = new Set();
+
 module.exports = {
     name: 'recrutar',
     aliases: [],
@@ -10,6 +12,11 @@ module.exports = {
 
     run: async (client, interaction) => {
         var b;
+
+        if (atrasodelay.has(interaction.user.id)) {
+            interaction.editReply("Você deve esperar pelo menos um dia para pode enviar uma mensagem de recrutamento novamente.");
+    } else {
+
         if (!interaction.member.roles.cache.has('793614247283261451')) return interaction.editReply("Você precisa ter a sua conta linkada no servidor para poder usar esse comando.");
         await interaction.user.createDM();
         interaction.user.send({
@@ -44,8 +51,7 @@ module.exports = {
                         <:Check_Yes_Revo:845888184806277140> Saber construir bem
                         <:Check_Yes_Revo:845888184806277140> Respeitar outros jogadores
                         `)]
-                }
-                ).then(async i => { await delay(5 * 5000); i.delete() })
+                })
                 interaction.user.dmChannel.createMessageCollector({
                     filter: (x) => (x.author.id === interaction.user.id),
                     time: 1800000,
@@ -73,5 +79,12 @@ module.exports = {
                     })
             })
         }
+
+        atrasodelay.add(interaction.user.id);
+        setTimeout(() => {
+          atrasodelay.delete(interaction.user.id);
+        }, (1440 * 60000));
+    }
+
     }
 }

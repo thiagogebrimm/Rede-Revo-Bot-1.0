@@ -10,7 +10,7 @@
   "dependencies": {
     "ascii-table": "^0.0.9",
     "discord-buttons": "^4.0.0",
-    "discord.js": "^13.1.0",
+    "discord.js": "^13.3.1",
     "minecraft-server-data": "^1.1.2",
     "minecraft-server-util": "^5.1.1",
     "moment": "^2.29.1",
