@@ -42,7 +42,7 @@ module.exports = {
     testedUser.roles.add(role.id)
     let staff = interaction.guild.roles.cache.find(r => r.id === "852039893207351328")
     testedUser.roles.add(staff)
-    let hora = moment().format("D [de] MMM [de] YYYY, [às] HH:mm");
+    let hora = moment().format("D [de] MMM [de] YYYY");
     const cu = new MessageEmbed()
       .setTitle(`**Novo integrante na equipe**`)
       .setColor("GREEN")
@@ -52,7 +52,6 @@ module.exports = {
       .setThumbnail(interaction.guild.iconURL)
       .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))
     interaction.guild.channels.cache.find(x => x.id === '845531157990866974')?.send({
-      content: `<@&795509113307004938>`,
       embeds: [cu]
     })
 

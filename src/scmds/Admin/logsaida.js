@@ -41,7 +41,7 @@ module.exports = {
     testedUser.roles.remove(role.id)
     let staff = interaction.guild.roles.cache.find(r => r.id === "852039893207351328")
     testedUser.roles.remove(staff)
-    let hora = moment().format("D [de] MMM [de] YYYY, [às] HH:mm");
+    let hora = moment().format("D [de] MMM [de] YYYY");
     const cu = new MessageEmbed()
       .setTitle(`**Alteração na equipe**`)
       .setColor("#ff0000")
@@ -51,7 +51,6 @@ module.exports = {
       .setThumbnail(interaction.guild.iconURL)
       .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))
     interaction.guild.channels.cache.find(x => x.id === '845531157990866974')?.send({
-      content: `<@&795509113307004938>`,
       embeds: [cu]
     })
 
