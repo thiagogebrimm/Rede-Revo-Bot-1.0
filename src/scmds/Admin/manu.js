@@ -38,7 +38,7 @@ module.exports = {
                     interaction.guild.channels.cache.find(x => x.id === '845531099768815646').send({
                         content: `<@&795509121503068222>`, embeds: [new MessageEmbed()
                             .setTitle(`⛔️ Manutenção Agendada ⛔️`)
-                            .setColor(`0000ff`)
+                            .setColor(`DEFF1C`)
                             .setDescription(`Manutenção acontecerá no dia **${r1}** (Horário de Brasília)`)
                             .setThumbnail('https://th.bing.com/th/id/R.8e5c42012fdcad01e00855e2d5ca3a19?rik=WXk8KdZPf1eWhQ&pid=ImgRaw&r=0.png')
                             .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))]
