@@ -22,7 +22,7 @@ module.exports = {
         },
         {
             id: '795509471014420532',
-            label: '🎬 Notificar Vídeos',
+            label: '🎬 Notificar Divulgações',
             emojiId: '845545489693016084'
         }
     ]

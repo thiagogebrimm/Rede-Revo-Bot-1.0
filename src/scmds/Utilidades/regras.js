@@ -16,7 +16,7 @@ module.exports = {
 
     let button = new MessageButton()
       .setStyle('LINK')
-      .setURL('https://rederevo.gitbook.io/wiki/regras-1')
+      .setURL('https://wiki.rederevo.com/regras')
       .setLabel('Acessar as regras')
 
     interaction.editReply({
