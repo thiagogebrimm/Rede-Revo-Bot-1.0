@@ -9,7 +9,7 @@ module.exports = {
   run: async (client, interaction) => {
     let embed = new MessageEmbed()
       .setColor(`#0099ff`)
-      .setTitle(`🏆 Agenda de Eventos Rede Revo 🏆`)
+      .setTitle(`🏆 Agenda de Eventos Rede Revo Survival 🏆`)
       .addFields(
 		{ name: 'Evento Arqueiro', value: 'Domingo as 18:00 (Horário de Brasília)', inline: true },
 		{ name: 'Evento Guerreiro', value: 'Segunda-Feira as 20:00 (Horário de Brasília)', inline: true },
@@ -20,7 +20,7 @@ module.exports = {
 		{ name: 'Evento Guerra (mcMMO)', value: 'Sábado as 19:00 (Horário de Brasília)', inline: true },
 	)
       .setThumbnail('https://i.imgur.com/dh7eXee.png')
-      .setFooter('Eventos Rede Revo', interaction.guild.iconURL({ dynamic: true }));
+      .setFooter('Lista de Eventos Rede Revo', interaction.guild.iconURL({ dynamic: true }));
     interaction.editReply({
       embeds: [embed]
     })

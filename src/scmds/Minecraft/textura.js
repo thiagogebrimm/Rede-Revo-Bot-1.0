@@ -5,7 +5,7 @@ module.exports = {
     name: 'textura',
     aliases: [''],
     category : 'Minecraft',
-    description: 'Baixe a textura oficial!',
+    description: 'Baixe a nossa textura oficial!',
     usage: '',
 
       run: async(client, interaction, args) => {
@@ -16,7 +16,7 @@ module.exports = {
 
         let button = new Discord.MessageButton()
         .setStyle('LINK')
-        .setURL('https://www.planetminecraft.com/texture-pack/revo-pack-beta-1-0/') 
+        .setURL('https://bit.ly/revotext') 
         .setLabel('Baixar a textura');
         
         interaction.editReply({

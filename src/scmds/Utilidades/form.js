@@ -16,8 +16,8 @@ module.exports = {
           
           📌 Caso você seja aprovado, entraremos em contato para uma entrevista completa via Discord.
           `)
-          .addField(`🧢 Ajudante: `, `[Clique aqui](https://forms.gle/aG1VdsBPUxs8RWQ87)`, true)
-          .addField(`🦺 Construtor: `, `[Clique aqui](https://forms.gle/SS7Gxhg93WBN35iDA)`, true)
+          .addField(`🧢 Ajudante: `, `[Clique aqui](https://bit.ly/revoajudante)`, true)
+          .addField(`🦺 Construtor: `, `[Clique aqui](https://bit.ly/revoconstrutor)`, true)
           .setColor(`YELLOW`)
           .setFooter(`Solicitado por ${interaction.member.user.username}`, interaction.user.avatarURL({ dynamic: true }))
           .setTimestamp(Date.now())
