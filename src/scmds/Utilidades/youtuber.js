@@ -30,6 +30,7 @@ module.exports = {
       - Pode falar utilizando cores no servidor
       - Sem delay para se teleportar
       - **500** cash por vídeo semanal caso a parceria seja cumprida corretamente
+      - Pode casar outros jogadores com \`/casar <nick> <nick>\`
       - Comando de divulgação exclusivo dentro do servidor \`/divulgar\`
       - Acesso ao <#795426717132390441>
       
