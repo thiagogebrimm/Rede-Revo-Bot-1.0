@@ -12,12 +12,12 @@ module.exports = {
       .setColor(`#0099ff`)
       .setTitle(`Segue abaixo os requisitos para as tags YT e YT+`)
       .setDescription(`**YT:**
-      **250 - 1000** inscritos
+      **250 - 2500** inscritos
       **1** vídeo por semana
       **25%** de visualizações em relação aos inscritos
       
       **YT+:**
-      **1000 - 5000** inscritos
+      **2500 - 10000** inscritos
       **1** vídeo por semana
       **25%** de visualizações em relação aos inscritos
       
