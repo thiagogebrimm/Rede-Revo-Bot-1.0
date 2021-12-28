@@ -22,7 +22,7 @@ module.exports = async (bot, message) => {
         if (message.attachments.size == 0) message.delete({ timeout: 5 * 100 }, message.author.send(`❌ | Você não pode enviar mensagens de texto no canal de mídias`)
             .catch(a => {
                 return message.guild.channels.cache.find(x => x.id === '793599388420800543')
-                .send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)
+                    .send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)
             }))
     };
 
@@ -40,6 +40,11 @@ module.exports = async (bot, message) => {
     //Reage nos boosters
     if (message.channel.id === "793280024060362752") { //Booster
         await message.react('<a:PurpHeart_Revo:852621966325186562>')
+    };
+
+    //Reage nas divulgações
+    if (message.channel.id === "795426717132390441") { //Divulgações
+        await message.react('👍')
     };
 
 
