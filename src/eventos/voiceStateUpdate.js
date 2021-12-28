@@ -1,17 +1,24 @@
 const { MessageEmbed } = require("discord.js")
 
-module.exports = async (bot, oldState, newState) => {
+module.exports = async (bot, oldUser, newUser) => {
 
-    let newUserChannel = newState.channel
-    let oldUserChannel = oldState.channel
-  
-    if(oldUserChannel === null && newUserChannel !== null) {
-       // User Joins a voice channel
-      console.log('entrou ');
-  
-    } else if(newUserChannel === null){
-      // User leaves a voice channel
-      console.log(`saiu <#${oldUserChannel}>`);
-  
-    }
-  };
+  let newUserChannel = newUser.channel
+  let oldUserChannel = oldUser.channel
+  let canallog = oldUser.guild.channels.cache.find(x => x.id === '793599388420800543')
+
+  canallog.send({
+    embeds: [new MessageEmbed()
+      .setTitle(`MUDANÇA DE CANAL DE VOZ <:Alerta_Revo:870516091330388058>`)
+      .setColor(`4682B4`)
+      .setDescription(`
+      
+      **Canal antigo:** ${oldUserChannel}
+
+      **Canal novo:**  ${newUserChannel}
+      `)
+      .addField("Quem trocou de canal:", `${newUser.author.tag}`, true)
+      .setFooter(`ID do autor: ${oldUser.user}`)
+    ]
+  })
+
+};
