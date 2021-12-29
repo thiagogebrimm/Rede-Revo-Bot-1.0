@@ -31,6 +31,7 @@ module.exports = async (bot, message) => {
         if (message.content.includes(links)) {
             if (message.author.bot) return;
             if (message.member.permissions.has('KICK_MEMBERS')) return false;
+            if (message.content.includes('discord.com/channels')) return false;
             if (message.content.includes('discord.gg/rederevo')) return false;
             if (message.channel.id === "845501522166153226") return false;
             message.delete()
