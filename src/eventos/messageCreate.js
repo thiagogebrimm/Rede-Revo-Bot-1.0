@@ -1,6 +1,3 @@
-const { MessageEmbed } = require('discord.js');
-const { owners, prefix, prefix2 } = require('../../config');
-
 module.exports = async (bot, message) => {
 
     //Responde o chat ajuda
@@ -48,47 +45,4 @@ module.exports = async (bot, message) => {
     if (message.channel.id === "795426717132390441") { //Divulgações
         await message.react('👍')
     };
-
-
-    //Controlador 
-    if (message.author.bot) return;
-    if (!message.content.startsWith(prefix) || !message.content.startsWith(prefix2)) return;
-    const args = message.content.split(/ +/g);
-    const command = args.shift().slice((prefix || prefix2).length).toLowerCase();
-    const cmd = bot.commands.get(command) || bot.aliases.get(command);
-
-    let regx = /^((?:https?:)?\/\/)?((?:www|m)\.)? ((?:discord\.gg|discordapp\.com))/g
-    let cdu = regx.test(message.content.toLowerCase().replace(/\s+/g, ''))
-    if (cdu && !message.member.permissions.has(['ADMINISTRATOR'])) message.delete();
-
-    if (!(message.content.toLowerCase().startsWith(prefix) || message.content.toLowerCase().startsWith(prefix2))) return;
-
-    if (!cmd) return;
-    if (message.guild && !message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
-
-    if (cmd.requirements.ownerOnly && !owners.includes(message.author.id))
-        return message.channel.send(`<@${message.member.id}>`, new MessageEmbed()
-            .setColor(`36393e`)
-            .setDescription(`Este comando está reservado para autoridades do bot.`)
-        );
-
-    if (cmd.limits) {
-        const current = bot.limits.get(`${command}-${message.author.id}`);
-
-        if (!current) bot.limits.set(`${command}-${message.author.id}`, 1);
-        else {
-            if (current >= cmd.limits.rateLimit) return;
-            bot.limits.get(`${command}-${message.author.id}`, current + 1);
-        }
-
-        setTimeout(() => {
-            bot.limits.delete(`${command}-${message.author.id}`);
-        }, cmd.limits.cooldown);
-    }
-
-    if (message.guild == null) return;
-
-    if (cmd && ['846189183550881792'].includes(message.channel.id) || message.member.permissions.has('MANAGE_MESSAGES')) {
-        cmd.run(bot, message, args)
-    }
 }

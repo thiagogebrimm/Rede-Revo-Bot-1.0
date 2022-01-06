@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 
-module.exports = (bot, guild, user) => {
+module.exports = (bot, user) => {
     let canal = bot.channels.cache.find(x => x.id === '793599388420800543')
     canal.send(new MessageEmbed()
         .setTitle(`BANIMENTO`)
