@@ -1,4 +1,4 @@
-const { token, prefix, prefix2 } = require('./config');
+const { token } = require('./config');
 const { Client, Collection } = require('discord.js');
 
 const bot = new Client({
@@ -6,9 +6,6 @@ const bot = new Client({
     }
 });
 
-
-bot.prefix = prefix;
-bot.prefix2 = prefix2;
 bot.slashCommands = new Collection();
 bot.limits = new Map();
 
