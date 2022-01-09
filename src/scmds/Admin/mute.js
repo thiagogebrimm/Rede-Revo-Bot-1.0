@@ -58,9 +58,10 @@ module.exports = {
             interaction.guild.channels.cache.find(x => x.id === '849452824970264626').send({
                 embeds: [new MessageEmbed()
                     .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
-                    .setDescription(`\`${member.displayName.toString()}\` foi silenciado(a) por ${interaction.member.toString()}.
-                Motivo: \`${reason}\`
-                Duração: \`${time}\``)
+                    .setDescription(`
+\`${member.displayName.toString()}\` foi silenciado(a) por ${interaction.member.toString()}.
+Motivo: \`${reason}\`
+Duração: \`${time}\``)
                     .setColor(`RED`)]
             });
 
@@ -69,9 +70,10 @@ module.exports = {
             member.send({
                 embeds: [new MessageEmbed()
                     .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
-                    .setDescription(`Você foi silenciado(a) por ${interaction.member.toString()}.
-                    Motivo: \`${reason}\`
-                    Duração: \`${time}\``)
+                    .setDescription(`
+Você foi silenciado(a) por ${interaction.member.toString()}.
+Motivo: \`${reason}\`
+Duração: \`${time}\``)
                     .setColor(`RED`)]
             }).catch(a => { return message.channel.send(`Impossivel mandar mensagens na DM deste usuario para notifica-lo!`) });
 

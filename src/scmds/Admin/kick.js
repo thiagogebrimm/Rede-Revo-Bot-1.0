@@ -34,15 +34,17 @@ module.exports = {
         interaction.guild.channels.cache.find(x => x.id === '849452824970264626').send({
             embeds: [new MessageEmbed()
                 .setTitle(`<:Press_F_Revo:850543446003286017> Nova Punição no Discord`)
-                .setDescription(`\`${member.displayName.toString()}\` foi expulso(a) por ${interaction.member.toString()}.
-            Motivo: \`${reason}\``)
+                .setDescription(`
+\`${member.displayName.toString()}\` foi expulso(a) por ${interaction.member.toString()}.
+Motivo: \`${reason}\``)
                 .setColor(`RED`)]
         });
         await member.send({
             embeds: [new MessageEmbed()
                 .setTitle(`<:Press_F_Revo:850543446003286017>Você não seguiu as regras e foi punido`)
-                .setDescription(`Você foi expulso(a) por ${interaction.member.toString()}.
-                Motivo: \`${reason}\``)
+                .setDescription(`
+Você foi expulso(a) por ${interaction.member.toString()}.
+Motivo: \`${reason}\``)
                 .setColor(`RED`)]
         }).catch(a => { return interaction.channel.send(`Impossivel mandar mensagens na DM deste usuario para notifica-lo!`) });
 
