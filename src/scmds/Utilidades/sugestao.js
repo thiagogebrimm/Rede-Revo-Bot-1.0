@@ -83,9 +83,10 @@ module.exports = {
                 let sugestao = m.content;
                 embed
                     .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
-                    .setDescription(`Porque devemos aceitar a sugestão?
+                    .setDescription(`
+Porque devemos aceitar a sugestão?
                     
-                    \`OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será negada!\``);
+\`OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será negada!\``);
                 DM.send({ embeds: [embed] });
                 DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
                     let motivo = m.content;
@@ -105,17 +106,15 @@ module.exports = {
                     embed
                         .setTitle(`<a:Sino_Revo:849415817502523412> | Nova Sugestão para o ${servidor}`)
                         .setDescription(`
-                    **Sugestão feita por** \`${interaction.member.displayName}\`
+**Sugestão feita por** \`${interaction.member.displayName}\`
                     
-                    ▫️ Minha sugestão é: \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
-                    Motivo para implementar: \`${S.dataValues.pergunta02}\`
+▫️ Minha sugestão é: \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
+Motivo para implementar: \`${S.dataValues.pergunta02}\`
                     `)
                         .setColor('GREEN');
                     client.channels.cache.get(config.channels.sugestao).send({
                         embeds: [embed]
                     }).then(async f => {
-                        f.react('893295026325581854');
-                        f.react('893295026203918358');
                         S.update({
                             messageId: f.id
                         })

@@ -1,4 +1,4 @@
-const { MessageEmbed, ThreadManager } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const config = require('../../../config')
 
 const Sus = require('../../db/Models/Sugestao')
@@ -33,17 +33,11 @@ module.exports = {
         const msg = await interaction.channel.messages.fetch(
             interaction.targetId
         );
-        let votosP = (await msg.fetch(true)).reactions.cache.get('893295026325581854').count
-        votosP = (votosP - 1);
-        let votosN = (await msg.fetch(true)).reactions.cache.get('893295026203918358').count
-        votosN = (votosN - 1);
         interaction.followUp({
             content: `Aprovado!`
         })
 
         findUser.update({
-            votosPositivo: votosP,
-            votosNegativo: votosN,
             resolved: true
         })
 
@@ -53,8 +47,6 @@ module.exports = {
          * findUser.autor - Id do autor da Sugestão
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
-         * findUser.votosPositivo - Votos positivos
-         * findUser.votosNegativo - Votos Negativos
          * 
          */
 
@@ -63,29 +55,20 @@ module.exports = {
         let embeddm = new MessageEmbed()
             .setTitle(`<:SIM_Revo:893295026325581854> Sua sugestão foi aprovada <:SIM_Revo:893295026325581854>`)
             .setDescription(`
-             
-             ▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
-             Motivo para implementar: \`${findUser.pergunta02}\`
+▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
+Motivo para implementar: \`${findUser.pergunta02}\`
 
-             💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.**
+💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.**
              `)
-            .addFields(
-                { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
-                { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
-            )
             .setColor('GREEN')
         let embedchat = new MessageEmbed()
             .setTitle(`<:SIM_Revo:893295026325581854> Sugestão Aprovada <:SIM_Revo:893295026325581854>`)
             .setDescription(`
-            **Sugestão feita por** ${susebao.tag}
+**Sugestão feita por** ${susebao.tag}
             
-            ▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
-            Motivo para implementar: \`${findUser.pergunta02}\`
+▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
+Motivo para implementar: \`${findUser.pergunta02}\`
             `)
-            .addFields(
-                { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
-                { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
-            )
             .setColor('GREEN')
 
         susebao.send({ embeds: [embeddm] }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })

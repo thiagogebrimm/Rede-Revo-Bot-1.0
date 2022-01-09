@@ -8,8 +8,6 @@ module.exports = class Sugestao extends Model {
                 autoIncrement: true,
                 primaryKey: true
             },
-            votosPositivo: { type: DataTypes.INTEGER },
-            votosNegativo: { type: DataTypes.INTEGER },
             pergunta01: { type: DataTypes.STRING },
             pergunta02: { type: DataTypes.STRING },
             messageId: { type: DataTypes.STRING },

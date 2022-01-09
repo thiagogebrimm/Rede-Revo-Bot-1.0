@@ -1,5 +1,5 @@
 const config = require('../../../config')
-const { MessageEmbed, Client, CommandInteraction } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const Sus = require('../../db/Models/Sugestao')
 
 module.exports = {
@@ -30,17 +30,8 @@ module.exports = {
         const msg = await interaction.channel.messages.fetch(
             interaction.targetId
         );
-        let votosP = (await msg.fetch(true)).reactions.cache.get('893295026325581854').count
-        votosP = (votosP - 1);
-        let votosN = (await msg.fetch(true)).reactions.cache.get('893295026203918358').count
-        votosN = (votosN - 1);
         interaction.followUp({
             content: `Negado!`
-        })
-
-        findUser.update({
-            votosPositivo: votosP,
-            votosNegativo: votosN
         })
 
         /**
@@ -49,8 +40,6 @@ module.exports = {
          * findUser.autor - Id do autor da Sugestão
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
-         * findUser.votosPositivo - Votos positivos
-         * findUser.votosNegativo - Votos Negativos
          * 
          */
 
@@ -58,30 +47,21 @@ module.exports = {
 
         let embeddm = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sua sugestão foi negada <:NAO_Revo:893295026203918358>`)
-            .setDescription(`
-             
-             ▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
-             Motivo para implementar: \`${findUser.pergunta02}\`
+            .setDescription(`        
+▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
+Motivo para implementar: \`${findUser.pergunta02}\`
 
-             💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.**
+💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.**
              `)
-            .addFields(
-                { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
-                { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
-            )
             .setColor('RED')
         let embedchat = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sugestão Negada <:NAO_Revo:893295026203918358>`)
             .setDescription(`
-            **Sugestão feita por** ${susebao ? susebao.tag : '<@' + findUser.autor + '>'}
+**Sugestão feita por** ${susebao ? susebao.tag : '<@' + findUser.autor + '>'}
             
-            ▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
-            Motivo para implementar: \`${findUser.pergunta02}\`
+▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
+Motivo para implementar: \`${findUser.pergunta02}\`
             `)
-            .addFields(
-                { name: '<:SIM_Revo:893295026325581854> Votos Positivos', value: `${findUser.votosPositivo}`, inline: true },
-                { name: '<:NAO_Revo:893295026203918358> Votos Negativos', value: `${findUser.votosNegativo}`, inline: true },
-            )
             .setColor('RED')
 
         susebao.send({ embeds: [embeddm] }).then(async () => {
