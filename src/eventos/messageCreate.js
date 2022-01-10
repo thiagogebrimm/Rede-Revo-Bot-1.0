@@ -36,7 +36,7 @@ module.exports = async (client, message) => {
     };
 
     //Bloqueia Links
-    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://discord'])
+    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://d'])
         if (message.content.includes(links)) {
             if (message.author.bot) return;
             if (message.member.permissions.has('KICK_MEMBERS')) return false;
