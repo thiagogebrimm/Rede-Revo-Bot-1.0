@@ -8,6 +8,6 @@ module.exports.run = (bot) => {
         const eventName = eventFile.split(".").shift();
         bot.on(eventName, event.bind(null, bot));
     }
-    
+
     console.log(`Carreguei ${readdirSync(filePath).length} eventos!`)
 }

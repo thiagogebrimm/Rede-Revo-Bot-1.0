@@ -1,4 +1,6 @@
-module.exports = async (bot, message) => {
+const config = require('../../config')
+
+module.exports = async (client, message) => {
 
     //Responde o chat ajuda
     for (let ips of ['o ip', 'O ip', 'O IP', 'o IP'])
@@ -21,6 +23,16 @@ module.exports = async (bot, message) => {
                 return message.guild.channels.cache.find(x => x.id === '793599388420800543')
                     .send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)
             }))
+    };
+
+    //Criar conversa respondendo a midia
+    if (message.channel.id === "845501522166153226") {
+        if (message.content.includes('.png'))
+        return client.channels.cache.get(config.channels.midias).threads.create({
+            name: 'teste',
+            autoArchiveDuration: 1440,
+            reason: 'Teste',
+        });
     };
 
     //Bloqueia Links

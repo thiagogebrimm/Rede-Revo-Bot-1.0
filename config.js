@@ -11,6 +11,7 @@ module.exports = {
         }
     ],
     channels: {
-        sugestao: '893293613851758603'
+        sugestao: '893293613851758603',
+        midias: '845555957601796137'
     }
 }
