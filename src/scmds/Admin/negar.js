@@ -40,6 +40,7 @@ module.exports = {
          * findUser.autor - Id do autor da Sugestão
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
+         * findUser.pergunta03 - Como afetará na jogabilidade
          * 
          */
 
@@ -50,6 +51,7 @@ module.exports = {
             .setDescription(`        
 ▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
 Motivo para implementar: \`${findUser.pergunta02}\`
+Como afetará na jogabilidade: \`${findUser.pergunta03}\`
 
 💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.**
              `)
@@ -61,6 +63,7 @@ Motivo para implementar: \`${findUser.pergunta02}\`
             
 ▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
 Motivo para implementar: \`${findUser.pergunta02}\`
+Como afetará na jogabilidade: \`${findUser.pergunta03}\`
             `)
             .setColor('RED')
 

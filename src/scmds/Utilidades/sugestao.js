@@ -1,7 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-
 const config = require('../../../config')
-
 const Sus = require("../../db/Models/Sugestao")
 
 const cd = new Set()
@@ -62,14 +60,18 @@ module.exports = {
         const DM = await interaction.user.createDM()
         embed
             .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
-            .setDescription('Qual é a sugestão?')
+            .setDescription(`
+Qual é a sugestão?
+
+\`\`\`Envie uma mensagem clara e com o máximo de detalhes possível\`\`\`
+`)
 
         await DM.send({ embeds: [embed] }).catch((err) => {
             bope = false
             embed
-                .setTitle('<:NAO_Revo:893295026203918358> | Sugestão')
-                .setDescription('Não foi possivel te contatar em seu privado, caso esteja fechado abra ele.')
-                .setColor('RED')
+                .setTitle(`<:NAO_Revo:893295026203918358> | Sugestão`)
+                .setDescription(`Não foi possivel te contatar em seu privado, caso esteja fechado abra ele.`)
+                .setColor(`RED`)
 
             interaction.editReply({
                 embeds: [embed]
@@ -82,53 +84,70 @@ module.exports = {
             col.on('collect', async (m) => {
                 let sugestao = m.content;
                 embed
-                    .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
+                    .setTitle(`<a:Cicle_Revo:848288463488548864> | Sugestão`)
                     .setDescription(`
 Porque devemos aceitar a sugestão?
                     
-\`OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será negada!\``);
+\`\`\`Envie o porque a sugestão deve ser aprovada e implementada;
+OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será negada!\`\`\`
+`);
                 DM.send({ embeds: [embed] });
                 DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
                     let motivo = m.content;
 
                     embed
                         .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
-                        .setDescription('A sugestão foi enviada, retornaremos uma resposta em breve.');
-                    m.reply({ embeds: [embed] });
-
-                    let S = await Sus.create({
-                        autor: interaction.user.id,
-                        pergunta01: sugestao,
-                        pergunta02: motivo,
-                        resolved: false
-                    });
-
-                    embed
-                        .setTitle(`<a:Sino_Revo:849415817502523412> | Nova Sugestão para o ${servidor}`)
                         .setDescription(`
+Como essa sugestão afetará na jogabilidade?
+                    
+\`OBS:Seja claro e objetivo para que sua sugestão tenha mais chances de ser aprovada\`
+`);
+                    DM.send({ embeds: [embed] });
+                    DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
+                        let jogabilidade = m.content;
+
+                        embed
+                            .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
+                            .setDescription('A sugestão foi enviada, retornaremos uma resposta em breve.');
+                        m.reply({ embeds: [embed] });
+
+                        let S = await Sus.create({
+                            autor: interaction.user.id,
+                            pergunta01: sugestao,
+                            pergunta02: motivo,
+                            pergunta03: jogabilidade,
+                            resolved: false
+                        });
+
+                        embed
+                            .setTitle(`<a:Sino_Revo:849415817502523412> | Nova Sugestão para o ${servidor}`)
+                            .setDescription(`
 **Sugestão feita por** \`${interaction.member.displayName}\`
                     
 ▫️ Minha sugestão é: \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
 Motivo para implementar: \`${S.dataValues.pergunta02}\`
+Como afetará na jogabilidade: \`${S.dataValues.pergunta03}\`
                     `)
-                        .setColor('GREEN');
-                    client.channels.cache.get(config.channels.sugestao).send({
-                        embeds: [embed]
-                    }).then(async f => {
-                        S.update({
-                            messageId: f.id
-                        })
-                        client.channels.cache.get(config.channels.sugestao).threads.create({
-                            name: S.dataValues.pergunta01.slice(0, 95),
-                            autoArchiveDuration: 1440,
-                            reason: 'Sugestão \'-\'',
-                            startMessage: f.id
+                            .setColor('GREEN');
+                        client.channels.cache.get(config.channels.sugestao).send({
+                            embeds: [embed]
+                        }).then(async f => {
+                            S.update({
+                                messageId: f.id
+                            })
+                            client.channels.cache.get(config.channels.sugestao).threads.create({
+                                name: S.dataValues.pergunta01.slice(0, 95),
+                                autoArchiveDuration: 1440,
+                                reason: 'Sugestão \'-\'',
+                                startMessage: f.id
+                            });
+
                         });
 
                     });
-
-                });
-            })
+                })
+            }
+            )
         }
     }
 }

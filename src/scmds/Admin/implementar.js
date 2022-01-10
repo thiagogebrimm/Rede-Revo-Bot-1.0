@@ -43,8 +43,7 @@ module.exports = {
          * findUser.autor - Id do autor da Sugestão
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
-         * findUser.votosPositivo - Votos positivos
-         * findUser.votosNegativo - Votos Negativos
+         * findUser.pergunta03 - Como afetará na jogabilidade
          * 
          */
 
@@ -53,19 +52,22 @@ module.exports = {
         let embeddm = new MessageEmbed()
             .setTitle(`<a:Check_Revo:845556618837098506> Sua sugestão foi implementada <a:Check_Revo:845556618837098506>`)
             .setDescription(`
-             
-             ▫️ Sugestão implementada: \`\`\`${findUser.pergunta01}\`\`\`
-             Motivo para implementar: \`${findUser.pergunta02}\`
+▫️ Sugestão implementada: \`\`\`${findUser.pergunta01}\`\`\`
+Motivo para implementar: \`${findUser.pergunta02}\`
+Como afetará na jogabilidade: \`${findUser.pergunta03}\`
              `)
+            .setColor(`#001EBE`)
 
         let embedchat = new MessageEmbed()
             .setTitle(`<a:Check_Revo:845556618837098506> Sugestão Implementada <a:Check_Revo:845556618837098506>`)
             .setDescription(`
-            **Sugestão feita por** ${susebao.tag}
+**Sugestão feita por** ${susebao.tag}
             
-            ▫️ Sugestão implementada: \`\`\`${findUser.pergunta01}\`\`\`
-            Motivo para implementar: \`${findUser.pergunta02}\`
+▫️ Sugestão implementada: \`\`\`${findUser.pergunta01}\`\`\`
+Motivo para implementar: \`${findUser.pergunta02}\`
+Como afetará na jogabilidade: \`${findUser.pergunta03}\`
             `)
+            .setColor(`#001EBE`)
 
         susebao.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()

@@ -10,6 +10,7 @@ module.exports = class Sugestao extends Model {
             },
             pergunta01: { type: DataTypes.STRING },
             pergunta02: { type: DataTypes.STRING },
+            pergunta03: { type: DataTypes.STRING },
             messageId: { type: DataTypes.STRING },
             autor: { type: DataTypes.STRING },
             resolved: { type: DataTypes.BOOLEAN },
