@@ -12,9 +12,9 @@ module.exports = async (bot, oldUser, newUser) => {
       .setColor(`4682B4`)
       .setDescription(`
       
-      **Canal antigo:** ${oldUserChannel}
+**Canal antigo:** ${oldUserChannel}
 
-      **Canal novo:**  ${newUserChannel}
+**Canal novo:**  ${newUserChannel}
       `)
       .addField("Quem trocou de canal:", `${newUser.author.tag}`, true)
       .setFooter(`ID do autor: ${oldUser.user}`)

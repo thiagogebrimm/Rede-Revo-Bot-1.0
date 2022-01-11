@@ -8,7 +8,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = (bot) => {
 
   SusEBao.authenticate().then((result) => {
-    console.log("DB iniciada.")
+    console.log("DB iniciada com sucesso.")
     Sus.init(SusEBao).sync({ force: false })
   }).catch((err) => {
     console.log(err)
@@ -35,12 +35,12 @@ module.exports = (bot) => {
             embeds: [new MessageEmbed()
               .setTitle("Informações da Rede")
               .setDescription(`
-          Motd: **${sv.motd.clean}**
+Motd: **${sv.motd.clean}**
           
-          Versões JAVA: \`${sv.version.name.replace('Waterfall ', '')}\`
-          Versões BEDROCK: \`da ${bed.version.name} até a mais recente\`
+Versões JAVA: \`${sv.version.name.replace('Waterfall ', '')}\`
+Versões BEDROCK: \`da ${bed.version.name} até a mais recente\`
 
-          Players: **${sv.players.online}/${sv.players.max}**`)
+Players: **${sv.players.online}/${sv.players.max}**`)
               .setColor('RED')
               .setFooter('rederevo.com')
               .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
@@ -61,8 +61,8 @@ module.exports = (bot) => {
             embeds: [new MessageEmbed()
               .setTitle("Informações da Rede")
               .setDescription(`
-            **Servidores Offline**
-            Voltamos em breve`)
+**Servidores Offline**
+Voltamos em breve`)
               .setColor('RED')
               .setFooter('rederevo.com')
               .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
