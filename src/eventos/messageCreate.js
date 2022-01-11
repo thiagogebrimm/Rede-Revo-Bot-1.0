@@ -25,18 +25,8 @@ module.exports = async (client, message) => {
             }))
     };
 
-    //Criar conversa respondendo a midia
-    if (message.channel.id === "845501522166153226") {
-        if (message.content.includes('.png'))
-        return client.channels.cache.get(config.channels.midias).threads.create({
-            name: 'teste',
-            autoArchiveDuration: 1440,
-            reason: 'Teste',
-        });
-    };
-
     //Bloqueia Links
-    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://d'])
+    for (let links of ['Discord.gg/', 'discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://d'])
         if (message.content.includes(links)) {
             if (message.author.bot) return;
             if (message.member.permissions.has('KICK_MEMBERS')) return false;
