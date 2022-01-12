@@ -56,9 +56,9 @@ module.exports = {
         let embeddm = new MessageEmbed()
             .setTitle(`<:SIM_Revo:893295026325581854> Sua sugestão foi aprovada <:SIM_Revo:893295026325581854>`)
             .setDescription(`
-▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
-Motivo para implementar: \`${findUser.pergunta02}\`
-Como afetará na jogabilidade: \`${findUser.pergunta03}\`
+▫️ __**Sugestão aprovada:**__ \`\`\`${findUser.pergunta01}\`\`\`
+__**Motivo para implementar:**__ \`${findUser.pergunta02}\`
+__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
 
 💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.**
              `)
@@ -68,9 +68,9 @@ Como afetará na jogabilidade: \`${findUser.pergunta03}\`
             .setDescription(`
 **Sugestão feita por** ${susebao.tag}
             
-▫️ Sugestão aprovada: \`\`\`${findUser.pergunta01}\`\`\`
-Motivo para implementar: \`${findUser.pergunta02}\`
-Como afetará na jogabilidade: \`${findUser.pergunta03}\`
+▫️ __**Sugestão aprovada:**__ \`\`\`${findUser.pergunta01}\`\`\`
+__**Motivo para implementar:**__ \`${findUser.pergunta02}\`
+__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
             .setColor('GREEN')
 

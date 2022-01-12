@@ -124,9 +124,9 @@ Como essa sugestão afetará na jogabilidade?
                             .setDescription(`
 **Sugestão feita por** \`${interaction.member.displayName}\`
                     
-▫️ Minha sugestão é: \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
-Motivo para implementar: \`${S.dataValues.pergunta02}\`
-Como afetará na jogabilidade: \`${S.dataValues.pergunta03}\`
+▫️ __**Minha sugestão é:**__ \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
+__**Motivo para implementar:**__ \`${S.dataValues.pergunta02}\`
+__**Como afetará na jogabilidade:**__ \`${S.dataValues.pergunta03}\`
                     `)
                             .setColor('GREEN');
                         client.channels.cache.get(config.channels.sugestao).send({

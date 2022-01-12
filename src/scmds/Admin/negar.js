@@ -49,9 +49,9 @@ module.exports = {
         let embeddm = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sua sugestão foi negada <:NAO_Revo:893295026203918358>`)
             .setDescription(`        
-▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
-Motivo para implementar: \`${findUser.pergunta02}\`
-Como afetará na jogabilidade: \`${findUser.pergunta03}\`
+▫️ __**Sugestão negada:**__ \`\`\`${findUser.pergunta01}\`\`\`
+__**Motivo para implementar:**__ \`${findUser.pergunta02}\`
+__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
 
 💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.**
              `)
@@ -61,9 +61,9 @@ Como afetará na jogabilidade: \`${findUser.pergunta03}\`
             .setDescription(`
 **Sugestão feita por** ${susebao ? susebao.tag : '<@' + findUser.autor + '>'}
             
-▫️ Sugestão negada: \`\`\`${findUser.pergunta01}\`\`\`
-Motivo para implementar: \`${findUser.pergunta02}\`
-Como afetará na jogabilidade: \`${findUser.pergunta03}\`
+▫️ __**Sugestão negada:**__ \`\`\`${findUser.pergunta01}\`\`\`
+__**Motivo para implementar:**__ \`${findUser.pergunta02}\`
+__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
             .setColor('RED')
 

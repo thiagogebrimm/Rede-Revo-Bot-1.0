@@ -52,9 +52,9 @@ module.exports = {
         let embeddm = new MessageEmbed()
             .setTitle(`<a:Check_Revo:845556618837098506> Sua sugestão foi implementada <a:Check_Revo:845556618837098506>`)
             .setDescription(`
-▫️ Sugestão implementada: \`\`\`${findUser.pergunta01}\`\`\`
-Motivo para implementar: \`${findUser.pergunta02}\`
-Como afetará na jogabilidade: \`${findUser.pergunta03}\`
+▫️ __**Sugestão implementada:**__ \`\`\`${findUser.pergunta01}\`\`\`
+__**Motivo para implementar:**__ \`${findUser.pergunta02}\`
+__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
              `)
             .setColor(`#001EBE`)
 
@@ -63,9 +63,9 @@ Como afetará na jogabilidade: \`${findUser.pergunta03}\`
             .setDescription(`
 **Sugestão feita por** ${susebao.tag}
             
-▫️ Sugestão implementada: \`\`\`${findUser.pergunta01}\`\`\`
-Motivo para implementar: \`${findUser.pergunta02}\`
-Como afetará na jogabilidade: \`${findUser.pergunta03}\`
+▫️ __**Sugestão implementada:**__ \`\`\`${findUser.pergunta01}\`\`\`
+__**Motivo para implementar:**__ \`${findUser.pergunta02}\`
+__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
             .setColor(`#001EBE`)
 
