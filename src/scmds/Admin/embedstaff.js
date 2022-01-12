@@ -54,7 +54,9 @@ Em caso de jogadores com clientes alternativos ou qualquer coisa nesse sentido, 
 **Observações:**
 - Banimentos para este tipo de caso de sempre prioridade a vídeos como prova para evitar problemas futuros como falar que a print foi tirada com ele caindo ou algo do genero.
 - Sempre espere o jogador se movimentar pra intimar, evitando que ele se finja afk, viu movimento (consegue provar que ele se movimentou) deu 3 chamados e ele não respondeu? Banimento permanente por negar tela.
-    `)
+    
+\`\`\`Caso queira entrar no grupo do whatsapp para a STAFF, clique no título desse embed!\`\`\`
+`)
       .setColor(`#B90000`)
 
 
