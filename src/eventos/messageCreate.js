@@ -3,10 +3,10 @@ const config = require('../../config')
 module.exports = async (client, message) => {
 
     //Responde o chat ajuda
-    for (let ips of ['o ip', 'O ip', 'O IP', 'o IP'])
+    for (let ips of ['o ip'])
         if (message.channel.id === "859610016244170752") {
-            if (message.content.includes(ips))
-                message.reply(`rederevo.com`);
+            if (message.content.toLowerCase().includes(ips))
+                message.reply(`jogar.rederevo.com`);
         };
 
     //Bloqueia o mídias
@@ -26,8 +26,8 @@ module.exports = async (client, message) => {
     };
 
     //Bloqueia Links
-    for (let links of ['Discord.gg/', 'discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://d'])
-        if (message.content.includes(links)) {
+    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://d'])
+        if (message.content.toLowerCase().includes(links)) {
             if (message.author.bot) return;
             if (message.member.permissions.has('KICK_MEMBERS')) return false;
             if (message.content.includes('discord.com/channels')) return false;
