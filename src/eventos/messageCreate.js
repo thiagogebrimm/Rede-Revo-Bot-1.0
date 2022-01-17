@@ -33,6 +33,7 @@ module.exports = async (client, message) => {
             if (message.content.includes('discord.com/channels')) return false;
             if (message.content.includes('discord.gg/rederevo')) return false;
             if (message.content.includes('discord.com')) return false;
+            if (message.content.includes('docs.google')) return false;
             if (message.channel.id === "845501522166153226") return false;
             message.delete()
                 .then(message.channel.send(`**Links não são permitidos em nosso discord** ${message.author}**.**`))
