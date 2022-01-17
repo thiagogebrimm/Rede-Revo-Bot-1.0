@@ -21,6 +21,8 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
+        if (!interaction.member.roles.cache.has('793614247283261451')) return interaction.editReply("Para fazer uma sugestão é necessário ter a sua conta linkada com o servidor!")
+
         var servidor = interaction.options.getString("servidor", true)
 
         if (cd.has(interaction.user.id)) {
