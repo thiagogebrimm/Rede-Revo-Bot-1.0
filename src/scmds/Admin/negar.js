@@ -44,7 +44,8 @@ module.exports = {
          * 
          */
 
-        const susebao = await client.users.fetch(findUser.autor)
+        const idDiscord = await client.users.fetch(findUser.autor)
+        const nick = interaction.guild.members.cache.get(findUser.autor)
 
         let embeddm = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sua sugestão foi negada <:NAO_Revo:893295026203918358>`)
@@ -59,7 +60,7 @@ __**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
         let embedchat = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sugestão Negada <:NAO_Revo:893295026203918358>`)
             .setDescription(`
-**Sugestão feita por** ${susebao ? susebao.tag : '<@' + findUser.autor + '>'}
+**Sugestão feita por** __${nick ? nick.displayName : '<@' + findUser.autor + '>'}__
             
 ▫️ __**Sugestão negada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
@@ -67,9 +68,9 @@ __**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
             .setColor('RED')
 
-        susebao.send({ embeds: [embeddm] }).then(async () => {
+        idDiscord.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()
-        }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
+        }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${idDiscord.tag}!`) })
 
         interaction.guild.channels.cache.find(x => x.id === '893370741611974656').send({ embeds: [embedchat] })
         msg.delete()

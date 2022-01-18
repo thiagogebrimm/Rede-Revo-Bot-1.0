@@ -47,7 +47,8 @@ module.exports = {
          * 
          */
 
-        const susebao = client.users.cache.get(findUser.autor)
+        const idDiscord = client.users.cache.get(findUser.autor)
+        const nick = interaction.guild.members.cache.get(findUser.autor)
 
         let embeddm = new MessageEmbed()
             .setTitle(`<a:Check_Revo:845556618837098506> Sua sugestão foi implementada <a:Check_Revo:845556618837098506>`)
@@ -61,7 +62,7 @@ __**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
         let embedchat = new MessageEmbed()
             .setTitle(`<a:Check_Revo:845556618837098506> Sugestão Implementada <a:Check_Revo:845556618837098506>`)
             .setDescription(`
-**Sugestão feita por** ${susebao.tag}
+**Sugestão feita por** __${nick.displayName}__
             
 ▫️ __**Sugestão implementada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
@@ -69,10 +70,10 @@ __**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
             .setColor(`#001EBE`)
 
-        susebao.send({ embeds: [embeddm] }).then(async () => {
+        idDiscord.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()
             msg.delete()
-        }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${susebao.tag}!`) })
+        }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${idDiscord.tag}!`) })
 
         interaction.guild.channels.cache.find(x => x.id === '893370899905003520').send({ embeds: [embedchat] })
 
