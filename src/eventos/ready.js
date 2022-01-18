@@ -47,7 +47,7 @@ Players: **${sv.players.online}/${sv.players.max}**`)
           })
         })
       }
-      let status = [`com ${sv.players.online} jogadores`, `IP: rederevo.com`];
+      let status = [`com ${sv.players.online} jogadores`, `rederevo.com`];
       let statuses = status[Math.floor(Math.random() * status.length)];
 
       bot.user.setActivity({
