@@ -47,7 +47,9 @@ Bedrock: \`jogar.rederevo.com\` <:SetaAzul_Revo:845829681450188881>  Porta: \`19
 
     let embedCargo = new MessageEmbed()
       .setTitle('Seleção de cargos para Notificações <:Discord_Revo:849415817186639893>')
-      .setDescription("Selecione o(s) cargo(s) que corresponde ao que você deseja receber notificações em nosso discord!")
+      .setDescription(`
+Selecione o(s) cargo(s) que corresponde ao que você deseja receber notificações em nosso discord!
+`)
       .setColor('BLURPLE')
       .setThumbnail('https://unifei.edu.br/pessoal/wp-content/uploads/sites/64/2017/04/Descri%C3%A7%C3%A3o-de-Cargo-e1492694015349.png')
     interaction.deleteReply()
