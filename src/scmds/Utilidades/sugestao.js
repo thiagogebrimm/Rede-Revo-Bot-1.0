@@ -100,9 +100,10 @@ OBS: Se a sugestão não tiver um motivo válido para ser adicionada ela será n
                     embed
                         .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
                         .setDescription(`
-Como essa sugestão afetará na jogabilidade?
-                    
-\`OBS:Seja claro e objetivo para que sua sugestão tenha mais chances de ser aprovada\`
+Como essa sugestão afetará na jogabilidade?                    
+\`Seja claro e objetivo para que sua sugestão tenha mais chances de ser aprovada\`
+
+\`OBS:Limite máximo de 1000 caracteres\`
 `);
                     DM.send({ embeds: [embed] });
                     DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
@@ -110,42 +111,57 @@ Como essa sugestão afetará na jogabilidade?
 
                         embed
                             .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
-                            .setDescription('A sugestão foi enviada, retornaremos uma resposta em breve.');
-                        m.reply({ embeds: [embed] });
-
-                        let S = await Sus.create({
-                            autor: interaction.user.id,
-                            pergunta01: sugestao,
-                            pergunta02: motivo,
-                            pergunta03: jogabilidade,
-                            resolved: false
-                        });
-
-                        embed
-                            .setTitle(`<a:Sino_Revo:849415817502523412> | Nova Sugestão para o ${servidor}`)
                             .setDescription(`
+Quem será beneficiado caso essa sugestão seja aprovada?                    
+\`Seja claro e objetivo para que sua sugestão tenha mais chances de ser aprovada\`
+
+\`OBS:Limite máximo de 1000 caracteres\`
+`);
+                        DM.send({ embeds: [embed] });
+                        DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
+                            let beneficiado = m.content;
+
+                            embed
+                                .setTitle('<a:Cicle_Revo:848288463488548864> | Sugestão')
+                                .setDescription('A sugestão foi enviada, retornaremos uma resposta em breve.');
+                            m.reply({ embeds: [embed] });
+
+                            let S = await Sus.create({
+                                autor: interaction.user.id,
+                                pergunta01: sugestao,
+                                pergunta02: motivo,
+                                pergunta03: jogabilidade,
+                                pergunta04: beneficiado,
+                                resolved: false
+                            });
+
+                            embed
+                                .setTitle(`<a:Sino_Revo:849415817502523412> | Nova Sugestão para o ${servidor}`)
+                                .setDescription(`
 **Sugestão feita por** \`${interaction.member.displayName}\`
                     
-▫️ __**Minha sugestão é:**__ \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
+▫️ __**Sugestão:**__ \`\`\`${S.dataValues.pergunta01.slice(0, 2000)}\`\`\`
 __**Motivo para implementar:**__ \`${S.dataValues.pergunta02}\`
-__**Como afetará na jogabilidade:**__ \`${S.dataValues.pergunta03}\`
                     `)
-                            .setColor('GREEN');
-                        client.channels.cache.get(config.channels.sugestao).send({
-                            embeds: [embed]
-                        }).then(async f => {
-                            S.update({
-                                messageId: f.id
-                            })
-                            client.channels.cache.get(config.channels.sugestao).threads.create({
-                                name: S.dataValues.pergunta01.slice(0, 95),
-                                autoArchiveDuration: 1440,
-                                reason: 'Sugestão \'-\'',
-                                startMessage: f.id
+                                .addField('Como afetará na jogabilidade?', `\`${S.dataValues.pergunta03.slice(0, 1000)}\``, false)
+                                .addField('Quem será beneficiado?', `\`${S.dataValues.pergunta04.slice(0, 1000)}\``, false)
+                                .setColor('GREEN');
+                            client.channels.cache.get(config.channels.sugestao).send({
+                                embeds: [embed]
+                            }).then(async f => {
+                                S.update({
+                                    messageId: f.id
+                                })
+                                client.channels.cache.get(config.channels.sugestao).threads.create({
+                                    name: S.dataValues.pergunta01.slice(0, 95),
+                                    autoArchiveDuration: 1440,
+                                    reason: 'Sugestão \'-\'',
+                                    startMessage: f.id
+                                });
+
                             });
 
                         });
-
                     });
                 })
             }

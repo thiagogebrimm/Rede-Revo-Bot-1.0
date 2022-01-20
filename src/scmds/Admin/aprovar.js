@@ -48,6 +48,7 @@ module.exports = {
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
          * findUser.pergunta03 - Como afetará na jogabilidade
+         * findUser.pergunta04 - Quem vai ser beneficiado
          * 
          */
 
@@ -59,10 +60,11 @@ module.exports = {
             .setDescription(`
 ▫️ __**Sugestão aprovada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
-__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
 
 💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi aprovada.**
              `)
+            .addField('Como afetará na jogabilidade?', `\`${findUser.pergunta03}\``, false)
+            .addField('Quem será beneficiado?', `\`${findUser.pergunta04}\``, false)
             .setColor('GREEN')
         let embedchat = new MessageEmbed()
             .setTitle(`<:SIM_Revo:893295026325581854> Sugestão Aprovada <:SIM_Revo:893295026325581854>`)
@@ -71,8 +73,9 @@ __**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             
 ▫️ __**Sugestão aprovada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
-__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
+            .addField('Como afetará na jogabilidade?', `\`${findUser.pergunta03}\``, false)
+            .addField('Quem será beneficiado?', `\`${findUser.pergunta04}\``, false)
             .setColor('GREEN')
 
         idDiscord.send({ embeds: [embeddm] }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${idDiscord.tag}!`) })

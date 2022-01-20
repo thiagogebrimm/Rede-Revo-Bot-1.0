@@ -44,6 +44,7 @@ module.exports = {
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
          * findUser.pergunta03 - Como afetará na jogabilidade
+         * findUser.pergunta04 - Quem vai ser beneficiado
          * 
          */
 
@@ -55,8 +56,9 @@ module.exports = {
             .setDescription(`
 ▫️ __**Sugestão implementada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
-__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
              `)
+            .addField('Como afetará na jogabilidade?', `\`${findUser.pergunta03}\``, false)
+            .addField('Quem será beneficiado?', `\`${findUser.pergunta04}\``, false)
             .setColor(`#001EBE`)
 
         let embedchat = new MessageEmbed()
@@ -66,8 +68,9 @@ __**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             
 ▫️ __**Sugestão implementada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
-__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
+            .addField('Como afetará na jogabilidade?', `\`${findUser.pergunta03}\``, false)
+            .addField('Quem será beneficiado?', `\`${findUser.pergunta04}\``, false)
             .setColor(`#001EBE`)
 
         idDiscord.send({ embeds: [embeddm] }).then(async () => {

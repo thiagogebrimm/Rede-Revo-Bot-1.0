@@ -41,6 +41,7 @@ module.exports = {
          * findUser.pergunta01 - Sugestão
          * findUser.pergunta02 - Motivo de adicionarmos
          * findUser.pergunta03 - Como afetará na jogabilidade
+         * findUser.pergunta04 - Quem vai ser beneficiado
          * 
          */
 
@@ -52,10 +53,11 @@ module.exports = {
             .setDescription(`        
 ▫️ __**Sugestão negada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
-__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
 
 💭 **Agradecemos sua sugestão, e após a cuidadosa análise por parte da nossa equipe, ela foi negada.**
              `)
+            .addField('Como afetará na jogabilidade?', `\`${findUser.pergunta03}\``, false)
+            .addField('Quem será beneficiado?', `\`${findUser.pergunta04}\``, false)
             .setColor('RED')
         let embedchat = new MessageEmbed()
             .setTitle(`<:NAO_Revo:893295026203918358> Sugestão Negada <:NAO_Revo:893295026203918358>`)
@@ -64,8 +66,9 @@ __**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             
 ▫️ __**Sugestão negada:**__ \`\`\`${findUser.pergunta01}\`\`\`
 __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
-__**Como afetará na jogabilidade:**__ \`${findUser.pergunta03}\`
             `)
+            .addField('Como afetará na jogabilidade?', `\`${findUser.pergunta03}\``, false)
+            .addField('Quem será beneficiado?', `\`${findUser.pergunta04}\``, false)
             .setColor('RED')
 
         idDiscord.send({ embeds: [embeddm] }).then(async () => {
