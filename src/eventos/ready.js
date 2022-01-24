@@ -37,7 +37,7 @@ module.exports = (bot) => {
               .setDescription(`
 Motd: **${sv.motd.clean}**
           
-Versões JAVA: \`${sv.version.name.replace('Waterfall ', '')}\`
+Versões JAVA: \`${sv.version.name.replace('Velocity ', 'Waterfall ', '')}\`
 Versões BEDROCK: \`da ${bed.version.name} até a mais recente\`
 
 Players: **${sv.players.online}/${sv.players.max}**`)
