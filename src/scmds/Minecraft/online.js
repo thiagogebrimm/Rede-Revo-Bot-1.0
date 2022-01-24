@@ -19,7 +19,7 @@ module.exports = {
           .setTitle(`rederevo.com`)
           .setDescription(`
 Total de jogadores:  \`${response.players.online}/${response.players.max}\`\n
-Versões JAVA: \`${response.version.name.replace('Velocity ', 'Waterfall ', '')}\`
+Versões JAVA: \`${response.version.name.replace('Velocity ', '')}\`
 Versões BEDROCK: \`da ${bed.version.name} até a mais recente\``)
           .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
           .setTimestamp(interaction.createdAt)
