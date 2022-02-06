@@ -12,11 +12,11 @@ module.exports = {
       .setColor(`#0099ff`)
       .setTitle(`Segue abaixo os requisitos para as tags Streamer e Streamer+`)
       .setDescription(`**Streamer:**
-      Entre **5** e **30** no máximo de espectadores em cada live
+      Entre **10** e **30** na média de espectadores em cada live
       **2** lives por semana
       
       **Streamer+:**
-      Mais de **30** no máximo de espectadores em cada live
+      Mais de **30** na média de espectadores em cada live
       **2** lives por semana
       
       
