@@ -41,8 +41,17 @@ module.exports = async (client, message) => {
                     })
     };
 
+    //Bloqueia Everyone
+    if (message.content.toLowerCase().includes(`@everyone`)) {
+        if (message.author.bot) return;
+        if (message.member.permissions.has('KICK_MEMBERS')) return false;
+        if (message.channel.id === "845501522166153226") return false;
+        await message.delete()
+            .then(message.channel.send(`**Você não pode marcar everyone em nosso servidor** ${message.author}**.**`))
+    };
+
     //Bloqueia Links
-    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://d'])
+    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/', 'scord.com'])
         if (message.content.toLowerCase().includes(links)) {
             if (message.author.bot) return;
             if (message.member.permissions.has('KICK_MEMBERS')) return false;
@@ -50,8 +59,9 @@ module.exports = async (client, message) => {
             if (message.content.includes('discord.gg/rederevo')) return false;
             if (message.content.includes('discord.com')) return false;
             if (message.content.includes('docs.google')) return false;
+            if (message.content.toLowerCase().includes(`@everyone`)) return false;
             if (message.channel.id === "845501522166153226") return false;
-            message.delete()
+            await message.delete()
                 .then(message.channel.send(`**Links não são permitidos em nosso discord** ${message.author}**.**`))
         };
 
