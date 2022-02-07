@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
         if (message.channel.id === "845501522166153226") {
             if (message.author.bot) return;
             if (message.content.includes(imgs))
-                await message.channel.threads.create({
+                return await message.channel.threads.create({
                     name: `Bate papo sobre a mídia de ${message.member.displayName}`,
                     autoArchiveDuration: 1440,
                     startMessage: message.id
@@ -22,24 +22,21 @@ module.exports = async (client, message) => {
                     await message.react('<:Upvote_Revo:881685398114426940>'),
                     await message.react('<:Downvote_Revo:881685397976010783>');
             if (message.attachments.size > 0)
-                await message.channel.threads.create({
+                return await message.channel.threads.create({
                     name: `Bate papo sobre a mídia de ${message.member.displayName}`,
                     autoArchiveDuration: 1440,
                     startMessage: message.id
                 }),
                     await message.react('<:Upvote_Revo:881685398114426940>'),
                     await message.react('<:Downvote_Revo:881685397976010783>');
+            if (message.attachments.size == 0)
+                return await message.delete(),
+                    await message.author.send(`❌ | Você não pode enviar mensagens de texto no canal de mídias`)
+                        .catch(a => {
+                            return message.guild.channels.cache.find(x => x.id === '793599388420800543')
+                                .send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)
+                        })
         };
-
-    if (message.channel.id === "845501522166153226") {
-        if (message.attachments.size == 0)
-            await message.delete(),
-                await message.author.send(`❌ | Você não pode enviar mensagens de texto no canal de mídias`)
-                    .catch(a => {
-                        return message.guild.channels.cache.find(x => x.id === '793599388420800543')
-                            .send(`Impossivel mandar mensagens na DM do ${message.author} para avisa-lo que não se pode enviar mensagens de texto no canal de mídias!`)
-                    })
-    };
 
     //Bloqueia Everyone
     if (message.content.toLowerCase().includes(`@everyone`)) {
