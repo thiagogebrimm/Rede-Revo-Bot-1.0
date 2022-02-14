@@ -16,8 +16,8 @@ module.exports = async (bot, oldUser, newUser) => {
 
 **Canal novo:**  ${newUserChannel}
       `)
-      .addField("Quem trocou de canal:", `${newUser.author.tag}`, true)
-      .setFooter(`ID do autor: ${oldUser.user}`)
+      .addField("Quem trocou de canal:", `${newUser.tag}`, true)
+      .setFooter(`ID do autor: ${oldUser.tag}`)
     ]
   })
 
