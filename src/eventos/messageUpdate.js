@@ -1,6 +1,21 @@
 const { MessageEmbed } = require("discord.js")
 
-module.exports = (bot, oldMessage, newMessage) => {
+module.exports = async (bot, oldMessage, newMessage) => {
+
+    //Bloqueia Links em atualizações de mensagens
+    for (let links of ['discord.gg/', 'discord.com/invite/', 'bit.ly/', 'Discord Nitro for Free', 'nitro for 3 months', 'scord.com', 'https://d'])
+        if (newMessage.content.toLowerCase().includes(links)) {
+            if (newMessage.author.bot) return;
+            if (newMessage.member.permissions.has('KICK_MEMBERS')) return false;
+            if (newMessage.content.includes('discord.com/channels')) return false;
+            if (newMessage.content.includes('discord.gg/rederevo')) return false;
+            if (newMessage.content.includes('discord.com')) return false;
+            if (newMessage.content.includes('docs.google')) return false;
+            if (newMessage.content.toLowerCase().includes(`@everyone`)) return false;
+            if (newMessage.channel.id === "845501522166153226") return false;
+            await newMessage.delete()
+                .then(newMessage.channel.send(`**Links não são permitidos em nosso discord** ${newMessage.author}**.**`))
+        };
 
     let canal = oldMessage.guild.channels.cache.find(x => x.id === '793599388420800543')
     if (newMessage.content != oldMessage.content) {
