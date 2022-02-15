@@ -75,11 +75,9 @@ __**Motivo para implementar:**__ \`${findUser.pergunta02}\`
 
         idDiscord.send({ embeds: [embeddm] }).then(async () => {
             await findUser.destroy()
-            msg.delete()
         }).catch(a => { return console.log(`Impossivel mandar mensagens na DM do ${idDiscord.tag}!`) })
 
         interaction.guild.channels.cache.find(x => x.id === '893370899905003520').send({ embeds: [embedchat] })
-
         msg.delete()
     }
 }
