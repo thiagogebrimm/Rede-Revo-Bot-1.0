@@ -23,30 +23,6 @@ module.exports = (bot) => {
   setInterval(async () => {
 
     try {
-
-
-
-      const sv = await util.status('jogar.rederevo.com')
-      const bed = await util.statusBedrock('jogar.rederevo.com')
-
-      if (bot.channels.cache.get('893151200160141312')?.isText()) {
-        await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
-          f.get('893151338186297384').edit({
-            embeds: [new MessageEmbed()
-              .setTitle("Informações da Rede")
-              .setDescription(`
-Motd: **${sv.motd.clean}**
-          
-Versões JAVA: \`${sv.version.name.replace('Velocity ', '')}\`
-Versões BEDROCK: \`da ${bed.version.name} até a mais recente\`
-
-Players: **${sv.players.online}/${sv.players.max}**`)
-              .setColor('RED')
-              .setFooter('rederevo.com')
-              .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
-          })
-        })
-      }
       let status = [`com ${sv.players.online} jogadores`, `rederevo.com`];
       let statuses = status[Math.floor(Math.random() * status.length)];
 
@@ -55,20 +31,7 @@ Players: **${sv.players.online}/${sv.players.max}**`)
         type: 'PLAYING'
       });
     } catch (error) {
-      if (bot.channels.cache.get('893151200160141312')?.isText()) {
-        await bot.channels.cache.get('893151200160141312').messages.fetch().then(f => {
-          f.get('893151338186297384').edit({
-            embeds: [new MessageEmbed()
-              .setTitle("Informações da Rede")
-              .setDescription(`
-**Servidores Offline**
-Voltamos em breve`)
-              .setColor('RED')
-              .setFooter('rederevo.com')
-              .setThumbnail('https://api.mcsrvstat.us/icon/rederevo.com')], content: null
-          })
-        })
-      }
+      console.log
     }
   }, 3000);
 
