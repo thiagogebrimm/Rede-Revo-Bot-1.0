@@ -3,8 +3,6 @@ const util = require("minecraft-server-util");
 const Sus = require("../db/Models/Sugestao")
 const SusEBao = require("../db/DatabaseLogin")
 
-const { MessageEmbed } = require("discord.js")
-
 module.exports = (bot) => {
 
   SusEBao.authenticate().then((result) => {
