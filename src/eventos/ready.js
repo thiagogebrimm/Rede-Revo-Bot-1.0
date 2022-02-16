@@ -23,6 +23,8 @@ module.exports = (bot) => {
   setInterval(async () => {
 
     try {
+      const sv = await util.status('jogar.rederevo.com')
+
       let status = [`com ${sv.players.online} jogadores`, `rederevo.com`];
       let statuses = status[Math.floor(Math.random() * status.length)];
 
