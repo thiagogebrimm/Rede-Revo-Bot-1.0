@@ -16,11 +16,13 @@ module.exports = {
 **250 - 2500** inscritos
 **1** vídeo por semana
 **25%** de visualizações em relação aos inscritos
+Ter um video recente no servidor para verificarmos se encaixa com os requisitos
       
 **YT+:**
 **2500 - 10000** inscritos
 **1** vídeo por semana
 **25%** de visualizações em relação aos inscritos
+Ter um video recente no servidor para verificarmos se encaixa com os requisitos
       
       
 <:Gold_Revo:854554725772296192> **Sistema de recompensas**

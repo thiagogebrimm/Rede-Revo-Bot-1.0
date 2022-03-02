@@ -14,10 +14,12 @@ module.exports = {
       .setDescription(`**Streamer:**
       Entre **10** e **30** na média de espectadores em cada live
       **2** lives por semana
+      Participar do programa de Afiliados da plataforma
       
       **Streamer+:**
       Mais de **30** na média de espectadores em cada live
       **2** lives por semana
+      Participar do programa de Afiliados da plataforma
       
       
       <:Gold_Revo:854554725772296192> **Sistema de recompensas**

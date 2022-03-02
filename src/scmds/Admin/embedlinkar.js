@@ -34,7 +34,7 @@ No servidor você vai digitar \`/linkar\` e vai aparecer uma pequena explicaçã
 
 Se aparecer a mensagem abaixo é porque a sua sincronização foi um sucesso e sua conta está vinculada com o servidor!
       `)
-      .setImage('https://cdn.discordapp.com/attachments/846189183550881792/933425049833197668/unknown.png')
+      .setImage('https://i.imgur.com/VNLYUjH.png')
       .setColor('GREEN')
 
     interaction.deleteReply()
