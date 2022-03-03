@@ -32,14 +32,14 @@ Ter um video recente no servidor para verificarmos se encaixa com os requisitos
 - Possibilidade de definir **10** homes
 - Pode falar utilizando cores no servidor
 - Sem delay para se teleportar
-- **500** cash por vídeo semanal caso a parceria seja cumprida corretamente
+- **750** cash por vídeo semanal caso a parceria seja cumprida corretamente
 - Pode casar outros jogadores com \`/casar <nick> <nick>\`
 - Comando de divulgação exclusivo dentro do servidor \`/divulgar\`
 - Acesso ao <#795426717132390441>
       
 **YT+:**
 - Vantagens do YT
-- **750** cash por vídeo semanal caso a parceria seja cumprida corretamente
+- **1000** cash por vídeo semanal caso a parceria seja cumprida corretamente
 - Acesso ao \`/fly\` dentro de proteções
 - Acesso ao \`/back\`
       

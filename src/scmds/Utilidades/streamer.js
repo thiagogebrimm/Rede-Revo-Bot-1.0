@@ -29,14 +29,14 @@ module.exports = {
       - Possibilidade de definir **10** homes
       - Pode falar utilizando cores no servidor
       - Sem delay para se teleportar
-      - **500** de cash por semana
+      - **750** de cash por semana
       - Pode casar outros jogadores com \`/casar <nick> <nick>\`
       - Comando de divulgação exclusivo dentro do servidor \`/divulgar\`
       - Acesso ao <#795426717132390441>
 
       **Streamer+:**
       - Vantagens do Streamer
-      - **750** de cash por semana
+      - **1000** de cash por semana
       - Acesso ao \`/fly\` dentro de proteções
       - Acesso ao \`/back\`
       
