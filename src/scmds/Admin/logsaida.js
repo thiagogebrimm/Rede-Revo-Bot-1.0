@@ -38,9 +38,9 @@ module.exports = {
     }
 
     let role = interaction.options.get("cargo").role
-    testedUser.roles.remove(role.id)
+    await testedUser.roles.remove(role.id)
     let staff = interaction.guild.roles.cache.find(r => r.id === "852039893207351328")
-    testedUser.roles.remove(staff)
+    await testedUser.roles.remove(staff)
     let hora = moment().format("D [de] MMM [de] YYYY");
     const cu = new MessageEmbed()
       .setTitle(`**Alteração na equipe**`)
@@ -50,11 +50,11 @@ module.exports = {
         \`${hora}\``)
       .setThumbnail(interaction.guild.iconURL)
       .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))
-    interaction.guild.channels.cache.find(x => x.id === '845531157990866974')?.send({
+    await interaction.guild.channels.cache.find(x => x.id === '845531157990866974')?.send({
       embeds: [cu]
     })
 
-    interaction.editReply({
+    await interaction.editReply({
       embeds: [new MessageEmbed()
         .setColor(`RED`)
         .setDescription(`\`${testedUser.displayName.toString()}\` foi removido do cargo ${role}`)]
