@@ -2,6 +2,13 @@ const config = require('../../config')
 
 module.exports = async (client, message) => {
 
+    //Responde marcações ao bot
+    if (message.content.toLowerCase().includes(`<@!843655813221580800>`)) {
+        message.reply(`
+Olá, em que podemos ajudar?
+Caso tenha dúvidas pode abrir um <#929227946512777216>`);
+    };
+
     //Responde o chat ajuda
     for (let ips of ['o ip'])
         if (message.channel.id === "859610016244170752") {
