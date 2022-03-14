@@ -2,6 +2,29 @@ const config = require('../../config')
 
 module.exports = async (client, message) => {
 
+    const autoPrune = {
+        "953028492155555880": "90",
+        "153015316433240084": "5",
+    };
+
+    if (autoPrune[message.channel.id]) {
+        var pruneAt = parseInt(autoPrune[message.channel.id]) + 10;
+        message.channel.messages
+            .fetch({ limit: pruneAt })
+            .then((messages) => {
+                let previousMessages = [...messages.values()];
+                for (let i = 0; i < previousMessages.length; i++) {
+                    if (i >= parseInt(autoPrune[message.channel.id])) {
+                        message.channel.messages
+                            .fetch(previousMessages[i].id)
+                            .then((msg) => msg.delete())
+                            .catch(console.error);
+                    }
+                }
+            })
+            .catch(console.error);
+    }
+
     //Responde marcações ao bot
     if (message.content.toLowerCase().includes(`<@!843655813221580800>`)) {
         message.reply(`
