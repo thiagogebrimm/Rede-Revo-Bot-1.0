@@ -107,10 +107,10 @@ Qual a diferença entre flood e spam? Em qual regra essa conduta se enquadra?
                             .setTitle('<a:Cicle_Revo:848288463488548864> | Aplicação para Ajudante')
                             .setDescription(`
 **Informações sobre você**
-Qual o seu nome?
+Qual o seu nome e a sua idade?
 Qual o seu nick na Rede Revo?
-Qual sua idade?
 Qual a sua disponibilidade de horário?
+Possui microfone e disponibilidade para falar em futuras reuniões?
 `);
                         DM.send({ embeds: [embed] });
                         DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
@@ -133,29 +133,35 @@ Qual a sua disponibilidade de horário?
                             embed
                                 .setTitle(`<:New_RedeRevo:845540256861126666> | Formulario de ${interaction.member.displayName}`)
                                 .setDescription(`
-__**Você gosta de responder dúvidas de pessoas, mesmo que sejam perguntas super simples e bobas?**__ \`${S.dataValues.pergunta02}\`
-__**Você tem conhecimento sobre todas regras?**__ \`${S.dataValues.pergunta02}\`
+**Você gosta de responder dúvidas de pessoas, mesmo que sejam perguntas super simples e bobas?** \`${S.dataValues.pergunta02}\`
+**Você tem conhecimento sobre todas regras?** \`${S.dataValues.pergunta02}\`
 `)
                                 .addField('Qual a diferença entre flood e spam? Em qual regra essa conduta se enquadra?', `\`${S.dataValues.pergunta03.slice(0, 1000)}\``, false)
                                 .setColor('GREEN');
                             let embed2 = new MessageEmbed()
                                 .setDescription(`
 **Informações sobre você**
-Qual o seu nome?
+Qual o seu nome e a sua idade?
 Qual o seu nick na Rede Revo?
-Qual sua idade?
-Qual a sua disponibilidade de horário? 
+Qual a sua disponibilidade de horário?
+Possui microfone e disponibilidade para falar em futuras reuniões?
 
-\`\`\`${S.dataValues.pergunta04.slice(0, 2000)}\`\`\`
+\`\`\`${S.dataValues.pergunta04.slice(0, 3000)}\`\`\`
 `)
                                 .setColor('GREEN');
-                            client.channels.cache.get(config.channels.forms).send({
-                                embeds: [embed, embed2]
+                            await client.channels.cache.get(config.channels.forms).send({
+                                embeds: [embed]
                             }).then(async f => {
                                 S.update({
                                     messageId: f.id
                                 })
-
+                            });
+                            await client.channels.cache.get(config.channels.forms).send({
+                                embeds: [embed2]
+                            }).then(async f => {
+                                S.update({
+                                    messageId: f.id
+                                })
                             });
 
                         });
