@@ -3,24 +3,20 @@ module.exports = async (client, message) => {
 
     const autoDel = {
         "953028492155555880": "90",
-        "953139682248634368": "5",
+        "953359028984107068": "5",
     };
 
     if (autoDel[message.channel.id]) {
         var pruneAt = parseInt(autoDel[message.channel.id]) + 10;
-        message.channel.messages
-            .fetch({ limit: pruneAt })
-            .then((messages) => {
-                let previousMessages = [...messages.values()];
-                for (let i = 0; i < previousMessages.length; i++) {
-                    if (i >= parseInt(autoDel[message.channel.id])) {
-                        message.channel.messages
-                            .fetch(previousMessages[i].id)
-                            .then((msg) => msg.delete(), 1000)
-                            .catch(console.error);
-                    }
+        await message.channel.messages.fetch({ limit: pruneAt }).then((messages) => {
+            let previousMessages = [...messages.values()];
+            for (let i = 0; i < previousMessages.length; i++) {
+                if (i >= parseInt(autoDel[message.channel.id])) {
+                    message.channel.messages.fetch(previousMessages[i].id).then((msg) => msg.delete(), 1000)
+                        .catch(console.error);
                 }
-            })
+            }
+        })
     }
 
     //Responde marcações ao bot
