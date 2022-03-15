@@ -1,28 +1,26 @@
-const config = require('../../config')
 
 module.exports = async (client, message) => {
 
-    const autoPrune = {
+    const autoDel = {
         "953028492155555880": "90",
-        "153015316433240084": "5",
+        "953139682248634368": "5",
     };
 
-    if (autoPrune[message.channel.id]) {
-        var pruneAt = parseInt(autoPrune[message.channel.id]) + 10;
+    if (autoDel[message.channel.id]) {
+        var pruneAt = parseInt(autoDel[message.channel.id]) + 10;
         message.channel.messages
             .fetch({ limit: pruneAt })
             .then((messages) => {
                 let previousMessages = [...messages.values()];
                 for (let i = 0; i < previousMessages.length; i++) {
-                    if (i >= parseInt(autoPrune[message.channel.id])) {
+                    if (i >= parseInt(autoDel[message.channel.id])) {
                         message.channel.messages
                             .fetch(previousMessages[i].id)
-                            .then((msg) => msg.delete())
+                            .then((msg) => msg.delete(), 1000)
                             .catch(console.error);
                     }
                 }
             })
-            .catch(console.error);
     }
 
     //Responde marcações ao bot
