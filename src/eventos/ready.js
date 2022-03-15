@@ -1,6 +1,7 @@
 const util = require("minecraft-server-util");
 
 const Sus = require("../db/Models/Sugestao")
+const FormA = require("../db/Models/FormAjudante")
 const SusEBao = require("../db/DatabaseLogin")
 
 module.exports = (bot) => {
@@ -8,6 +9,7 @@ module.exports = (bot) => {
   SusEBao.authenticate().then((result) => {
     console.log("DB iniciada com sucesso.")
     Sus.init(SusEBao).sync({ force: false })
+    FormA.init(SusEBao).sync({ force: false })
   }).catch((err) => {
     console.log(err)
     process.exit(0)
