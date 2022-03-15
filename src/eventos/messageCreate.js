@@ -12,7 +12,7 @@ module.exports = async (client, message) => {
             let previousMessages = [...messages.values()];
             for (let i = 0; i < previousMessages.length; i++) {
                 if (i >= parseInt(autoDel[message.channel.id])) {
-                    message.channel.messages.fetch(previousMessages[i].id).then((msg) => msg.delete(), 1000)
+                    message.channel.messages.fetch(previousMessages[i].id).then(async (msg) => await msg.delete(), 1000)
                         .catch(console.error);
                 }
             }
