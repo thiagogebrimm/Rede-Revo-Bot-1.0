@@ -28,7 +28,9 @@ module.exports = {
         }
     ],
 
-    run: async (client, interaction, args) => {
+    run: async (client, interaction) => {
+        if (!interaction.member.permissions.has(['MANAGE_MESSAGES'])) return interaction.editReply("Sem permissão para executar esse comando!");
+        
         const user = interaction.options.getUser("membro");
         const tempo = interaction.options.getString("tempo");
         const reason = interaction.options.getString("motivo");
