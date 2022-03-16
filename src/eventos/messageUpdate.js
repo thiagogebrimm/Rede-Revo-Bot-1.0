@@ -36,7 +36,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
                 .setTimestamp(newMessage.createdAt)
                 .setFooter(`ID do autor: ${oldMessage.author.id}`, oldMessage.author.avatarURL({ dynamic: true }))
             ]
-        })
+        }).catch(console.error);
     }
     return;
 }
