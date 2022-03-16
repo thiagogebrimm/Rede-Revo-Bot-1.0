@@ -15,7 +15,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
             if (newMessage.channel.id === "845501522166153226") return false;
             await newMessage.delete()
                 .then(newMessage.channel.send(`**Links não são permitidos em nosso discord** ${newMessage.author}**.**`))
-        };
+        }
 
     let canal = oldMessage.guild.channels.cache.find(x => x.id === '793599388420800543')
     if (newMessage.content != oldMessage.content) {
@@ -36,7 +36,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
                 .setTimestamp(newMessage.createdAt)
                 .setFooter(`ID do autor: ${oldMessage.author.id}`, oldMessage.author.avatarURL({ dynamic: true }))
             ]
-        }).catch(console.error);
-    }
+        })
+    } 
     return;
-}
+} 

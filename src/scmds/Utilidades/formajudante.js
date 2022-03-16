@@ -161,30 +161,30 @@ Quero que um jogador só tenha permissão em um lugar específico da minha claim
                                             let perm = m.content;
 
                                             embed
-                                            .setTitle('<a:Cicle_Revo:848288463488548864> | Aplicação para Ajudante')
-                                            .setDescription(`
+                                                .setTitle('<a:Cicle_Revo:848288463488548864> | Aplicação para Ajudante')
+                                                .setDescription(`
 Você já tem ajudado outros jogadores no servidor? Se sim, nos envie uma print mostrando você realizando tal atitude(s).
 
 \`OBS: O envio tem que ser por meio de link. Limite máximo de 1000 caracteres\`
 `);
-                                        DM.send({ embeds: [embed] });
-                                        DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
-                                            let ajudando = m.content;
+                                            DM.send({ embeds: [embed] });
+                                            DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
+                                                let ajudando = m.content;
 
-                                            embed
-                                            .setTitle('<a:Cicle_Revo:848288463488548864> | Aplicação para Ajudante')
-                                            .setDescription(`
+                                                embed
+                                                    .setTitle('<a:Cicle_Revo:848288463488548864> | Aplicação para Ajudante')
+                                                    .setDescription(`
 Qual seu histórico como jogador de Minecraft? Possui experiência em quais modos de jogo? Joga a quanto tempo? Nos diga um pouco mais sobre sua vida como jogador...
 
 \`OBS: Limite máximo de 4000 caracteres\`
 `);
-                                        DM.send({ embeds: [embed] });
-                                        DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
-                                            let minesobre = m.content;
+                                                DM.send({ embeds: [embed] });
+                                                DM.createMessageCollector({ filter: f => f.author.id === interaction.user.id, max: 1 }).on('collect', async (m) => {
+                                                    let minesobre = m.content;
 
-                                            embed
-                                                .setTitle('<a:Cicle_Revo:848288463488548864> | Aplicação para Ajudante')
-                                                .setDescription(`
+                                                    embed
+                                                        .setTitle('<a:Cicle_Revo:848288463488548864> | Aplicação para Ajudante')
+                                                        .setDescription(`
 **Agradecemos sua candidatura à vaga de ajudante aqui na Rede Revo!**
 
 Ficamos muito gratos em saber que cada vez mais pessoas querem fazer parte da equipe.
@@ -196,26 +196,26 @@ Agradecemos, novamente, por dedicar um tempo para se inscrever.
 
 Boa sorte!
 `);
-                                            m.reply({ embeds: [embed] });
+                                                    m.reply({ embeds: [embed] });
 
-                                            let S = await FormA.create({
-                                                autor: interaction.user.id,
-                                                pergunta01: requisitos,
-                                                pergunta02: conhecimentoregras,
-                                                pergunta03: floodespam,
-                                                pergunta04: infosobre,
-                                                pergunta05: falesobre,
-                                                pergunta06: expstaff,
-                                                pergunta07: passe,
-                                                pergunta08: perm,
-                                                pergunta09: ajudando,
-                                                pergunta10: minesobre,
-                                                resolved: false
-                                            });
+                                                    let S = await FormA.create({
+                                                        autor: interaction.user.id,
+                                                        pergunta01: requisitos,
+                                                        pergunta02: conhecimentoregras,
+                                                        pergunta03: floodespam,
+                                                        pergunta04: infosobre,
+                                                        pergunta05: falesobre,
+                                                        pergunta06: expstaff,
+                                                        pergunta07: passe,
+                                                        pergunta08: perm,
+                                                        pergunta09: ajudando,
+                                                        pergunta10: minesobre,
+                                                        resolved: false
+                                                    });
 
-                                            embed
-                                                .setTitle(`<:New_RedeRevo:845540256861126666> | Formulario de ${interaction.member.displayName}`)
-                                                .setDescription(`
+                                                    embed
+                                                        .setTitle(`<:New_RedeRevo:845540256861126666> | Formulario de ${interaction.member.displayName}`)
+                                                        .setDescription(`
 ✅ Possuir um microfone decente
 ✅ Ter disponibilidade de horário
 ✅ Ser ativo na comunidade (discord e minecraft)
@@ -231,11 +231,11 @@ Você tem conhecimento sobre todas regras? \`${S.dataValues.pergunta02}\`
 Já foi staff de outro servidor, se sim, qual? Caso afirmativo, qual o motivo de ter saído da equipe desse servidor e qual o seu antigo cargo nele?
 \`\`\`${S.dataValues.pergunta06.slice(0, 3000)}\`\`\`
 `)
-                                                .addField('Qual a diferença entre flood e spam? Em qual regra essa conduta se enquadra?', `\`${S.dataValues.pergunta03.slice(0, 1000)}\``, false)
-                                                .setColor('GREEN');
+                                                        .addField('Qual a diferença entre flood e spam? Em qual regra essa conduta se enquadra?', `\`${S.dataValues.pergunta03.slice(0, 1000)}\``, false)
+                                                        .setColor('GREEN');
 
-                                            let embed2 = new MessageEmbed()
-                                                .setDescription(`
+                                                    let embed2 = new MessageEmbed()
+                                                        .setDescription(`
 **Informações sobre você**
 Qual o seu nome e a sua idade?
 Qual o seu nick na Rede Revo?
@@ -243,62 +243,63 @@ Qual a sua disponibilidade de horário?
 Possui microfone e disponibilidade para falar em futuras reuniões?
 \`\`\`${S.dataValues.pergunta04.slice(0, 3000)}\`\`\`
 `)
-                                                .setColor('GREEN');
+                                                        .setColor('GREEN');
 
-                                            let embed3 = new MessageEmbed()
-                                                .setDescription(`
+                                                    let embed3 = new MessageEmbed()
+                                                        .setDescription(`
 Porque se candidatou a vaga?
 \`\`\`${S.dataValues.pergunta05.slice(0, 3000)}\`\`\`
 `)
-                                                .setColor('GREEN');
+                                                        .setColor('GREEN');
 
-                                            let embed4 = new MessageEmbed()
-                                                .setDescription(`
+                                                    let embed4 = new MessageEmbed()
+                                                        .setDescription(`
 Um player te perguntou sobre como define uma warp pública, quanto custa e como funciona o passe de batalha, como você explicaria? Qual a diferença entre o premium e o normal?
 \`\`\`${S.dataValues.pergunta07.slice(0, 3000)}\`\`\`
 
 Quero que um jogador só tenha permissão em um lugar específico da minha claim. Como eu faço isso?
 \`\`\`${S.dataValues.pergunta08.slice(0, 1000)}\`\`\`
 `)
-                                                .setColor('GREEN');
-                                                let embed5 = new MessageEmbed()
-                                                .setDescription(`
+                                                        .setColor('GREEN');
+                                                    let embed5 = new MessageEmbed()
+                                                        .setDescription(`
 Você já tem ajudado outros jogadores no servidor? Se sim, nos envie uma print mostrando você realizando tal atitude(s).
 \`\`\`${S.dataValues.pergunta09.slice(0, 1000)}\`\`\`
 
 Qual seu histórico como jogador de Minecraft? Possui experiência em quais modos de jogo? Joga a quanto tempo? Nos diga um pouco mais sobre sua vida como jogador...
 \`\`\`${S.dataValues.pergunta10.slice(0, 4000)}\`\`\`
 `)
-                                                .setColor('GREEN');
+                                                        .setTimestamp()
+                                                        .setColor('GREEN');
 
-                                            await client.channels.cache.get(config.channels.forms).send({
-                                                embeds: [embed]
-                                            }).then(async f => {
-                                                S.update({
-                                                    messageId: f.id
-                                                })
-                                            });
-                                            await client.channels.cache.get(config.channels.forms).send({
-                                                embeds: [embed2, embed3]
-                                            }).then(async f => {
-                                                S.update({
-                                                    messageId2: f.id
-                                                })
-                                            });
-                                            await client.channels.cache.get(config.channels.forms).send({
-                                                embeds: [embed4, embed5]
-                                            }).then(async f => {
-                                                S.update({
-                                                    messageId3: f.id
-                                                })
-                                            });
+                                                    await client.channels.cache.get(config.channels.forms).send({
+                                                        embeds: [embed]
+                                                    }).then(async f => {
+                                                        S.update({
+                                                            messageId: f.id
+                                                        })
+                                                    });
+                                                    await client.channels.cache.get(config.channels.forms).send({
+                                                        embeds: [embed2, embed3]
+                                                    }).then(async f => {
+                                                        S.update({
+                                                            messageId2: f.id
+                                                        })
+                                                    });
+                                                    await client.channels.cache.get(config.channels.forms).send({
+                                                        embeds: [embed4, embed5]
+                                                    }).then(async f => {
+                                                        S.update({
+                                                            messageId3: f.id
+                                                        })
+                                                    });
 
-                                        });
-                                    });
+                                                });
+                                            });
+                                        })
+                                    })
                                 })
                             })
-                            })
-                        })
                         })
                     })
                 })
