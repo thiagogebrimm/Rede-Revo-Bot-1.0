@@ -1,11 +1,5 @@
-const { Client, User, MessageReaction, MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const config = require("../../starboard")
-/**
- *
- * @param {Client} client
- * @param {MessageReaction} reaction
- * @param {User} user
- */
 
 module.exports = async (client, reaction, user) => {
     if(reaction.emoji.name !== config.emoji) return;

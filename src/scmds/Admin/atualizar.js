@@ -11,28 +11,19 @@ module.exports = {
     run: async (client, interaction) => {
         var b;
         if (!interaction.member.permissions.has(['MANAGE_CHANNELS'])) return interaction.editReply("Sem permissão para executar esse comando!");
-        await interaction.user.createDM();
-        interaction.user.send({
+
+        interaction.editReply({
             embeds: [new MessageEmbed()
                 .setTitle(`O que foi adicionado/removido?`)
-                .setColor(`36393e`)
+                .setColor(`DCDCDC`)
                 .setDescription(`OBS: É importante que a atualização seja descrita em apenas uma mensagem`)]
         }
-        ).catch(() => { b = false });
-        b = true;
-        if (b) {
-            interaction.editReply({
-                embeds: [new MessageEmbed()
-                    .setDescription(`Instruções enviadas em seu privado.`)
-                    .setColor(`GREEN`)]
-            }).then(async i => { await delay(5 * 5000); i.delete() })
-            interaction.user.dmChannel.createMessageCollector({
-                filter: (x) => (x.author.id === interaction.user.id),
-                time: 1800000,
-                max: 1
-            })
-                .on('collect', m1 => {
-                    let r1 = m1.content;
+        ).then(msg2 => {
+            const filter = x => x.author.id == interaction.user.id
+            let c2 = interaction.channel.createMessageCollector({ filter, time: 60000 * 20, max: 1 })
+                .on('collect', c => {
+                    const r1 = c.content
+
                     let hora = moment().format("[ATUALIZAÇÃO] [DIA] DD[/]MM[/]YYYY");
 
                     interaction.guild.channels.cache.find(x => x.id === '845531157990866974').send({
@@ -41,15 +32,15 @@ module.exports = {
                             .setColor(`0094ff`)
                             .setDescription(`${r1}`)
                             .setThumbnail('https://i.imgur.com/27xTVaF.png')
-                            .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))]
+                            .setFooter({ text: `Atenciosamente Rede Revo`, string: interaction.guild.iconURL({ dynamic: true }) })]
                     }).then(async () => {
-                        interaction.user.send({
+                        interaction.editReply({
                             embeds: [new MessageEmbed()
-                                .setColor(`36393e`)
-                                .setDescription(`Postado!`)]
+                                .setColor(`DCDCDC`)
+                                .setDescription(`Atualização postada!`)]
                         })
                     })
                 })
-        }
+        })
     }
 }
