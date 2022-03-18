@@ -43,7 +43,7 @@ module.exports = {
       Cumpre os requisitos acima? Favor abrir um #📩・ticket pra autenticar a parceria.
       
       **OBS:** Lembrando que ao você se tornar Streamer e Streamer+ suas ações representam diretamente o servidor. Então sempre aja de acordo com as regras.`)
-      .setFooter('Rede Revo', interaction.guild.iconURL({ dynamic: true }));
+      .setFooter({ text: 'Rede Revo', string: interaction.guild.iconURL({ dynamic: true }) });
     interaction.editReply({
       embeds: [embed]
     })

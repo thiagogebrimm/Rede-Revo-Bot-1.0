@@ -21,7 +21,7 @@ No Windows, você pode encontrar os logs do Minecraft seguindo esses passos:
 
 O último arquivo, chamado latest.log, tem a sua ultima log ao entrar no minecraft.
       `)
-      .setFooter('Equipe Rede Revo', interaction.guild.iconURL({ dynamic: true }));
+      .setFooter({ text: 'Equipe Rede Revo', string: interaction.guild.iconURL({ dynamic: true }) });
     interaction.editReply({
       embeds: [embed]
     })

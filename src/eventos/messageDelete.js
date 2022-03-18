@@ -16,7 +16,7 @@ module.exports = (bot, messageDelete) => {
     .addField("Autor:", `${messageDelete.author.tag}`, true)
     .addField("Canal:", `${messageDelete.channel}`, true)
     .setTimestamp(messageDelete.createdAt)
-    .setFooter(`Mensagem ID: ${messageDelete.id}`, messageDelete.author.avatarURL({ dynamic: true }));
+    .setFooter({ text: `Mensagem ID: ${messageDelete.id}`, string: messageDelete.author.avatarURL({ dynamic: true }) });
 
   const DeleteChannel = messageDelete.guild.channels.cache.find(x => x.id === "793599388420800543");
   if (messageDelete.author.bot) return;

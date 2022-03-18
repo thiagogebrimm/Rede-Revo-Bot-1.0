@@ -36,7 +36,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed()
                 .setTitle(`<:PepoLixo_Revo:893232516088070175> LIMPO!`)
                 .setDescription(`<:Alerta_Revo:870516091330388058> Limpei um total de \`${valor.length}\` mensagens.`)
-                .setFooter(`Autor: ${interaction.user.username}`)
+                .setFooter({ text: `Autor: ${interaction.user.username}` })
 
             interaction.channel.send({
                 embeds: [embed]

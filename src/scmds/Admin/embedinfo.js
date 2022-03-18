@@ -30,7 +30,7 @@ module.exports = {
     });
 
     let embedInfo = new MessageEmbed()
-      .setAuthor(`Bem-vindo ao nosso Discord`, `https://static.wikia.nocookie.net/minecraft_gamepedia/images/b/b7/Crafting_Table_JE4_BE3.png`)
+      .setAuthor({ text: `Bem-vindo ao nosso Discord`, iconURL: `https://static.wikia.nocookie.net/minecraft_gamepedia/images/b/b7/Crafting_Table_JE4_BE3.png` })
       .setDescription(`**Nossos IPs:** 
 Java: \`jogar.rederevo.com\`
 Bedrock: \`jogar.rederevo.com\` <:SetaAzul_Revo:845829681450188881>  Porta: \`19132\`

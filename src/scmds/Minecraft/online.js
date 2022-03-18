@@ -5,7 +5,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'online',
   aliases: [''],
-  category : 'Minecraft',
+  category: 'Minecraft',
   description: 'Veja o status do servidor',
   usage: '',
 
@@ -23,7 +23,7 @@ Versões JAVA: \`${response.version.name.replace('Velocity ', '')}\`
 Versões BEDROCK: \`da ${bed.version.name} até a mais recente\``)
           .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
           .setTimestamp(interaction.createdAt)
-          .setFooter(`${interaction.user.tag}`, interaction.user.avatarURL({ dynamic: true }))
+          .setFooter({ text: `${interaction.user.tag}`, string: interaction.user.avatarURL({ dynamic: true }) })
         interaction.editReply({
           embeds: [embed]
         })

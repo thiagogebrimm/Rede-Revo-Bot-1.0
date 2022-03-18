@@ -20,7 +20,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
                     .addField("Autor:", `${oldMessage.author.tag}`, true)
                     .addField("Canal:", `${oldMessage.channel}`, true)
                     .setTimestamp(newMessage.createdAt)
-                    .setFooter(`ID do autor: ${oldMessage.author.id}`, oldMessage.author.avatarURL({ dynamic: true }))
+                    .setFooter({ text: `ID do autor: ${oldMessage.author.id}`, string: oldMessage.author.avatarURL({ dynamic: true })})
                 ]
             })
         }

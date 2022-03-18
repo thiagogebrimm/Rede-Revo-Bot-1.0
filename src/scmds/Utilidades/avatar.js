@@ -25,7 +25,7 @@ module.exports = {
       .setColor(`#8A2BE2`)
       .setTitle(`Avatar de ${user.username}`)
       .setImage(avatar)
-      .setFooter(`• Solicitado por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ format: "png" }));
+      .setFooter({ text: `• Solicitado por: ${interaction.user.tag}`, string: interaction.user.displayAvatarURL({ format: "png" }) });
     await interaction.editReply({
       embeds: [embed]
     });

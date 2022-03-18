@@ -15,7 +15,7 @@ module.exports = {
 <a:DirtyPulando_Revo:852710345012543490> **Java:** jogar.rederevo.com
       
 **<a:DirtyPulando_Revo:852710345012543490> Bedrock:** jogar.rederevo.com:19132`)
-      .setFooter('Equipe Rede Revo', interaction.guild.iconURL({ dynamic: true }));
+      .setFooter({ text: 'Equipe Rede Revo', string: interaction.guild.iconURL({ dynamic: true }) });
     await interaction.editReply({
       embeds: [embed]
     });

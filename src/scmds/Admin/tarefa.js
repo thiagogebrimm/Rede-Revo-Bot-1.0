@@ -46,10 +46,10 @@ module.exports = {
 
 
             let TarefaEmbed = new MessageEmbed()
-                .setAuthor(`Solicitado por: ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
+                .setAuthor({ text: `Solicitado por: ${interaction.user.tag}`, string: interaction.user.displayAvatarURL({ dynamic: true }) })
                 .setTitle(`Nova Tarefa designada para você`)
                 .setDescription(`${tarefa}`)
-                .setFooter(`Prioridade: EM BREVE`, interaction.guild.iconURL({ dynamic: true }))
+                .setFooter({ text: `Prioridade: EM BREVE`, string: interaction.guild.iconURL({ dynamic: true }) })
                 .setColor(`#0000FF`);
 
             let button = new Discord.MessageButton()
