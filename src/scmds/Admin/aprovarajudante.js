@@ -31,7 +31,7 @@ module.exports = {
             interaction.targetId
         );
         interaction.followUp({
-            content: `Formulário aprovad!`
+            content: `Formulário aprovado!`
         })
 
         /**

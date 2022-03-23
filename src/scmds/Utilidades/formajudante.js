@@ -30,7 +30,7 @@ module.exports = {
             .setTitle('<:NAO_Revo:893295026203918358> | Limite de Aplicações')
             .setDescription('Sua aplicação é única, não é permitido realizar o formulário mais de uma vez')
             .setColor('RED')
-            .setFooter('Rede Revo', interaction.guild.iconURL({ dynamic: true }))
+            .setFooter({ text: 'Rede Revo', iconURL: interaction.guild.iconURL({ dynamic: true }) })
 
 
         var bope = true;
@@ -213,7 +213,7 @@ Boa sorte!
                                                         resolved: false
                                                     });
 
-                                                    embed
+                                                    let embed1 = new MessageEmbed()
                                                         .setTitle(`<:New_RedeRevo:845540256861126666> | Formulario de ${interaction.member.displayName}`)
                                                         .setDescription(`
 ✅ Possuir um microfone decente
@@ -273,7 +273,7 @@ Qual seu histórico como jogador de Minecraft? Possui experiência em quais modo
                                                         .setColor('GREEN');
 
                                                     await client.channels.cache.get(config.channels.forms).send({
-                                                        embeds: [embed]
+                                                        embeds: [embed1]
                                                     }).then(async f => {
                                                         S.update({
                                                             messageId: f.id
