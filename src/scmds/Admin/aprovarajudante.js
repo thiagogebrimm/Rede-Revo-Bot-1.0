@@ -46,7 +46,7 @@ module.exports = {
         const nick = interaction.guild.members.cache.get(findUser.autor)
 
         let embeddm = new MessageEmbed()
-            .setTitle(`Olá, ${nick.displayName}.`)
+            .setTitle(`Olá, ${nick ? nick.displayName: '<@' + findUser.autor + '>'}.`)
             .setDescription(`        
 Muito obrigado(a) por seu formulário e pela dedicação e tempo investidos na realização do formulário. Gostamos muito do que você apresentou para nós e ficamos satisfeitos com sua entrega, parabéns!
 
