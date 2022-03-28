@@ -9,13 +9,12 @@ module.exports = (bot, messageDelete) => {
     .addField("Canal:", `${messageDelete.channel}`, true)
     .setTimestamp(messageDelete.createdAt)
     .setFooter({ text: `Mensagem ID: ${messageDelete.id}`, iconURL: messageDelete.author.avatarURL({ dynamic: true }) })
-    if (messageDelete.content.length >= 1) DeleteEmbed.setDescription(`${messageDelete.content}`)
-    if (messageDelete.attachments.size > 0) {
-        let attachments = messageDelete.attachments.map((a) => `[${a.name}](${a.url})`).join("\n")
-        DeleteEmbed.addField("Arquivos:", attachments)
-        DeleteEmbed.setImage(messageDelete.attachments.first().url)
-    }
-    // .setDescription(`**Mensagem:** ${messageDelete.content || "Nada"}`)
+  if (messageDelete.content.length >= 1) DeleteEmbed.setDescription(`${messageDelete.content}`)
+  if (messageDelete.attachments.size > 0) {
+    let attachments = messageDelete.attachments.map((a) => `[${a.name}](${a.url})`).join("\n")
+    DeleteEmbed.addField("Arquivos:", attachments)
+    DeleteEmbed.setImage(messageDelete.attachments.first().url)
+  }
 
   const DeleteChannel = messageDelete.guild.channels.cache.find(x => x.id === "793599388420800543");
   if (messageDelete.author.bot) return;
