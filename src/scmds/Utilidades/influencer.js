@@ -32,7 +32,7 @@ Cumpre os requisitos acima? Favor abrir um <#929227946512777216> para autenticar
 
 **OBS:** Lembrando que ao se tornar Influencer suas ações representam diretamente o servidor. Então sempre aja de acordo com as regras.
 `)
-      .setFooter({ text: 'Rede Revo', string: interaction.guild.iconURL({ dynamic: true }) });
+      .setFooter({ text: 'Rede Revo', iconURL: interaction.guild.iconURL({ dynamic: true }) });
     interaction.editReply({
       embeds: [embed]
     })
