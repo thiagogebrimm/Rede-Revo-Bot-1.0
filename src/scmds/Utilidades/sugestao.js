@@ -41,7 +41,7 @@ module.exports = {
             .setTitle('<:NAO_Revo:893295026203918358> | Limite de Sugestões')
             .setDescription('Olá, você está limitado á enviar sugestões pois possui 5 sugestões pendentes, espere até um staff responder alguma sugestão sua para fazer uma nova')
             .setColor('RED')
-            .setFooter('Rede Revo', interaction.guild.iconURL({ dynamic: true }))
+            .setFooter({ text: 'Rede Revo', iconURL: interaction.guild.iconURL({ dynamic: true })})
 
 
         var bope = true;
