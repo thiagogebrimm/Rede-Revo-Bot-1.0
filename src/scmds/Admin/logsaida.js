@@ -49,7 +49,7 @@ module.exports = {
         
         \`${hora}\``)
       .setThumbnail(interaction.guild.iconURL)
-      .setFooter(`Atenciosamente Rede Revo`, interaction.guild.iconURL({ dynamic: true }))
+      .setFooter({ text: `Atenciosamente Rede Revo`, iconURL: interaction.guild.iconURL({ dynamic: true })})
     await interaction.guild.channels.cache.find(x => x.id === '845531157990866974')?.send({
       embeds: [cu]
     })
