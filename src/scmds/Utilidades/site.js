@@ -1,4 +1,4 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
 
 module.exports = {
@@ -8,10 +8,10 @@ module.exports = {
   description: 'Acesse nosso site.',
   usage: '',
 
-  run: async (client, interaction, args) => {
+  run: async (client, interaction) => {
 
     let TarefaEmbed = new MessageEmbed()
-      .setAuthor({ text: `Acesse nosso site.`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
+      .setAuthor({ name: `Acesse nosso site.`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
       .setColor(`#FF0000`);
 
     let button = new Discord.MessageButton()

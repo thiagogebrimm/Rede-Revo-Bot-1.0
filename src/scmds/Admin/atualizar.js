@@ -32,7 +32,7 @@ module.exports = {
                             .setColor(`0094ff`)
                             .setDescription(`${r1}`)
                             .setThumbnail('https://i.imgur.com/27xTVaF.png')
-                            .setFooter({ text: `Atenciosamente Rede Revo`, string: interaction.guild.iconURL({ dynamic: true }) })]
+                            .setFooter({ text: `Atenciosamente Rede Revo`, iconURL: interaction.guild.iconURL({ dynamic: true }) })]
                     }).then(async () => {
                         interaction.editReply({
                             embeds: [new MessageEmbed()
