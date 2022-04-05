@@ -11,7 +11,7 @@ module.exports = (client, member) => {
             .setDescription(`
 **${member.user.tag}** entrou no servidor
 Conta criada em: **${moment(member.user.createdTimestamp).utc(-3).format('DD[/]MM[/]YYYY [ás] HH:mm')} (${moment(member.user.createdTimestamp).utc(-3).fromNow()})**
-Menção: ${member.user.tag}
+Menção: ${member.user}
 `)
             .setTimestamp(member.joinedTimestamp)
             .setFooter({ text: `ID: ${member.user.id}` })
