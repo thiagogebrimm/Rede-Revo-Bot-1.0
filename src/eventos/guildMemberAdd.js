@@ -1,16 +1,20 @@
 const { MessageEmbed } = require('discord.js');
+const config = require('../../config');
 const moment = require('moment');
 moment.locale('pt-br');
 
-module.exports = (bot, member) => {
-    let canallog = member.guild.channels.cache.find(x => x.id === '793599388420800543')
+module.exports = (client, member) => {
 
-    canallog.send({
+    client.channels.cache.get(config.channels.logs).send({
         embeds: [new MessageEmbed()
-            .setAuthor({ name: `Nova entrada no Discord`, string: member.user.displayAvatarURL({ dynamic: true }) })
-            .setDescription(`${member.user} **entrou em nosso discord, sua conta foi criada em:** ${moment(member.user.createdTimestamp).utc(-3).format('DD[/]MM[/]YYYY [ás] HH:mm')} (${moment(member.user.createdTimestamp).utc(-3).fromNow()})`)
+            .setAuthor({ name: `Nova entrada no Discord`, iconURL: member.user.displayAvatarURL({ dynamic: true }) })
+            .setDescription(`
+**${member.user.tag}** entrou no servidor
+Conta criada em: **${moment(member.user.createdTimestamp).utc(-3).format('DD[/]MM[/]YYYY [ás] HH:mm')} (${moment(member.user.createdTimestamp).utc(-3).fromNow()})**
+Menção: ${member.user.tag}
+`)
             .setTimestamp(member.joinedTimestamp)
-            .setFooter({ text: `${member.user.tag}` })
+            .setFooter({ text: `ID: ${member.user.id}` })
             .setColor(`GREEN`)]
     });
 }
