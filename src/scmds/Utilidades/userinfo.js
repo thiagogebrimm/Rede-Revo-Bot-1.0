@@ -30,7 +30,7 @@ module.exports = {
       .addField("É Bot:", `${obj[member.user.bot]}`, true)
       .addField("Entrou no servidor:", `${moment(member.joinedTimestamp).utc(-3).format("DD [de] MMMM[,] YYYY [ás] HH:mm")} (${moment(member.joinedTimestamp).utc(-3).fromNow()})`, true)
       .addField("Conta criada:", `${moment(member.user.createdAt).utc(-3).format("DD [de] MMMM[,] YYYY [ás] HH:mm")} (${moment(member.user.createdAt).utc(-3).fromNow()})`, true)
-      .setFooter({ text: `Respondendo para: ${interaction.user.username}#${interaction.user.discriminator}` })
+      .setFooter({ text: `Respondendo para: ${interaction.user.username}#${interaction.user.discriminator}`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
     interaction.editReply({
       embeds: [infoEmbed]
