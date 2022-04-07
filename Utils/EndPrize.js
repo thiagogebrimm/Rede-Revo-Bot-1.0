@@ -15,8 +15,8 @@ module.exports = async (message) => {
         }
     })
 
-    if(!findS) return;
-    if(findS.time - currentTime().getTime() < 0) {
+    if (!findS) return;
+    if (findS.time - currentTime().getTime() < 0) {
         exec()
     } else {
         setTimeout(() => {
@@ -30,7 +30,7 @@ module.exports = async (message) => {
         findS.update({
             ended: true
         })
-        if(r.users.cache.filter(x => !x.bot).size < findS.maxWinners) return;
+        if (r.users.cache.filter(x => !x.bot).size < findS.maxWinners) return;
         let winners = []
 
         let users = r.users.cache.filter(x => !x.bot)
@@ -38,34 +38,33 @@ module.exports = async (message) => {
         for (let i = 0; i < findS.maxWinners; i++) {
 
 
-           var u = users.random()
+            var u = users.random()
 
-           if(winners.includes(u.id)) users.random();
+            if (winners.includes(u.id)) users.random();
 
-           winners.push(u.id)            
+            winners.push(u.id)
         }
 
         const tempo = new Date()
 
         tempo.setHours(new Date().getUTCHours() - 3)
-        
+
 
         const embed = new MessageEmbed()
 
-        .setTitle("Sorteio Encerrado")            
-        .setDescription(`
-        O sorteio acabou!
+            .setTitle("Sorteio Encerrado <a:Cicle_RedeRevo:848288463488548864>")
+            .setDescription(`
+O sorteio acabou!
         
-        Houve um total de ${findS.maxWinners} membro(s) que ganharam: ${findS.premio}
-        ${users.size} usuários participaram do sorteio.
-        Encerrou <t:${currentTime().getTime() / 1000}:R>
+Houve um total de ${findS.maxWinners} membro(s) que ganharam: ${findS.premio}
+${users.size} usuários participaram do sorteio.
         
-        Aqui está os ganhadores:
+Ganhadores:
+${winners.map(f => `<@${f}>`).join('\n')}`)
+            .setColor("AQUA")
+            .setTimestamp(new Date().setMilliseconds(findS.timeMs))
+            .setFooter({ text: `Rede Revo | Encerrou <t:${currentTime().getTime() / 1000}:R>`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
 
-        ${winners.map(f => `<@${f}>`).join('\n')}`)
-        .setColor("AQUA")
-        .setTimestamp(new Date().setMilliseconds(findS.timeMs))
-                        
 
         message.edit({
             embeds: [embed]
@@ -79,6 +78,6 @@ module.exports = async (message) => {
 
 function currentTime() {
     const now = new Date((new Date()).toUTCString())
-    now.setHours(now.getUTCHours()-3)
+    now.setHours(now.getUTCHours() - 3)
     return now
 }

@@ -74,17 +74,16 @@ module.exports = {
         const tempoMs = parseMs(tempo)
 
         const embed = new MessageEmbed()
-            .setTitle("Sorteio")
+            .setTitle("Sorteio <a:Cicle_RedeRevo:848288463488548864>")
             .setDescription(`
-        Olá! Um novo sorteio está rolando!
+Olá! Um novo sorteio foi iniciado!
         
-        
-        **Encerra em:** <t:${~~((Date.now() + tempoMs) / 1000)}:R>
-        **Prêmio:** \`${premio}\`
-        **Max. Ganhadores:** \`${maxwinners}\`
+**Encerra em:** <t:${~~((Date.now() + tempoMs) / 1000)}:R>
+**Prêmio:** \`${premio}\`
+**N. de ganhadores:** \`${maxwinners}\`
         `)
             .setColor("AQUA")
-            .setFooter({text: `Teste`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
+            .setFooter({ text: `Rede Revo | data`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
 
         const f = await canal.send({
             embeds: [embed]
