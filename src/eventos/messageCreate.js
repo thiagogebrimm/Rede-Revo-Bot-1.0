@@ -83,8 +83,8 @@ Caso tenha dúvidas pode abrir um <#929227946512777216>`);
     if (message.channel.id === "953028492155555880") { // 7d System
         await Message.create({
             authorId: message.author.id,
-            time: Date.now() + 10000,
-            timeMs: 10000, // 604800000
+            time: Date.now() + 604800000,
+            timeMs: 604800000, // 604800000
             messageId: message.id,
             channelId: message.channel.id,
             deleted: false

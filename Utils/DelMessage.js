@@ -16,7 +16,6 @@ module.exports = async (message) => {
 
     if(!findM) return;
     const milisegundos = findM.timeMs
-
     if(findM.time - currentTime().getTime() < 0) {
         exec()
     } else {
