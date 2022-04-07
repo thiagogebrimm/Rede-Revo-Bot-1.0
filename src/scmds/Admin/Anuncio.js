@@ -12,6 +12,7 @@ module.exports = {
             name: "canal",
             type: "CHANNEL",
             description: "Selecione o canal do anuncio!",
+            channel_types: [0, 5],
             required: true
         },
         {

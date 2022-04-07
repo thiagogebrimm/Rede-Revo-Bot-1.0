@@ -15,8 +15,6 @@ module.exports = class Sugestao extends Model {
             messageId: { type: DataTypes.STRING },
             autor: { type: DataTypes.STRING },
             resolved: { type: DataTypes.BOOLEAN },
-
-
         }, {
             tableName: 'Sugestao',
             timestamps: true,

@@ -33,9 +33,15 @@ module.exports.run = async (client) => {
     }
     arrayofslashCommands.push(file);
   });
+
+  console.log(arrayofslashCommands[30].options[3]);
   client.guilds.cache.forEach(async f => {
 
-    await client.guilds.cache.get(f.id).commands.set(arrayofslashCommands)
+      try {
+        await client.guilds.cache.get(f.id).commands.set(arrayofslashCommands)
+      } catch (error) {
+        console.log(error.message + ' on ' + f.id)
+      }
   })
   console.log(table.toString())
 };

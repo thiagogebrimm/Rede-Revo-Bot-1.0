@@ -12,7 +12,8 @@
     "discord.js": "^13.6.0",
     "minecraft-server-util": "^5.2.9",
     "moment": "^2.29.1",
-    "ms": "^2.1.3",
+    "ms": "^2.1.0",
+    "parse-ms": "^2.1.0",
     "sequelize": "^6.15.0",
     "simpl.db": "^2.7.1",
     "sqlite3": "^5.0.2"

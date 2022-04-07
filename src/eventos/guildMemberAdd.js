@@ -5,7 +5,7 @@ moment.locale('pt-br');
 
 module.exports = (client, member) => {
 
-    client.channels.cache.get(config.channels.logs).send({
+    client.channels.cache.get(config.channels.logs)?.send({
         embeds: [new MessageEmbed()
             .setAuthor({ name: `Nova entrada no Discord`, iconURL: member.user.displayAvatarURL({ dynamic: true }) })
             .setDescription(`

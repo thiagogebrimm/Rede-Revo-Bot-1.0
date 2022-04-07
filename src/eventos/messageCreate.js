@@ -1,23 +1,7 @@
+const DelMessage = require("../../Utils/DelMessage");
+const Message = require("../db/Models/Message");
 
 module.exports = async (client, message) => {
-
-    const autoDel = {
-        "953028492155555880": "90",
-        "953359028984107068": "5",
-    };
-
-    if (autoDel[message.channel.id]) {
-        var pruneAt = parseInt(autoDel[message.channel.id]) + 10;
-        await message.channel.messages.fetch({ limit: pruneAt }).then((messages) => {
-            let previousMessages = [...messages.values()];
-            for (let i = 0; i < previousMessages.length; i++) {
-                if (i >= parseInt(autoDel[message.channel.id])) {
-                    message.channel.messages.fetch(previousMessages[i].id).then(async (msg) => await msg.delete(), 1000)
-                        .catch(console.error);
-                }
-            }
-        })
-    }
 
     //Responde marcações ao bot
     if (message.content.toLowerCase().includes(`<@!843655813221580800>`)) {
@@ -95,4 +79,17 @@ Caso tenha dúvidas pode abrir um <#929227946512777216>`);
     if (message.channel.id === "795426717132390441") { //Divulgações
         await message.react('👍')
     };
+
+    if (message.channel.id === "953028492155555880") { // 7d System
+        await Message.create({
+            authorId: message.author.id,
+            time: Date.now() + 10000,
+            timeMs: 10000, // 604800000
+            messageId: message.id,
+            channelId: message.channel.id,
+            deleted: false
+        })
+
+        DelMessage(message);
+    }
 }
