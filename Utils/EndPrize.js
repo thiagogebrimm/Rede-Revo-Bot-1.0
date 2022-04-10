@@ -62,8 +62,8 @@ ${users.size} usuários participaram do sorteio.
 Ganhadores:
 ${winners.map(f => `<@${f}>`).join('\n')}`)
             .setColor("AQUA")
-            .setTimestamp(new Date().setMilliseconds(findS.timeMs))
-            .setFooter({ text: `Rede Revo | Encerrou <t:${currentTime().getTime() / 1000}:R>`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
+            .setTimestamp(new findS.time)
+            .setFooter({ text: `Rede Revo | ${findS.maxWinners} Ganhador(es)`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
 
 
         message.edit({

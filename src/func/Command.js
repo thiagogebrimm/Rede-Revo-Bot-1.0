@@ -34,7 +34,6 @@ module.exports.run = async (client) => {
     arrayofslashCommands.push(file);
   });
 
-  console.log(arrayofslashCommands[30].options[3]);
   client.guilds.cache.forEach(async f => {
 
       try {

@@ -83,7 +83,7 @@ Olá! Um novo sorteio foi iniciado!
 **N. de ganhadores:** \`${maxwinners}\`
         `)
             .setColor("AQUA")
-            .setFooter({ text: `Rede Revo | data`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
+            .setFooter({ text: `Rede Revo | Termina: sla`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
 
         const f = await canal.send({
             embeds: [embed]
