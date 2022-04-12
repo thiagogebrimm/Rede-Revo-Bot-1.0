@@ -41,7 +41,6 @@ module.exports = {
                         .setTitle(`${hora}`)
                         .setColor(`0094ff`)
                         .setDescription(`${r1}`)
-                        .setThumbnail('https://i.imgur.com/Hu3AcY0.png')
                         .setFooter({ text: `Atenciosamente Rede Revo`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
                     if (img) {
                         RevoUpdate.setImage(img)
