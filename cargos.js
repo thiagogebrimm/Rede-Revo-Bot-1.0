@@ -21,9 +21,9 @@ module.exports = {
             emojiId: '845545489693016084'
         },
         {
-            id: '795509471014420532',
-            label: '🎬 Notificar Divulgações',
-            emojiId: '845545489693016084'
+            id: 'ID DO CARGO',
+            label: 'NOME QUE APARECE NO MENU',
+            emojiId: 'ID DO EMOJI PRA PEGAR CARGO'
         }
     ]
 }

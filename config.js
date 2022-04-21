@@ -10,9 +10,9 @@ module.exports = {
         }
     ],
     channels: {
-        sugestao: '893293613851758603',
-        midias: '845555957601796137',
-        forms: '928860698396729375',
-        logs: '793599388420800543'
+        sugestao: 'ID CANAL DE SUGESTÕES',
+        midias: 'ID CANAL DE MIDIAS',
+        forms: 'ID CANAL DE FORMULARIOS',
+        logs: 'ID CANAL DE LOGS'
     }
 }
